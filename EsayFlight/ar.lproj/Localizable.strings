@@ -1,0 +1,23 @@
+
+//profile
+"changelanguage" = "تغيير اللغة";
+"Name:" = "الأسم";
+"Health status:" = "الحاله الصحيه";
+"Flight number:" = "رقم الرحله ";
+"special Needs:" =  "الاحتياجات الخاصه";
+"signout" = "تسجيل الخروج";
+"Enter your Email" = "سجل بإستخدام الإيميل";
+"Enter your password" = "أدخل الرقم السري";
+"Login" = "تسجيل الدخول";
+"Register" = "مستخدم جديد";
+"select health status.." = "إختر الحاله الصحيه";
+"select your needs.." = "إختر احتياجك الخاص";
+"Home" = "الرئيسيه";
+"Maps" = "الموقع";
+"Advertisement" = "الاعلانات";
+"profile" = "الملف الشخصي";
+"Ask for help"= "طلب المساعده";
+"lost luggage" = "الامتعه الضائعه";
+"Services" = "الخدمات";
+"Back" = "الخلف";
+"Flight" = "الرحلات الجويه";

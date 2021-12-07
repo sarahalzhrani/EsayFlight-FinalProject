@@ -1,0 +1,24 @@
+//profile
+"changelanguage" = "Change Language";
+"Name:" = "Name:";
+"Health status:" = "Health status:";
+"Flight number:" = "Flight number:";
+"special Needs:" =  "special Needs:";
+"signout" = "sign out";
+//login
+"Enter your Email" = "Enter your Email";
+"Enter your password" = "Enter your password";
+"Login" = "Login";
+"Register" = "Register";
+"select health status.." = "select health status..";
+"select your needs.." =  "select your needs..";
+//tabBar
+"Home" = "Home";
+"Maps" = "Maps";
+"profile" = "profile";
+"Advertisement"= "Advertisement";
+"Flight" = "Flight";
+"Ask for help" = "Ask for help";
+"Services" = "Services";
+"lost luggage" = "lost luggage";
+"Back" = "Back";

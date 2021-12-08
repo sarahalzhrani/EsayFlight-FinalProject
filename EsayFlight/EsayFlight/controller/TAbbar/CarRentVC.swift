@@ -102,6 +102,44 @@ class CarRent: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = array3[indexPath.row]
         
+        if indexPath.row == 0 {
+            
+         if let url = URL(string: "https://www.budget.com/en/home") {
+                   UIApplication.shared.open(url)
+                 }
+        }
+        if indexPath.row ==  1{
+            
+            if let url1 = URL(string: "https://www.avis.com.sa") {
+                      UIApplication.shared.open(url1)
+                    }
+        }
+        if indexPath.row ==  2{
+            
+            if let url2 = URL(string: "https://www.rentalcars.com/ar/country/sa/hanco/") {
+                      UIApplication.shared.open(url2)
+                    }
+        }
+        if indexPath.row ==  3 {
+            
+            if let url3 = URL(string: "https://www.hertzarabic.com") {
+                      UIApplication.shared.open(url3)
+                    }
+        }
+        if indexPath.row ==  4 {
+            
+            if let url4 = URL(string: "https://www.key.sa") {
+                      UIApplication.shared.open(url4)
+                    }
+        }
+        
+        if indexPath.row ==  5 {
+            
+            if let url5 = URL(string: "https://www.iyelo.com/ar/") {
+                      UIApplication.shared.open(url5)
+                
+            }
+        }
         
     }
     

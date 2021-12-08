@@ -23,6 +23,7 @@
 		1F608402275C9E7000B21702 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F608404275C9E7000B21702 /* Localizable.strings */; };
 		1F608407275CDE8E00B21702 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608406275CDE8E00B21702 /* Color.swift */; };
 		1F608429275F536100B21702 /* AskForhelpServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608428275F536100B21702 /* AskForhelpServices.swift */; };
+		1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6583CF2760C1750067ADEB /* CallUsVC.swift */; };
 		1F7C87AF274CF06D00112F6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F7C87AE274CF06D00112F6A /* GoogleService-Info.plist */; };
 		1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C87B0274CFFAE00112F6A /* Home.swift */; };
 		1F7C87B3274D273100112F6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C87B2274D273100112F6A /* Data.swift */; };
@@ -67,6 +68,7 @@
 		1F608405275C9E7100B21702 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F608406275CDE8E00B21702 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1F608428275F536100B21702 /* AskForhelpServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForhelpServices.swift; sourceTree = "<group>"; };
+		1F6583CF2760C1750067ADEB /* CallUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUsVC.swift; sourceTree = "<group>"; };
 		1F7C87AE274CF06D00112F6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F7C87B0274CFFAE00112F6A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1F7C87B2274D273100112F6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -125,6 +127,19 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1F6583CE2760C0BC0067ADEB /* TAbbar */ = {
+			isa = PBXGroup;
+			children = (
+				1F6583CF2760C1750067ADEB /* CallUsVC.swift */,
+				1F7C87BB274E2B0900112F6A /* profiel.swift */,
+				1F1FBDB7274F811700D9F691 /* Location.swift */,
+				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
+				1F1FBDBD275359DE00D9F691 /* Advertisement.swift */,
+				1F1FBDC52754A74600D9F691 /* CarRentVC.swift */,
+			);
+			path = TAbbar;
+			sourceTree = "<group>";
+		};
 		1F7C87B4274D273C00112F6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,14 +161,10 @@
 				1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */,
 				1F1FBDB9274F868300D9F691 /* searchCell.swift */,
 				1F7C87BD274E2B3300112F6A /* AskForHelp.swift */,
-				1F7C87BB274E2B0900112F6A /* profiel.swift */,
-				1F1FBDB7274F811700D9F691 /* Location.swift */,
 				1F1FBDBB275359AE00D9F691 /* Terminal1.swift */,
 				1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */,
 				1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */,
-				1F1FBDC52754A74600D9F691 /* CarRentVC.swift */,
-				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
-				1F1FBDBD275359DE00D9F691 /* Advertisement.swift */,
+				1F6583CE2760C0BC0067ADEB /* TAbbar */,
 				1F4750C42757451000F1C9FF /* video10.MP4 */,
 				1F4750C22757450800F1C9FF /* video9.MP4 */,
 				1FB806292756B1F000CC5D55 /* video8.MP4 */,
@@ -363,6 +374,7 @@
 				1F608429275F536100B21702 /* AskForhelpServices.swift in Sources */,
 				1F9E1FE3274B6B6D00679CC3 /* AppDelegate.swift in Sources */,
 				1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */,
+				1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */,
 				1F1FBDB3274F736D00D9F691 /* NewSearchVC.swift in Sources */,
 				1F1FBDB8274F811700D9F691 /* Location.swift in Sources */,
 				1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */,

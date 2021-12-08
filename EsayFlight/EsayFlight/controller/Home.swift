@@ -114,6 +114,11 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     @objc func connectBtnPressed() {
+        let vc1 = CallUsVC()
+        vc1.modalPresentationStyle = .fullScreen
+        self.present(vc1, animated: true, completion: nil)
+
+        
 
     }
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
@@ -184,6 +189,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
+            
         }else if indexPath.row == 1 {
             
             let navigationController = UINavigationController(

@@ -30,33 +30,89 @@ class CustomCell: UICollectionViewCell {
         return label
     }()
     
-
+    let numberlabel: UILabel = {
+        let label = UILabel()
+        label.text = "Flight Number:"
+        label.textColor = .black
+        label.font = label.font.withSize(16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
+    let fightnumberlabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = .gray
+        label.font = label.font.withSize(16)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    let conectnumberlabel1: UILabel = {
+        let label = UILabel()
+        label.text = "Mobile Number:"
+        label.textColor = .black
+        label.font = label.font.withSize(16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let conectnumberlabel: UILabel = {
+        let label = UILabel()
+        label.text = "0553245"
+        label.textColor = .gray
+        label.font = label.font.withSize(16)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         self.backgroundColor = .white
-
-        self.addSubview(searchlabel)
         self.addSubview(contentlabel)
-             
-        
+        self.addSubview(searchlabel)
+        self.addSubview(numberlabel)
+        self.addSubview(fightnumberlabel)
+        self.addSubview(conectnumberlabel1)
+        self.addSubview(conectnumberlabel)
+        contentlabel.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
+        contentlabel.topAnchor.constraint(equalTo: self.topAnchor,constant: 10).isActive = true
+        contentlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        contentlabel.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
 
-        searchlabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        searchlabel.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        searchlabel.topAnchor.constraint(equalTo: contentlabel.bottomAnchor,constant: 10).isActive = true
         searchlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 16).isActive = true
         searchlabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16).isActive = true
 
         
-        contentlabel.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
-        contentlabel.topAnchor.constraint(equalTo: self.topAnchor,constant: 35).isActive = true
-        contentlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        contentlabel.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
         
         
-
-    
+        numberlabel.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
+        numberlabel.topAnchor.constraint(equalTo: self.topAnchor,constant: 90).isActive = true
+        numberlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        numberlabel.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
+        
+        fightnumberlabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        fightnumberlabel.topAnchor.constraint(equalTo:  self.topAnchor,constant: 130).isActive = true
+        fightnumberlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        fightnumberlabel.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
+                
+        
+        
+        conectnumberlabel1.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
+        conectnumberlabel1.topAnchor.constraint(equalTo: self.topAnchor,constant: 90).isActive = true
+        conectnumberlabel1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 250).isActive = true
+        conectnumberlabel1.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
+        
+        conectnumberlabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        conectnumberlabel.topAnchor.constraint(equalTo:  self.topAnchor,constant: 120).isActive = true
+        conectnumberlabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 250).isActive = true
+        conectnumberlabel.trailingAnchor.constraint(equalTo:self.trailingAnchor).isActive = true
+        
         
         self.layer.cornerRadius = 25.0
         self.layer.borderWidth = 25

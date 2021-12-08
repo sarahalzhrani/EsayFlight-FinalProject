@@ -17,7 +17,9 @@ class SearchService {
     func updateOrAddNewSearch(note: Search) {
         searchCollection.document(note.id).setData([
             "id": note.id,
-            "content": note.content
+            "content": note.content,
+            "flightnumber": note.flightnumber,
+            "contactNumber": note.contactNumber
         ], merge: true)
         print(note)
     }
@@ -36,12 +38,15 @@ class SearchService {
                 print(data)
                 guard
                     let id = data["id"] as? String,
-                    let content = data["content"] as? String
+                    let content = data["content"] as? String,
+                    let flightnumber = data["flightnumber"] as? String,
+                        let contactNumber = data["contactNumber"] as? String
+                        
                 else {
                     continue
                 }
                 
-                notes.append(Search(id: id, content: content))
+                notes.append(Search(id: id, content: content, flightnumber: flightnumber, contactNumber: contactNumber))
                
             }
             

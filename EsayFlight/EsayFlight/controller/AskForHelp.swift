@@ -9,14 +9,6 @@ import FirebaseFirestore
 
 
 
-
-struct information {
-   var name:  String
-    var  helath: String
-    var specailNeeds: String
-    var flightNumber: String
-}
-
 class AskForHelp : UIViewController, UITextViewDelegate {
     var blackSquare: UIView!
     let dropDown = DropDown()
@@ -30,6 +22,17 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let data = ["Old","blind","paralyzed","child"]
     let data2 = ["wheel chair","personal escort"]
     let timePicker = UIDatePicker()
+    var selectedOption = "" {
+        didSet{
+            
+        }
+    }
+    var selectedOption1 = "" {
+        didSet{
+            
+        }
+    }
+  
     
    
     
@@ -90,14 +93,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         return label
     }()
     
-    let timeOfArrival: UILabel = {
-        let label = UILabel()
-        label.text = NSLocalizedString("Arrival Time..", comment: "")
-        label.textColor = .black
-        label.font = label.font.withSize(20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+   
     
     var listeBtn: UIButton = {
         let btn = UIButton()
@@ -133,18 +129,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     }()
     
     
-    var timeTF: UITextField = {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.backgroundColor = .systemGray6
-        tf.layer.cornerRadius = 15
-//        tf.layer.borderColor = UIColor.systemMint.cgColor
-        tf.textAlignment = .center
-//        tf.layer.borderWidth = 2
-        tf.text = ""
-       
-        return tf
-    }()
     
     let textView = UITextView(frame: CGRect(x: 30, y: 190, width: 350, height: 45.0))
     let textView2 = UITextView(frame: CGRect(x: 30, y: 370, width: 350, height: 45.0))
@@ -157,21 +141,28 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SetupView()
-       
-        dropDown.willShowAction = { [unowned self] in
-            print("- \(dropDown.selectedItem ?? "")")
-            self.dropdownlable.text = dropDown.selectedItem
-            let data2 = self.dropdownlable.text = dropDown.selectedItem
-//            self.listeBtn.setTitle(dropDown.selectedItem, for: .normal)
+        
+        dropDown.selectionAction  = { index, selected in
+            self.dropdownlable.text = selected
+            self.selectedOption = selected
+            
+            
         }
-
-        dropDown1.cellConfiguration = { [unowned self] (index: Int, item:String) in
-
-            print("- \(item) (\(index))")
-            self.dropdownlable2.text =  data2[index]
-            let data = self.dropdownlable2.text =  data2[index]
-            return "\(item)"
+      
+        dropDown1.selectionAction  = { index, selected in
+            self.dropdownlable2.text = selected
+            self.selectedOption1 = selected
+            
+            
         }
+      
+//        dropDown1.cellConfiguration = { [unowned self] (index: Int, item:String) in
+//
+//            print("- \(item) (\(index))")
+//            self.dropdownlable2.text =  data2[index]
+//              self.dropdownlable2.text =  data2[index]
+//            return "\(item)"
+//        }
         let name =  UserDefaults.standard.value(forKey: "namekey") as? String
         textView.text = name
         
@@ -188,8 +179,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         view.backgroundColor = .systemMint
         self.navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
-        self.timePicker.datePickerMode = .time
-        openTimePicker()
+       
         blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55
@@ -200,20 +190,20 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         Square.layer.cornerRadius = 10
         view.addSubview(Square)
         view.backgroundColor = .systemMint
-       line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
+        line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
         line.backgroundColor = .gray
         line.layer.cornerRadius = 10
         view.addSubview(line)
        
-        line2 = UIView(frame: CGRect(x: 30, y: 331, width: 350, height:1))
+         line2 = UIView(frame: CGRect(x: 30, y: 331, width: 350, height:1))
          line2.backgroundColor = .gray
          line2.layer.cornerRadius = 10
          view.addSubview(line2)
-        line3 = UIView(frame: CGRect(x: 30, y: 416, width: 350, height:1))
+         line3 = UIView(frame: CGRect(x: 30, y: 416, width: 350, height:1))
          line3.backgroundColor = .gray
          line3.layer.cornerRadius = 10
          view.addSubview(line3)
-        line4 = UIView(frame: CGRect(x: 30, y: 511, width: 350, height:1))
+         line4 = UIView(frame: CGRect(x: 30, y: 511, width: 350, height:1))
          line4.backgroundColor = .gray
          line4.layer.cornerRadius = 10
          view.addSubview(line4)
@@ -229,8 +219,8 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         view.addSubview(dropdownlable)
         view.addSubview(registerBtn)
         view.addSubview(dropdownlable2)
-        view.addSubview(timeOfArrival)
-        view.addSubview(timeTF)
+       
+      
         stackView.axis  = NSLayoutConstraint.Axis.vertical
         stackView.distribution  = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.center
@@ -246,13 +236,13 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         stackView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 160).isActive = true
     
 
-        listeBtn1.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
+        listeBtn1.topAnchor.constraint(equalTo: view.topAnchor, constant: 470).isActive = true
         listeBtn1.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 180).isActive = true
         listeBtn1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
        
-        listeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 290).isActive = true
-        listeBtn.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 30).isActive = true
+        listeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        listeBtn.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 180).isActive = true
         listeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         textView.contentInsetAdjustmentBehavior = .automatic
@@ -290,7 +280,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         dropdownlable.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 30).isActive = true
         dropdownlable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
       
-        registerBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 700).isActive = true
+        registerBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 550).isActive = true
         registerBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
         registerBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
         registerBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -299,15 +289,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         dropdownlable2.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
         dropdownlable2.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-    
-        timeOfArrival.topAnchor.constraint(equalTo: view.topAnchor, constant: 520).isActive = true
-        timeOfArrival.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        
-       
-        timeTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 550).isActive = true
-        timeTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        timeTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
-        timeTF.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         dropDown.anchorView = Square
         dropDown.dataSource = data
@@ -326,22 +307,8 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         
         
     }
-    func openTimePicker()  {
-        timePicker.datePickerMode = UIDatePicker.Mode.time
-        timePicker.frame = CGRect(x: 200, y: 600, width:300, height: 150)
-        timePicker.backgroundColor = UIColor.green
-        self.view.addSubview(timePicker)
-        timePicker.addTarget(self, action: #selector(AskForHelp.startTimeDiveChanged), for: UIControl.Event.valueChanged)
-    }
-
-    @objc func startTimeDiveChanged(sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        timeTF.text = formatter.string(from: sender.date)
-        timePicker.removeFromSuperview() 
-    }
+ 
     
-   
       
     @objc func handleCancel() {
         dismiss(animated: true, completion: nil)
@@ -365,9 +332,9 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         
         Firestore.firestore().collection("profile").document().setData([
             "name": name ?? "",
-            "helath": data ,
+            "helath": selectedOption,
             "specailNeeds":specailNeeds ?? "",
-            "flightNumber": data2 ,
+            "flightNumber": selectedOption1,
         ], merge: true)
     }
     

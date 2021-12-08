@@ -20,14 +20,29 @@ class Terminal1Cell : UICollectionViewCell{
       return imageView
     }()
     
+    
+    let resturantNameble: UILabel = {
+        let label = UILabel()
+        label.text = "name"
+        label.textColor = .black
+        label.font = label.font.withSize(20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(imageView)
+        self.addSubview(resturantNameble)
        
-        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        imageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 15).isActive = true
+        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant:90).isActive = true
+        
+        resturantNameble.topAnchor.constraint(equalTo: self.topAnchor,constant: 110).isActive = true
+        resturantNameble.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+   
         
     }
     
@@ -35,18 +50,7 @@ class Terminal1Cell : UICollectionViewCell{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        imageView.frame = CGRect(x: 1,
-//                    y: 10 ,
-//                    width: 160,
-//                    height: 160)
-////        myLabel.frame = CGRect(x: 5,
-////                    y: contentView.frame.size.height-50 ,
-////                    width: contentView.frame.size.width-10,
-////                    height: 50)
-//      }
+ 
     
 }
 

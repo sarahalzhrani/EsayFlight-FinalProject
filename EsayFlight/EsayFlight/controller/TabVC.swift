@@ -39,20 +39,20 @@ class TabBarVC : UITabBarController {
         setupVCs()
         view.isUserInteractionEnabled = true
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-            swipeLeft.direction = .right
-            self.view.addGestureRecognizer(swipeLeft)
+//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+//            swipeLeft.direction = .right
+//            self.view.addGestureRecognizer(swipeLeft)
     }
     
     
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
-       if gesture.direction == .right{
-           present(
-               UINavigationController(rootViewController: FreeWIfi()),
-               animated: true,
-               completion: nil
-           )
-       }
+//    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
+//       if gesture.direction == .right{
+//           present(
+//               UINavigationController(rootViewController: FreeWIfi()),
+//               animated: true,
+//               completion: nil
+//           )
+//       }
 }
-}
+

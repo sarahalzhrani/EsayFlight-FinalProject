@@ -20,7 +20,19 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         view.backgroundColor = .white
         view.addSubview(collectionView1)
         view.addSubview(collectionView2)
+        if segmentedControl.selectedSegmentIndex == 0 {
+           
+            collectionView1.isHidden = true
+            collectionView2.isHidden = false
+            
+        } else {
+           
+            collectionView1.isHidden = false
+            collectionView2.isHidden = true
+        }
+            
         setupCollectionConstraints()
+        setupCollectionConstraints2()
 
        
         collectionView1.delegate = self
@@ -56,7 +68,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     lazy var collectionView2: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 12
+        layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
@@ -65,24 +77,17 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     func setupCollectionConstraints() {
         collectionView1.translatesAutoresizingMaskIntoConstraints = false
-        collectionView1.heightAnchor.constraint(equalToConstant: 340).isActive = true
-        collectionView1.widthAnchor.constraint(equalToConstant: 340).isActive = true
-        collectionView1.topAnchor.constraint(equalTo: view.topAnchor,constant: 200).isActive = true
-        collectionView1.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
-//        collectionView1.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        collectionView1.heightAnchor.constraint(equalToConstant: 550).isActive = true
+        collectionView1.widthAnchor.constraint(equalToConstant: 320).isActive = true
+        collectionView1.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 60).isActive = true
+        collectionView1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
-//        collectionView1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-
-      
-        
     
     }
     func setupCollectionConstraints2() {
         collectionView2.translatesAutoresizingMaskIntoConstraints = false
-        collectionView2.heightAnchor.constraint(equalToConstant: 340).isActive = true
-        collectionView2.widthAnchor.constraint(equalToConstant: 340).isActive = true
+        collectionView2.heightAnchor.constraint(equalToConstant: 320).isActive = true
+        collectionView2.widthAnchor.constraint(equalToConstant: 320).isActive = true
         collectionView2.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         collectionView2.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
@@ -103,6 +108,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         let data = array1[indexPath.row]
        
         cell.imageView.image = data.image
+        cell.resturantNameble.text = data.name
         
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 10
@@ -121,7 +127,8 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 let cell2 = collectionView2.dequeueReusableCell(withReuseIdentifier: Terminal2Cell.identifier, for: indexPath) as! Terminal2Cell
                 let data1 = array2[indexPath.row]
                
-            cell2.imageView1.image = data1.image
+            cell2.imageView1.image = data1.image1
+            cell2.resturantNameble1.text = data1.name1
                 
             cell2.backgroundColor = .white
             cell2.layer.cornerRadius = 10
@@ -143,7 +150,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+        return CGSize(width: 140, height: 140)
     }
     
 
@@ -175,7 +182,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
           collectionView1.isHidden = false
           collectionView2.isHidden = true
-          setupCollectionConstraints2()
+         
          
       default:
         break;

@@ -30,13 +30,14 @@ class GradientView: UIView {
     ]
     NSLayoutConstraint.activate(constraints)
     let gradient = setupGradientLayer()
-    gradient.frame = CGRect(x: 0, y: 0, width: controller.view.frame.width, height: controller.view.frame.height/2)
+      gradient.frame = self.bounds
+//      CGRect(x: 0, y: 0, width: controller.view.frame.width, height: controller.view.frame.height/2)
     layer.insertSublayer(gradient, at: 0)
   }
-  private func setupGradientLayer() -> CAGradientLayer {
+      func setupGradientLayer() -> CAGradientLayer {
     let gradient = CAGradientLayer()
-    let topColor = UIColor(red: 230/255, green: 237/255, blue: 184/255, alpha: 1).cgColor
-    let bottomColor = UIColor(red: 240/255, green: 244/255, blue: 212/255, alpha: 0.5).cgColor
+    let topColor = UIColor(red: 255/255, green: 192/255, blue: 203/255, alpha: 2).cgColor
+    let bottomColor = UIColor(red: 135/255, green: 206/255, blue: 250/250, alpha: 2).cgColor
     gradient.colors = [topColor, bottomColor]
     gradient.locations = [0, 1]
     return gradient

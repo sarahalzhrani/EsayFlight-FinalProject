@@ -119,6 +119,7 @@ class serchForFlight : UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         SetupView()
         ticktNumber.delegate = self
+        
 
     }
   
@@ -194,7 +195,9 @@ class serchForFlight : UIViewController, UITextFieldDelegate {
     
     
     
-    
+    private func setupcolor(){
+        let color1 = GradientView(self)
+    }
     
     
 }

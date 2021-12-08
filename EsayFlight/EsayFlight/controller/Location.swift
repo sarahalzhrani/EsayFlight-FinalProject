@@ -23,15 +23,15 @@ class Location : UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate
         
         
         
-        let camera = GMSCameraPosition.camera(withLatitude: 18.2343646, longitude:  42.6579026, zoom: 18)
+        let camera = GMSCameraPosition.camera(withLatitude: 21.6896906, longitude:  39.1429444, zoom: 18)
                 let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
                 self.view.addSubview(mapView)
 
                 // Creates a marker in the center of the map.
                 let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: 18.2343646, longitude:  42.6579026)
+                marker.position = CLLocationCoordinate2D(latitude: 21.6896906, longitude:  39.1429444)
                 marker.title = "Airport"
-                marker.snippet = "Abha"
+                marker.snippet = "Jeddah"
                 marker.map = mapView
           }
         

@@ -12,7 +12,7 @@ class serchForluggage : UIViewController {
     var blackSquare: UIView!
     
     var inform = [
-        Search(id: UUID().uuidString, content: "Enter your Searching here")
+        Search(id: UUID().uuidString, content: "Enter your Searching here", flightnumber: "Enter your Flight Number here", contactNumber: "Enter your phone number:")
     ]
 
     
@@ -58,7 +58,7 @@ class serchForluggage : UIViewController {
     }
     
     @objc func addNewserch() {
-        let note = Search(id: UUID().uuidString, content: "New ")
+        let note = Search(id: UUID().uuidString, content: "New ", flightnumber: "flight number:", contactNumber:  "Phone Number:")
         SearchService.shared.updateOrAddNewSearch(note: note)
        
     }
@@ -76,6 +76,8 @@ extension serchForluggage: UICollectionViewDelegate, UICollectionViewDataSource{
         
         let data = inform[indexPath.row]
         cell.searchlabel.text = data.content
+        cell.fightnumberlabel.text = data.flightnumber
+        cell.conectnumberlabel.text = data.contactNumber
         
         return cell
     }

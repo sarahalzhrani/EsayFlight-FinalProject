@@ -26,31 +26,31 @@ class Advertisement: UIViewController {
       let model = VideoModel(caption: "",
                   username: "",
                   audioTrackName: "",
-                  videoFileName: "video11",
-                  videoFileFormat: "MP4")
+                  videoFileName: "vv",
+                  videoFileFormat: "mp4")
       data.append (model)
     }
     for _ in 1..<2 {
       let model = VideoModel(caption: "",
                   username: "",
                   audioTrackName: "",
-                  videoFileName: "video2",
-                  videoFileFormat: "MP4")
+                  videoFileName: "Travel",
+                  videoFileFormat: "mp4")
       data.append (model)
     }
     for _ in 2..<3 {
       let model = VideoModel(caption: "",
                   username: "",
                   audioTrackName: "",
-                  videoFileName: "video3",
-                  videoFileFormat: "MP4")
+                  videoFileName: "Taxi",
+                  videoFileFormat: "mp4")
       data.append (model)
     }
     for _ in 3..<4 {
       let model = VideoModel(caption: "",
                   username: "",
                   audioTrackName:"",
-                  videoFileName: "video4",
+                  videoFileName: "starbucks",
                   videoFileFormat: "mp4")
       data.append (model)
     }

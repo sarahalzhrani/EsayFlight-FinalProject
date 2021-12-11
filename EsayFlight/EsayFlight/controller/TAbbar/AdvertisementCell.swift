@@ -163,7 +163,7 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
   playerView.frame = contentView.bounds
   playerView.videoGravity = .resizeAspectFill
   videoContainer.layer.addSublayer(playerView)
-  player?.volume = 0
+  player?.volume = 2
   player?.play()
   }
   required init?(coder: NSCoder) {

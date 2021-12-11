@@ -9,8 +9,9 @@ import UIKit
 
 class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var blackSquare: UIView!
-    let scrollView = UIScrollView(frame: UIScreen.main.bounds)
+    var blackSquare = UIView()
+    let scrollView = UIScrollView()
+    
     
     var RentCarBtn: UIButton = {
         let btn = UIButton()
@@ -52,46 +53,115 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         btn.addTarget(self, action: #selector(connectBtnPressed), for: .touchUpInside)
         return btn
     }()
+    
+    
+    
+    
+    let MycollectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing =  12
+            let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            cv.backgroundColor = .white
+            return cv
+        }()
+    
+    let firstcollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing =  12
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .white
+        return cv
+    }()
+    
+    func setupCollectionConstraints() {
+        firstcollectionView.translatesAutoresizingMaskIntoConstraints = false
+        firstcollectionView.heightAnchor.constraint(equalToConstant: 340).isActive = true
+        firstcollectionView.widthAnchor.constraint(equalToConstant: 340).isActive = true
+        firstcollectionView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        firstcollectionView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+    }
+    
+    func setupCollectionConstraints2() {
+        MycollectionView.translatesAutoresizingMaskIntoConstraints = false
+        MycollectionView.topAnchor.constraint(equalTo: namelable.bottomAnchor,constant: 10).isActive = true
+        MycollectionView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+//        MycollectionView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+//        MycollectionView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        MycollectionView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
+
+        }
+    
+    
+    let namelable: UILabel = {
+        let label = UILabel()
+        label.text = "Suggest For you:"
+        label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
+        label.textAlignment = .center
+        label.font = label.font.withSize(25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+       scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+600)
+    }
        
     override func viewDidLoad() {
         super.viewDidLoad()
        
-      
         self.view = self.scrollView
-        self.scrollView.contentSize = CGSize(width:0, height: 1000)
-        blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 1000))
+
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55
-        view.addSubview(blackSquare)
-        scrollView.addSubview(collectionView)
+        scrollView.addSubview(blackSquare)
+        scrollView.addSubview(firstcollectionView)
+        scrollView.addSubview(MycollectionView)
         scrollView.addSubview(RentCarBtn)
         scrollView.addSubview(newSBtn)
         scrollView.addSubview(CallUsBtn)
+        scrollView.addSubview(namelable)
     
-        
-        RentCarBtn.topAnchor.constraint(equalTo: view.topAnchor,constant: 400).isActive = true
-        RentCarBtn.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 20).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollView.heightAnchor.constraint(equalToConstant: 2000).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+
+
+        RentCarBtn.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 400).isActive = true
+        RentCarBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
         RentCarBtn.heightAnchor.constraint(equalToConstant: 100).isActive = true
         RentCarBtn.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
         
         CallUsBtn.topAnchor.constraint(equalTo: RentCarBtn.bottomAnchor,constant: 20).isActive = true
-        CallUsBtn.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 20).isActive = true
+        CallUsBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
         CallUsBtn.heightAnchor.constraint(equalToConstant: 100).isActive = true
         CallUsBtn.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
         
         newSBtn.topAnchor.constraint(equalTo: CallUsBtn.bottomAnchor,constant: 20).isActive = true
-        newSBtn.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 20).isActive = true
+        newSBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
         newSBtn.heightAnchor.constraint(equalToConstant: 100).isActive = true
         newSBtn.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
+        namelable.topAnchor.constraint(equalTo: newSBtn.bottomAnchor,constant: 30).isActive = true
+        namelable.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
       
       
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
+        firstcollectionView.delegate = self
+        firstcollectionView.dataSource = self
+        firstcollectionView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
         setupCollectionConstraints()
+        
+        MycollectionView.delegate = self
+        MycollectionView.dataSource = self
+        MycollectionView.register(HomeCell2.self, forCellWithReuseIdentifier: HomeCell2.identifier)
+        setupCollectionConstraints2()
         
         
         view.isUserInteractionEnabled = true
@@ -100,6 +170,8 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         self.view.addGestureRecognizer(swipeLeft)
     
     }
+    
+    
     
     
     @objc func RentBtnPressed() {
@@ -118,8 +190,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         vc1.modalPresentationStyle = .fullScreen
         self.present(vc1, animated: true, completion: nil)
 
-        
-
+    
     }
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .left {
@@ -129,32 +200,21 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 completion: nil
             )}}
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing =  12
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
-        return cv
-    }()
     
-    func setupCollectionConstraints() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 340).isActive = true
-        collectionView.widthAnchor.constraint(equalToConstant: 340).isActive = true
-//        collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-      
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView === self.MycollectionView{
+            return array4.count
+        }
+        
         return details.count
+        
     }
+        
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.identifier, for: indexPath) as! HomeCell
+        let cell = firstcollectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.identifier, for: indexPath) as! HomeCell
+        
         let data = details[indexPath.row]
         cell.namelable.text = data.name
         cell.imageView.image = data.image
@@ -170,51 +230,107 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         cell.layer.shadowRadius = 7
         cell.layer.shadowOpacity = 0.5
         cell.layer.masksToBounds = false
-        
-        return cell
+         
+        if (collectionView === MycollectionView){
+                
+            let cell2 = MycollectionView.dequeueReusableCell(withReuseIdentifier: HomeCell2.identifier, for: indexPath) as! HomeCell2
+            let data1 = array4[indexPath.row]
+            
+            cell2.imageView2.image = data1.photo3
+            cell2.backgroundColor = .white
+            cell2.layer.cornerRadius = 10
+            cell2.layer.borderWidth = 25
+            cell2.layer.borderColor = UIColor.clear.cgColor
+            cell2.layer.masksToBounds = true
+                
+            cell2.layer.shadowColor = UIColor.lightGray.cgColor
+            cell2.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell2.layer.shadowRadius = 7
+            cell2.layer.shadowOpacity = 0.5
+            cell2.layer.masksToBounds = false
+                
+                    return cell2
+                
+            
+        }
+            return cell
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView === self.MycollectionView{
+            return CGSize(width: 350, height: 200)
+        }
         return CGSize(width: 160, height: 160)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = details[indexPath.row]
         
-        if indexPath.row == 0 {
-            let navigationController = UINavigationController(
-                rootViewController: serchForFlight()
-            )
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
+        if collectionView === self.firstcollectionView {
+            if indexPath.row == 0 {
+                let navigationController = UINavigationController(
+                    rootViewController: serchForFlight()
+                )
+                navigationController.navigationBar.prefersLargeTitles = true
+                navigationController.modalPresentationStyle = .fullScreen
+                present(navigationController, animated: true, completion: nil)
+                
+            }else if indexPath.row == 1 {
+                
+                let navigationController = UINavigationController(
+                    rootViewController:AskForHelp()
+                )
+                
+                navigationController.navigationBar.prefersLargeTitles = true
+                navigationController.modalPresentationStyle = .fullScreen
+                present(navigationController, animated: true, completion: nil)
+            } else if indexPath.row == 2 {
+                
+                let navigationController = UINavigationController(
+                    rootViewController: Terminal1()
+                )
+                navigationController.modalPresentationStyle = .fullScreen
+                navigationController.navigationBar.prefersLargeTitles = true
+                present(navigationController, animated: true, completion: nil)
+            }  else if indexPath.row == 3 {
+                let navigationController = UINavigationController(
+                    rootViewController: serchForluggage()
+                )
+                navigationController.navigationBar.prefersLargeTitles = true
+                navigationController.modalPresentationStyle = .fullScreen
+                present(navigationController, animated: true, completion: nil)
+            }}
+        
+        
+        if collectionView === self.MycollectionView{
+            let data1 = array4[indexPath.row]
             
-        }else if indexPath.row == 1 {
+            if indexPath.row == 0 {
             
-            let navigationController = UINavigationController(
-                rootViewController:AskForHelp()
-            )
+                if let url5 = URL(string: "https://apps.apple.com/us/app/apple-store/id375380948") {
+                          UIApplication.shared.open(url5)
+                        }
+                
+            }else if indexPath.row == 1 {
+                
+                if let url6 = URL(string: "https://apps.apple.com/us/app/apple-store/id375380948") {
+                          UIApplication.shared.open(url6)
+                        }
+    
+              
+            } else if indexPath.row == 2 {
+                if let url7 = URL(string: "https://apps.apple.com/sa/app/ترافيل-ديف/id1426181755") {
+                          UIApplication.shared.open(url7)
+                        }
+            }
             
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
-        } else if indexPath.row == 2 {
             
-            let navigationController = UINavigationController(
-                rootViewController: Terminal1()
-            )
-            navigationController.modalPresentationStyle = .fullScreen
-            navigationController.navigationBar.prefersLargeTitles = true
-            present(navigationController, animated: true, completion: nil)
-        }  else if indexPath.row == 3 {
-            let navigationController = UINavigationController(
-                rootViewController: serchForluggage()
-            )
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
+            
         }
+        
+        
     }
    
     

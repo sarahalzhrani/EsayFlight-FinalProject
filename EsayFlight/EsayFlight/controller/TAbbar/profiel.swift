@@ -11,9 +11,14 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+protocol HomeViewControllerDelegate: AnyObject {
+  func didTapMenuButton()
+}
 
-  
+class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, HomeViewControllerDelegate {
+
+    weak var delegate: HomeViewControllerDelegate?
+    
     lazy var tableView1: UITableView = {
         let tablaView = UITableView()
         tablaView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +50,8 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         $0.addTarget(self, action: #selector(changeLang), for: .touchUpInside)
         return $0
     }(UIButton())
-
+ 
+    
     var blackSquare: UIView!
    
     var users = [information]() {
@@ -90,7 +96,9 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         view.addSubview(tableView1)
         tableView1.backgroundColor = .white
         view.backgroundColor = .white
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuButton))
+        delegate = self
+        title = NSLocalizedString("profile", comment:"الصفحه الرئيسي")
 
         view.addSubview(Button1)
         NSLayoutConstraint.activate([
@@ -100,10 +108,15 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
                 tableView1.rightAnchor.constraint(equalTo: view.rightAnchor),
                 tableView1.leftAnchor.constraint(equalTo: view.leftAnchor),
             
+            
+            
             Button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 450),
             Button1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             Button1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             Button1.heightAnchor.constraint(equalToConstant: 70)
+            
+            
+            
         ])
         
         
@@ -171,7 +184,13 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         exit(0)
 
     }
+    @objc func didTapMenuButton() {
+      delegate?.didTapMenuButton()
+        print("tapp is active ")
+    }
     
+    
+   
 }
 class ProfileCell: UITableViewCell {
  static let identifire = "ProfileCell"
@@ -261,10 +280,10 @@ class ProfileCell: UITableViewCell {
            contentView.addSubview(helath)
            contentView.addSubview(flightNumber)
            contentView.addSubview(specailNeeds)
-      contentView.addSubview(name1)
-      contentView.addSubview(helath1)
-      contentView.addSubview(flightNumber1)
-      contentView.addSubview(specailNeeds1)
+           contentView.addSubview(name1)
+            contentView.addSubview(helath1)
+           contentView.addSubview(flightNumber1)
+          contentView.addSubview(specailNeeds1)
            contentView.clipsToBounds = true
     
       

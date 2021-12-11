@@ -20,6 +20,16 @@ var details = [
                Homme (image: UIImage(named: "services")!, name: NSLocalizedString("Services", comment: "")),
                Homme (image: UIImage(named: "luggage")!, name: NSLocalizedString("lost luggage", comment: ""))
                 ]
+// home collectionView2
+
+struct App {
+    var photo3 : UIImage
+}
+var array4 = [ App(photo3:  UIImage(named: "Tasnem")!),
+               App(photo3:  UIImage(named: "Maram")!),
+               App(photo3:  UIImage(named: "000")!),
+]
+
 
 //serch view
 let searchArray = [12234,  12234, 87655, 8997]

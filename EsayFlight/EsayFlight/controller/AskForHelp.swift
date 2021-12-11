@@ -155,14 +155,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
             
             
         }
-      
-//        dropDown1.cellConfiguration = { [unowned self] (index: Int, item:String) in
-//
-//            print("- \(item) (\(index))")
-//            self.dropdownlable2.text =  data2[index]
-//              self.dropdownlable2.text =  data2[index]
-//            return "\(item)"
-//        }
+
         let name =  UserDefaults.standard.value(forKey: "namekey") as? String
         textView.text = name
         

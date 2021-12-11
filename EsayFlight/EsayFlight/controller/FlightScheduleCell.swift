@@ -122,6 +122,18 @@ class FlightScheduleCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
+    let donLable : UIButton = {
+//        $0.backgroundColor = .white
+        $0.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
+        $0.setTitleColor(UIColor.white, for: .normal)
+//        $0.layer.cornerRadius = 22.5
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.addTarget(self, action: #selector(doNE), for: .touchUpInside)
+        return $0
+    }(UIButton())
+ 
 
     
     override init(frame: CGRect) {
@@ -160,6 +172,18 @@ class FlightScheduleCell: UICollectionViewCell {
         view1.addSubview(status)
         view1.addSubview(terminalabel)
         view1.addSubview(gatelabel)
+        view1.addSubview(donLable)
+        NSLayoutConstraint.activate([
+            donLable.topAnchor.constraint(equalTo: view1.topAnchor, constant: 200),
+            donLable.leadingAnchor.constraint(equalTo: view1.leadingAnchor, constant: 300),
+            donLable.trailingAnchor.constraint(equalTo: view1.trailingAnchor, constant: -30),
+            donLable.heightAnchor.constraint(equalToConstant: 20),
+            donLable.widthAnchor.constraint(equalToConstant: 20)
+
+            
+        ])
+        
+        
         timelabel.centerXAnchor.constraint(equalTo:view1.centerXAnchor).isActive = true
         timelabel.topAnchor.constraint(equalTo: view1.topAnchor,constant: 90).isActive = true
         timelabel.leadingAnchor.constraint(equalTo: view1.leadingAnchor, constant: 220).isActive = true
@@ -239,6 +263,12 @@ class FlightScheduleCell: UICollectionViewCell {
         
        
         
+    }
+    
+    
+    @objc func doNE() {
+    
+
     }
 
     required init?(coder aDecoder: NSCoder) {

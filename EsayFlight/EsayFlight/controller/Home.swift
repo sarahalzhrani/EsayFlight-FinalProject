@@ -271,7 +271,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView === self.firstcollectionView {
             if indexPath.row == 0 {
                 let navigationController = UINavigationController(
-                    rootViewController: serchForFlight()
+                    rootViewController: FlightSchedule()
                 )
                 navigationController.navigationBar.prefersLargeTitles = true
                 navigationController.modalPresentationStyle = .fullScreen

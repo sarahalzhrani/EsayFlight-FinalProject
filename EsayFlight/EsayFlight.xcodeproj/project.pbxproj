@@ -55,6 +55,7 @@
 		1FB806222756A99000CC5D55 /* video5.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806212756A99000CC5D55 /* video5.MP4 */; };
 		1FB806262756AC1A00CC5D55 /* video6.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806252756AC1900CC5D55 /* video6.MP4 */; };
 		1FB806282756B1DF00CC5D55 /* video7.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806272756B1DF00CC5D55 /* video7.MP4 */; };
+		1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */; };
 		89A7A04CC98EFAFCF7FBC549 /* Pods_EsayFlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		1FB806252756AC1900CC5D55 /* video6.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video6.MP4; path = ../../../../../Downloads/video6.MP4; sourceTree = "<group>"; };
 		1FB806272756B1DF00CC5D55 /* video7.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video7.MP4; sourceTree = "<group>"; };
 		1FB806292756B1F000CC5D55 /* video8.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video8.MP4; sourceTree = "<group>"; };
+		1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionCell.swift; sourceTree = "<group>"; };
 		5A29C8781ACD5304C1BD2310 /* Pods-EsayFlight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.debug.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EsayFlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 				1F7C87B7274E2ABC00112F6A /* serchForFlight.swift */,
 				1F7422012763CD7B00B53C27 /* FlightSchedule.swift */,
 				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
+				1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */,
 				1F7C87B9274E2ADD00112F6A /* serchForluggage.swift */,
 				1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */,
 				1F7422052764AD7C00B53C27 /* scanCode.swift */,
@@ -405,6 +408,7 @@
 				1F7C87B8274E2ABC00112F6A /* serchForFlight.swift in Sources */,
 				1F608429275F536100B21702 /* AskForhelpServices.swift in Sources */,
 				1F9E1FE3274B6B6D00679CC3 /* AppDelegate.swift in Sources */,
+				1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */,
 				1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */,
 				1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */,
 				1F1FBDB3274F736D00D9F691 /* NewSearchVC.swift in Sources */,

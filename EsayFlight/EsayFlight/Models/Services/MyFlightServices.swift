@@ -36,7 +36,7 @@ class MyFlight {
        for document in documents {
         let data = document.data()
         let trip = Fligt(
-            cityName: (data["cityName"] as? String) ?? "No name",
+            cityName: (data[" cityName"] as? String) ?? "No name",
             time: (data["time"] as? String) ?? "",
             date: (data["date"] as? String) ?? "",
             terminal: (data["terminal"] as? String) ?? "",

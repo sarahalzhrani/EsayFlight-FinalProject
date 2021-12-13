@@ -98,7 +98,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         cell.fightnumberlabel.text = data.flightNum
         cell.timelabel.text = data.time
         cell.Citylabel.text = data.cityName
-        
+        cell.dateNumber.text = data.date
 
     
         return cell}
@@ -151,7 +151,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         let dateFlight: UILabel = {
             let label = UILabel()
-            label.text = "Date Flight:"
+            label.text = NSLocalizedString("Date Flight:", comment:"")
             label.textColor = .black
             label.font = label.font.withSize(16)
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -160,7 +160,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         let statusFlight: UILabel = {
             let label = UILabel()
-            label.text = "Flight Statuse:"
+            label.text = NSLocalizedString("Flight Statuse:", comment:"")
             label.textColor = .black
             label.font = label.font.withSize(16)
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -178,7 +178,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         let dateNumber: UILabel = {
             let label = UILabel()
-            label.text = ""
+//            label.text = ""
             label.textColor = .gray
             label.font = label.font.withSize(16)
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -209,7 +209,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         }()
         let tOlabel: UILabel = {
             let label = UILabel()
-            label.text = "To"
+            label.text = NSLocalizedString("To", comment:"")
             label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
             label.font = label.font.withSize(25)
             label.numberOfLines = 0
@@ -219,7 +219,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         let terminalabel: UILabel = {
             let label = UILabel()
-            label.text = "Terminal:"
+            label.text = NSLocalizedString("Gate:", comment:"")
             label.textColor = .black
             label.font = label.font.withSize(16)
             label.numberOfLines = 0
@@ -396,7 +396,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         var tab2: Fligt!
         
         @objc func aDD() {
-            SPAlert.present(title: "Added to My Flight", preset: .done)
+            SPAlert.present(title:  NSLocalizedString("Added to My Flight", comment:""), preset: .done)
 
 
             

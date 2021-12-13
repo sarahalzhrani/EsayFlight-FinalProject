@@ -321,13 +321,13 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     
     @objc func sendPressed() {
         
-        let  name = textView.text
+        let  name = textView.text ?? ""
          let specailNeeds = textView2.text
         UserDefaults.standard.set(name,forKey: "namekey")
         UserDefaults.standard.set(specailNeeds,forKey: "specailNeeds")
         
-        Firestore.firestore().collection("profile").document().setData([
-            "name": name ?? "",
+        Firestore.firestore().collection("profile").document(name).setData([
+            "name": name,
             "helath": selectedOption,
             "specailNeeds":specailNeeds ?? "",
             "flightNumber": selectedOption1,

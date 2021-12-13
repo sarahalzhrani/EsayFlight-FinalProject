@@ -44,7 +44,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     
     let mylastFlightlabel: UILabel = {
         let label = UILabel()
-        label.text = "Logs Flights:"
+        label.text = NSLocalizedString("Logs Flights:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(30)
         label.numberOfLines = 0
@@ -77,6 +77,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         view.addSubview(FlightcollectionView)
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)
+        fitchData()
         
         title = NSLocalizedString("My Flight", comment:"")
 
@@ -99,7 +100,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
             self.FlightcollectionView.reloadData()
         }
         
-        saveData(number: "", name: "")
+        
         self.navigationItem.hidesBackButton = true
 
         
@@ -167,6 +168,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         do {
             let item = try context.fetch(Flight.fetchRequest())
             self.item = item
+            logscollectionView.reloadData()
             
         }
         catch{
@@ -178,11 +180,11 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
      }
     @objc func openNewPage() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Add Flight", style: .default, handler: { Action in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Add Flight", comment:""), style: .default, handler: { Action in
             self.present(serchForFlight(), animated: true, completion: nil)
             
         } ))
-        alert.addAction(UIAlertAction(title: "Scan parcod", style: .default, handler: { Action in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Scan parcod", comment:"") , style: .default, handler: { Action in
             self.present(ScanCode(), animated: true, completion: nil)
                                      
         }))
@@ -197,7 +199,7 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.logscollectionView{
-            return dat22.count
+            return item.count
         }
         
         return flightSchedule1.count
@@ -219,11 +221,11 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
        if (collectionView === logscollectionView){
                
            let cell2 = logscollectionView.dequeueReusableCell(withReuseIdentifier: LOgCEllCell.identifier, for: indexPath) as! LOgCEllCell
-           let data2 = dat22[indexPath.row]
+           let data2 = item[indexPath.row]
            
-           cell2.CitylabelA.text = data2.cityName
-           cell2.timelabelA.text = data2.time
-           cell2.fightnumberlabelA.text = data2.flightNum
+           cell2.CitylabelA.text = data2.flightName
+           cell2.timelabelA.text = data2.flightDate
+           cell2.fightnumberlabelA.text = data2.flightNumber
            cell2.backgroundColor = .white
            cell2.layer.cornerRadius = 10
            cell2.layer.borderWidth = 25

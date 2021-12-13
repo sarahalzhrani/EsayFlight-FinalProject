@@ -17,8 +17,8 @@ struct Homme {
 var details = [
                Homme (image: UIImage(named: "air")!, name: NSLocalizedString("Flight", comment: "")),
                Homme (image: UIImage(named: "information")!, name: NSLocalizedString("Ask for help", comment: "")),
-               Homme (image: UIImage(named: "services")!, name: NSLocalizedString("Services", comment: "")),
-               Homme (image: UIImage(named: "luggage")!, name: NSLocalizedString("lost luggage", comment: ""))
+               Homme (image: UIImage(named: "icons8-headphones_filled")!, name: NSLocalizedString("Services", comment: "")),
+               Homme (image: UIImage(named: "icons8-passenger_with_baggage")!, name: NSLocalizedString("lost luggage", comment: ""))
                 ]
 // home collectionView2
 

@@ -98,7 +98,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     let namelable: UILabel = {
         let label = UILabel()
-        label.text = "Suggest For you:"
+        label.text = NSLocalizedString("Suggest For you:", comment:"") 
         label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
         label.textAlignment = .center
         label.font = label.font.withSize(25)
@@ -115,7 +115,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         super.viewDidLoad()
        
         self.view = self.scrollView
-        title = NSLocalizedString("Esay Flight", comment:"الصفحه الشخصيه")
+        title = NSLocalizedString("Esay Flight", comment:"")
 
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55
@@ -310,7 +310,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             let data1 = array4[indexPath.row]
             
             if indexPath.row == 0 {
-                if let url1 = URL(string: "https://apps.apple.com/sa/app/tripadvisor-plan-book-trips/id284876795") {
+                if let url1 = URL(string: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795") {
                           UIApplication.shared.open(url1)
                         }
                 

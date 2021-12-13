@@ -2,7 +2,7 @@
 //  Flight+CoreDataProperties.swift
 //  EsayFlight
 //
-//  Created by sara al zhrani on 07/05/1443 AH.
+//  Created by sara al zhrani on 09/05/1443 AH.
 //
 //
 
@@ -16,8 +16,9 @@ extension Flight {
         return NSFetchRequest<Flight>(entityName: "Flight")
     }
 
-    @NSManaged public var flightNumber: String?
     @NSManaged public var flightName: String?
+    @NSManaged public var flightNumber: String?
+    @NSManaged public var flightDate: String?
 
 }
 

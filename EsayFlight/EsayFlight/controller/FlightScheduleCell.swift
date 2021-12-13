@@ -19,7 +19,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     let nameCitylabel: UILabel = {
         let label = UILabel()
-        label.text = "dd"
+//        label.text = "dd"
         label.textColor = .red
         label.backgroundColor = .yellow
         label.font = label.font.withSize(16)
@@ -134,8 +134,20 @@ class FlightScheduleCell: UICollectionViewCell {
         $0.addTarget(self, action: #selector(doNE), for: .touchUpInside)
         return $0
     }(UIButton())
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
  
-
+    func saveData(number:String, name:String, date1: String){
+        let newItems = Flight(context: context)
+        newItems.flightNumber = number
+        newItems.flightName = name
+        newItems.flightDate = date1
+        do {
+            try context.save()
+        }
+        catch{
+            
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -274,10 +286,11 @@ class FlightScheduleCell: UICollectionViewCell {
     
     @objc func doNE() {
         Firestore.firestore().collection("myflights").document().delete()
+        
         let x1 = nameCitylabel.text ?? ""
         let x2 = fightnumberlabel.text ?? ""
         let x3 = timelabel.text ?? ""
-        
+        saveData(number: x2, name: x1, date1: x3)
 //        dat22.append(x1)
 //        dat22.append(x2)
 //        dat22.append(x3)

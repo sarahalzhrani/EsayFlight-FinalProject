@@ -105,7 +105,15 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
              handler: { Action in
           if editingStyle == .delete {
               
-        Firestore.firestore().collection("profile").document(cell.name).delete()
+              Firestore.firestore().collection("profile").document(cell.name).delete { error in
+                  if let error = error {
+                      
+                      print(error)
+                      print("tere is error ")
+                  } else {
+                      print("data removing")
+                  }
+              }
   
           }
           self.tableView1.reloadData()

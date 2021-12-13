@@ -19,6 +19,8 @@
 		1F1FBDC62754A74600D9F691 /* CarRentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDC52754A74600D9F691 /* CarRentVC.swift */; };
 		1F4750C32757450800F1C9FF /* video9.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F4750C22757450800F1C9FF /* video9.MP4 */; };
 		1F4750C7275749C800F1C9FF /* video11.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F4750C6275749C800F1C9FF /* video11.MP4 */; };
+		1F484AF92767D2940048F280 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */; };
+		1F484AFA2767D2940048F280 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */; };
 		1F608402275C9E7000B21702 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F608404275C9E7000B21702 /* Localizable.strings */; };
 		1F608407275CDE8E00B21702 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608406275CDE8E00B21702 /* Color.swift */; };
 		1F608429275F536100B21702 /* MyFlightServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608428275F536100B21702 /* MyFlightServices.swift */; };
@@ -33,8 +35,6 @@
 		1F7422042763CDA600B53C27 /* FlightScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */; };
 		1F7422062764AD7C00B53C27 /* scanCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422052764AD7C00B53C27 /* scanCode.swift */; };
 		1F74220A2764B75C00B53C27 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422072764B72300B53C27 /* CoreData.xcdatamodeld */; };
-		1F7422112764BC7F00B53C27 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74220F2764BC7F00B53C27 /* Flight+CoreDataClass.swift */; };
-		1F7422122764BC7F00B53C27 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422102764BC7F00B53C27 /* Flight+CoreDataProperties.swift */; };
 		1F7C87AF274CF06D00112F6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F7C87AE274CF06D00112F6A /* GoogleService-Info.plist */; };
 		1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C87B0274CFFAE00112F6A /* Home.swift */; };
 		1F7C87B3274D273100112F6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C87B2274D273100112F6A /* Data.swift */; };
@@ -52,7 +52,6 @@
 		1FB8061E2756A97B00CC5D55 /* video3.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8061D2756A97B00CC5D55 /* video3.MP4 */; };
 		1FB806202756A98500CC5D55 /* video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8061F2756A98500CC5D55 /* video4.mp4 */; };
 		1FB806222756A99000CC5D55 /* video5.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806212756A99000CC5D55 /* video5.MP4 */; };
-		1FB806262756AC1A00CC5D55 /* video6.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806252756AC1900CC5D55 /* video6.MP4 */; };
 		1FB806282756B1DF00CC5D55 /* video7.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806272756B1DF00CC5D55 /* video7.MP4 */; };
 		1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */; };
 		1FDA791B276730A9009D42FD /* careem.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA791A276730A9009D42FD /* careem.MP4 */; };
@@ -73,6 +72,8 @@
 		1F1FBDC52754A74600D9F691 /* CarRentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRentVC.swift; sourceTree = "<group>"; };
 		1F4750C22757450800F1C9FF /* video9.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video9.MP4; sourceTree = "<group>"; };
 		1F4750C6275749C800F1C9FF /* video11.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video11.MP4; sourceTree = "<group>"; };
+		1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1F6083FF275C9DA800B21702 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1F608403275C9E7000B21702 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F608405275C9E7100B21702 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -89,8 +90,6 @@
 		1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightScheduleCell.swift; sourceTree = "<group>"; };
 		1F7422052764AD7C00B53C27 /* scanCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanCode.swift; sourceTree = "<group>"; };
 		1F7422082764B72400B53C27 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		1F74220F2764BC7F00B53C27 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1F7422102764BC7F00B53C27 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1F7C87AE274CF06D00112F6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F7C87B0274CFFAE00112F6A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1F7C87B2274D273100112F6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		1FB8061D2756A97B00CC5D55 /* video3.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.MP4; sourceTree = "<group>"; };
 		1FB8061F2756A98500CC5D55 /* video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4.mp4; sourceTree = "<group>"; };
 		1FB806212756A99000CC5D55 /* video5.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video5.MP4; sourceTree = "<group>"; };
-		1FB806252756AC1900CC5D55 /* video6.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video6.MP4; path = ../../../../../Downloads/video6.MP4; sourceTree = "<group>"; };
 		1FB806272756B1DF00CC5D55 /* video7.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video7.MP4; sourceTree = "<group>"; };
 		1FB806292756B1F000CC5D55 /* video8.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video8.MP4; sourceTree = "<group>"; };
 		1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionCell.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				1F4750C22757450800F1C9FF /* video9.MP4 */,
 				1FB806292756B1F000CC5D55 /* video8.MP4 */,
 				1FB806272756B1DF00CC5D55 /* video7.MP4 */,
-				1FB806252756AC1900CC5D55 /* video6.MP4 */,
 				1FB806212756A99000CC5D55 /* video5.MP4 */,
 				1FB8061F2756A98500CC5D55 /* video4.mp4 */,
 				1FB8061D2756A97B00CC5D55 /* video3.MP4 */,
@@ -213,8 +210,8 @@
 		1F9E1FD6274B6B6D00679CC3 = {
 			isa = PBXGroup;
 			children = (
-				1F74220F2764BC7F00B53C27 /* Flight+CoreDataClass.swift */,
-				1F7422102764BC7F00B53C27 /* Flight+CoreDataProperties.swift */,
+				1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */,
+				1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */,
 				1F608404275C9E7000B21702 /* Localizable.strings */,
 				1F9E1FE1274B6B6D00679CC3 /* EsayFlight */,
 				1F9E1FE0274B6B6D00679CC3 /* Products */,
@@ -325,7 +322,6 @@
 				1FB806282756B1DF00CC5D55 /* video7.MP4 in Resources */,
 				1F4750C7275749C800F1C9FF /* video11.MP4 in Resources */,
 				1F9E1FEC274B6B6F00679CC3 /* Assets.xcassets in Resources */,
-				1FB806262756AC1A00CC5D55 /* video6.MP4 in Resources */,
 				1FB806222756A99000CC5D55 /* video5.MP4 in Resources */,
 				1FB806202756A98500CC5D55 /* video4.mp4 in Resources */,
 				1F7421FA2761F22E00B53C27 /* Taxi.mp4 in Resources */,
@@ -404,6 +400,7 @@
 			files = (
 				1F7C87BA274E2ADD00112F6A /* serchForluggage.swift in Sources */,
 				1F9E1FE7274B6B6D00679CC3 /* LoginVC.swift in Sources */,
+				1F484AF92767D2940048F280 /* Flight+CoreDataClass.swift in Sources */,
 				1F7421FE276238E600B53C27 /* ContainerViewController.swift in Sources */,
 				1F7C87B8274E2ABC00112F6A /* serchForFlight.swift in Sources */,
 				1F608429275F536100B21702 /* MyFlightServices.swift in Sources */,
@@ -426,14 +423,13 @@
 				1F7C87BE274E2B3300112F6A /* AskForHelp.swift in Sources */,
 				1F608407275CDE8E00B21702 /* Color.swift in Sources */,
 				1F1FBDBC275359AE00D9F691 /* Terminal1.swift in Sources */,
-				1F7422112764BC7F00B53C27 /* Flight+CoreDataClass.swift in Sources */,
-				1F7422122764BC7F00B53C27 /* Flight+CoreDataProperties.swift in Sources */,
 				1F1FBDC027535A0A00D9F691 /* Terminal1Cell.swift in Sources */,
 				1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */,
 				1F7C87BC274E2B0900112F6A /* profiel.swift in Sources */,
 				1F7422002762396200B53C27 /* MenuViewController.swift in Sources */,
 				1F1FBDC42754A60D00D9F691 /* TabVC.swift in Sources */,
 				1F7C87B3274D273100112F6A /* Data.swift in Sources */,
+				1F484AFA2767D2940048F280 /* Flight+CoreDataProperties.swift in Sources */,
 				1F7C87B6274E12A700112F6A /* HomeCell.swift in Sources */,
 				1F9E1FE5274B6B6D00679CC3 /* SceneDelegate.swift in Sources */,
 			);

@@ -84,9 +84,35 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
           return 140
          }
         }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let cell = users[indexPath.row]
+        let alertcontroller = UIAlertController(title: "Delete"
+                  , message: "Are you sure you want to delete?"
+                  , preferredStyle: UIAlertController.Style.alert
+        )
+          alertcontroller.addAction(
+            UIAlertAction(title: "cancel",
+               style: UIAlertAction.Style.default,
+               handler: { Action in print("...")
+         })
+        )
+        alertcontroller.addAction(
+         UIAlertAction(title: "Delete",
+             style: UIAlertAction.Style.destructive,
+             handler: { Action in
+          if editingStyle == .delete {
+          Firestore.firestore().collection("profile").document().delete()
+  
+          }
+          self.tableView1.reloadData()
+         })
+        )
+        self.present(alertcontroller, animated: true, completion: nil)
+       }
+      
+    
 
-    
-    
     
  
     
@@ -149,8 +175,6 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
             var details : [information] = []
             for doc in docs {
                 let data = doc.data()
-    
-               
                
                     let userdetails = information(
                         name: (data["name"] as? String) ?? "",

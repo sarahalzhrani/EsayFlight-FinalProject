@@ -273,7 +273,8 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 let navigationController = UINavigationController(
                     rootViewController: FlightSchedule()
                 )
-                navigationController.navigationBar.prefersLargeTitles = true
+                navigationController.navigationBar.prefersLargeTitles = false
+                
                 navigationController.modalPresentationStyle = .fullScreen
                 present(navigationController, animated: true, completion: nil)
                 
@@ -308,14 +309,14 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             let data1 = array4[indexPath.row]
             
             if indexPath.row == 0 {
-            
-                if let url5 = URL(string: "https://apps.apple.com/us/app/apple-store/id375380948") {
-                          UIApplication.shared.open(url5)
+                if let url1 = URL(string: "https://apps.apple.com/sa/app/tripadvisor-plan-book-trips/id284876795") {
+                          UIApplication.shared.open(url1)
                         }
+                
                 
             }else if indexPath.row == 1 {
                 
-                if let url6 = URL(string: "https://apps.apple.com/us/app/apple-store/id375380948") {
+                if let url6 = URL(string: "https://apps.apple.com/sa/app/tripadvisor-plan-book-trips") {
                           UIApplication.shared.open(url6)
                         }
     
@@ -324,7 +325,10 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 if let url7 = URL(string: "https://apps.apple.com/sa/app/ترافيل-ديف/id1426181755") {
                           UIApplication.shared.open(url7)
                         }
-            }
+            } else if indexPath.row == 3 {
+                if let url7 = URL(string: "https://apps.apple.com/us/app/ترافيل-ديف/id1426181755") {
+                          UIApplication.shared.open(url7)
+                        }
             
             
             
@@ -337,4 +341,4 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
-
+}

@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseFirestore
+
 
 
 class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
+    var tables = [Fligt] ()
+   
+//    [Fligt(cityName: "Jeddah", time: "5:4", date: "8-oct", terminal: "7", flightNum: "JAC123", fligtStatuse: "delay")]
+//
     lazy var tableView2: UITableView = {
         let tablaView = UITableView()
         tablaView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,8 +28,9 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
     override func viewDidLoad() {
           super.viewDidLoad()
         view.addSubview(tableView2)
-        tableView2.backgroundColor = .red
+        tableView2.backgroundColor = .systemGray5
         view.backgroundColor = .white
+        title = "Flights"
         NSLayoutConstraint.activate([
             
             tableView2.topAnchor.constraint(equalTo: view.topAnchor),
@@ -34,17 +38,66 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
                 tableView2.rightAnchor.constraint(equalTo: view.rightAnchor),
                 tableView2.leftAnchor.constraint(equalTo: view.leftAnchor)
             ])
+        
+        
+        
+        Firestore.firestore().collection("flights").addSnapshotListener { snapshot, error in
+            
+            
+            if error != nil {
+                print(snapshot)
+                return
+            }
+            print(snapshot)
+            
+            guard let docs = snapshot?.documents else {
+                return
+            }
+            print(docs)
+            
+            var details : [Fligt] = []
+            for doc in docs {
+                let data = doc.data()
+               
+                    let flightdetails = Fligt(
+                        cityName: (data["cityName"] as? String) ?? "",
+                        time: (data["time"] as? String) ?? "",
+                        date: (data["date"] as? String) ?? "",
+                        terminal: (data["terminal"] as? String) ?? "",
+                        flightNum: (data["flightNum"] as? String ) ?? "",
+                        fligtStatuse: (data["fligtStatuse"] as? String) ?? ""
+                        
+                        
+                                           )
+                details.append(flightdetails)
+                    
+                }
+                 self.tables = details
+                self.tableView2.reloadData()
+            
+            }
+        
+        
   
       }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tables.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableflightCell", for: indexPath) as! tableflightCell
+        let data = tables[indexPath.row]
         
+        cell.gatelabel.text = data.terminal
+        cell.status.text = data.fligtStatuse
+        cell.fightnumberlabel.text = data.flightNum
+        cell.timelabel.text = data.time
+        cell.Citylabel.text = data.cityName
+        
+
+    
         return cell}
     
     var selectedIndex  = -1
@@ -57,8 +110,8 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        var isSelcted = false
+        tables[indexPath.row].isSelcted = true
+       
     }
     
 }
@@ -67,7 +120,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         static let identifire = "tableflightCell"
         
         
-        
+    
         
         let imagecell = UIImageView()
         var line: UIView!
@@ -182,10 +235,8 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         
         let donLable : UIButton = {
-    //        $0.backgroundColor = .white
-            $0.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
+            $0.setImage(UIImage(systemName:"plus.circle"), for: .normal)
             $0.setTitleColor(UIColor.white, for: .normal)
-    //        $0.layer.cornerRadius = 22.5
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.addTarget(self, action: #selector(aDD), for: .touchUpInside)
             return $0
@@ -197,9 +248,9 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-            contentView.backgroundColor = .yellow
-            view1 = UIView(frame: CGRect(x: 0, y:0, width: self.frame.width, height:250))
-            view1.backgroundColor = .gray
+            contentView.backgroundColor = .white
+            view1 = UIView(frame: CGRect(x: 0, y:0, width: 400, height:220))
+            view1.backgroundColor = .white
             view1.layer.cornerRadius = 10
             self.addSubview(view1)
             view1.addSubview(imagecell)
@@ -238,7 +289,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
                 donLable.leadingAnchor.constraint(equalTo: view1.leadingAnchor, constant: 300),
                 donLable.trailingAnchor.constraint(equalTo: view1.trailingAnchor, constant: -30),
                 donLable.heightAnchor.constraint(equalToConstant: 20),
-                donLable.widthAnchor.constraint(equalToConstant: 20)
+                donLable.widthAnchor.constraint(equalToConstant: 40)
 
                 
             ])
@@ -327,210 +378,25 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         required init?(coder: NSCoder) {
          fatalError("init(coder:) has not been implemented")
         }
-        
+
+        var tab2: Fligt!
         
         @objc func aDD() {
-        
-
-        }
-        
+            
+            let Cityname = Citylabel.text ?? ""
+            let timename = timelabel.text ?? ""
+            let datename = dateNumber.text ?? ""
+            let terminalname = gatelabel.text ?? ""
+            let flightNumname = fightnumberlabel.text ?? ""
+            let fligtStatusename = status.text ?? ""
+            
+            MyFlight.shared.addmYflight(flight: Fligt(cityName: Cityname, time: timename,
+                date: datename,
+              terminal: terminalname,
+              flightNum: flightNumname,
+            fligtStatuse:  fligtStatusename)
+            )
     }
        
 
-
-//
-//class serchForFlight : UIViewController, UITextFieldDelegate {
-//
-//    var blackSquare: UIView!
-//    var allTrips:[Trip] = [.init(id: "12345", gate: "10", time: 5 ),.init(id: "54321", gate: "4", time: 1)]
-//
-//    let namelable: UILabel = {
-//        let label = UILabel()
-//        label.text = "Enter your Flight number:"
-//        label.textColor = .black
-//        label.font = label.font.withSize(25)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//
-//    var ticktNumber: UITextField = {
-//        let tf = UITextField()
-//        tf.translatesAutoresizingMaskIntoConstraints = false
-//        tf.backgroundColor = .systemGray6
-//        tf.layer.cornerRadius = 15
-//        tf.layer.borderColor = UIColor.systemMint.cgColor
-//        tf.textAlignment = .center
-//        tf.returnKeyType = .continue
-//        tf.layer.borderWidth = 2
-//        tf.text = ""
-//
-//        return tf
-//    }()
-//
-//    let depaturelable: UILabel = {
-//        let label = UILabel()
-//        label.text = "Departure Time :"
-//        label.textColor = .black
-//        label.font = label.font.withSize(25)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//
-//    let Gatelable: UILabel = {
-//        let label = UILabel()
-//        label.text = "Gate:"
-//        label.textColor = .black
-//        label.font = label.font.withSize(25)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//
-//    let emptay : UILabel = {
-//        let label = UILabel()
-//        label.text = ""
-//        label.textColor = .black
-//        label.font = label.font.withSize(16)
-//        label.backgroundColor = .systemGray6
-//        label.textAlignment = .center
-//        label.layer.cornerRadius = 10
-//        label.layer.borderWidth = 2
-//        label.layer.borderColor = UIColor.systemMint.cgColor
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//
-//    let emptay2 : UILabel = {
-//        let label = UILabel()
-//        label.text = ""
-//        label.textColor = .black
-//        label.font = label.font.withSize(16)
-//        label.backgroundColor = .systemGray6
-//        label.textAlignment = .center
-//        label.layer.cornerRadius = 10
-//        label.layer.borderWidth = 2
-//        label.layer.borderColor = UIColor.systemMint.cgColor
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-//
-//    var imageView: UIImageView = {
-//      let imageView = UIImageView()
-//      imageView.image = UIImage(named: "airport")
-//      imageView.translatesAutoresizingMaskIntoConstraints = false
-//      return imageView
-//    }()
-//
-//    lazy var progressView: UIProgressView = {
-//        let progressView = UIProgressView(progressViewStyle: .default)
-//        progressView.translatesAutoresizingMaskIntoConstraints = false
-//        progressView.trackTintColor = .lightGray
-//        progressView.progressTintColor = .systemMint
-//        progressView.progress =  0.0
-//        self.perform(#selector(updateProgress), with: nil, afterDelay: 0.2)
-//
-//        return progressView
-//    }()
-//
-//    var progressValue = 0.0
-//
-//    @objc func updateProgress() {
-//           progressValue = progressValue + 0.01
-//           self.progressView.progress = Float(progressValue)
-//           if progressValue != 1.0 {
-//               self.perform(#selector(updateProgress), with: nil, afterDelay: 0.2)
-//           }
-//    }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        SetupView()
-//        ticktNumber.delegate = self
-//
-//
-//    }
-//
-//
-//      private func SetupView () {
-//        self.navigationItem.hidesBackButton = true
-//        view.backgroundColor = .systemMint
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
-//          navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("✚", comment: ""), style: .plain, target: self, action: #selector(openNewPage))
-//
-//
-//        blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
-//        blackSquare.backgroundColor = .white
-//        blackSquare.layer.cornerRadius = 55
-//        view.addSubview(blackSquare)
-//        view.addSubview(namelable)
-//        view.addSubview(ticktNumber)
-//        view.addSubview(depaturelable)
-//        view.addSubview(Gatelable)
-//        view.addSubview(emptay)
-//        view.addSubview(emptay2)
-//        view.addSubview(progressView)
-//        view.addSubview(imageView)
-//        progressView.heightAnchor.constraint(equalToConstant: 12).isActive = true
-//        progressView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//        progressView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-//        progressView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-//        namelable.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
-//        namelable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-//        namelable.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        ticktNumber.topAnchor.constraint(equalTo: namelable.bottomAnchor, constant: 24).isActive = true
-//        ticktNumber.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
-//        ticktNumber.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
-//        ticktNumber.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        depaturelable.topAnchor.constraint(equalTo: view.topAnchor, constant: 290).isActive = true
-//        depaturelable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-//        depaturelable.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        Gatelable.topAnchor.constraint(equalTo: view.topAnchor, constant: 290).isActive = true
-//        Gatelable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 280).isActive = true
-//        Gatelable.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        emptay.topAnchor.constraint(equalTo: depaturelable.topAnchor, constant: 50).isActive = true
-//        emptay.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-//        emptay.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -250).isActive = true
-//        emptay.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        emptay2.topAnchor.constraint(equalTo: Gatelable.topAnchor, constant: 50).isActive = true
-//        emptay2.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 280).isActive = true
-//        emptay2.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-//        emptay2.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        imageView.topAnchor.constraint(equalTo: view.topAnchor,constant: 385).isActive = true
-//        imageView.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 330).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//    }
-//
-//      @objc func handleCancel() {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    @objc func openNewPage() {
-//      dismiss(animated: true, completion: nil)
-//  }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        // done
-//        let text = textField.text
-//        print(text)
-//       let new = allTrips.first(where: {$0.id == text})
-//        emptay2.text = new?.gate
-//        emptay.text = "\(new?.time ?? 00 )"
-//    }
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        // start
-//
-//
-//    }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//
-//
-//
-//
-//    private func setupcolor(){
-//        let color1 = GradientView(self)
-//    }
-//
-//
-//}
+    }

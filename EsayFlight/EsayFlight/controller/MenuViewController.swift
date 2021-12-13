@@ -127,5 +127,5 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     delegate?.didSelect(menuItem: item)
     let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
        selectedCell.contentView.backgroundColor = .gray
-  }
+  } 
 }

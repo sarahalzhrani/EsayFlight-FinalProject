@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FlightScheduleCell: UICollectionViewCell {
 
@@ -16,10 +17,11 @@ class FlightScheduleCell: UICollectionViewCell {
     var line: UIView!
     var view1 = UIView()
     
-    let Citylabel: UILabel = {
+    let nameCitylabel: UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.textColor = .black
+        label.text = "dd"
+        label.textColor = .red
+        label.backgroundColor = .yellow
         label.font = label.font.withSize(16)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +107,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     let terminalabel: UILabel = {
         let label = UILabel()
-        label.text = "Terminal:"
+        label.text = "Gate:"
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.numberOfLines = 0
@@ -125,10 +127,9 @@ class FlightScheduleCell: UICollectionViewCell {
     
     
     let donLable : UIButton = {
-//        $0.backgroundColor = .white
-        $0.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
-        $0.setTitleColor(UIColor.white, for: .normal)
-//        $0.layer.cornerRadius = 22.5
+//        $0.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
+        $0.setTitleColor(UIColor.black, for: .normal)
+        $0.setImage(UIImage(systemName: "plus.circle"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(doNE), for: .touchUpInside)
         return $0
@@ -139,9 +140,9 @@ class FlightScheduleCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         view1 = UIView(frame: CGRect(x: 0, y:0, width: self.frame.width, height:250))
-        view1.backgroundColor = .gray
+        view1.backgroundColor = .white
         view1.layer.cornerRadius = 10
-        self.addSubview(view1)
+        contentView.addSubview(view1)
         view1.addSubview(imagecell)
         imagecell.image = UIImage(named: "000")
         imagecell.layer.masksToBounds = true
@@ -161,7 +162,7 @@ class FlightScheduleCell: UICollectionViewCell {
      
         self.backgroundColor = .clear
         view1.addSubview(timelabel)
-        view1.addSubview(Citylabel)
+        
         view1.addSubview(dateFlight)
         view1.addSubview(dateNumber)
         view1.addSubview(fightnumberlabel)
@@ -173,6 +174,7 @@ class FlightScheduleCell: UICollectionViewCell {
         view1.addSubview(terminalabel)
         view1.addSubview(gatelabel)
         view1.addSubview(donLable)
+        view1.addSubview(nameCitylabel)
         NSLayoutConstraint.activate([
             donLable.topAnchor.constraint(equalTo: view1.topAnchor, constant: 200),
             donLable.leadingAnchor.constraint(equalTo: view1.leadingAnchor, constant: 300),
@@ -189,9 +191,13 @@ class FlightScheduleCell: UICollectionViewCell {
         timelabel.leadingAnchor.constraint(equalTo: view1.leadingAnchor, constant: 220).isActive = true
         timelabel.trailingAnchor.constraint(equalTo:view1.trailingAnchor).isActive = true
 
-        Citylabel.topAnchor.constraint(equalTo: tOlabel.bottomAnchor,constant: 10).isActive = true
-        Citylabel.leadingAnchor.constraint(equalTo: view1.leadingAnchor,constant: 90).isActive = true
-        Citylabel.trailingAnchor.constraint(equalTo: view1.trailingAnchor,constant: -16).isActive = true
+        nameCitylabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 50).isActive = true
+        nameCitylabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 90).isActive = true
+//        nameCitylabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        nameCitylabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+        nameCitylabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+//        Citylabel.trailingAnchor.constraint(equalTo: view1.trailingAnchor).isActive = true
 
         
         
@@ -267,7 +273,11 @@ class FlightScheduleCell: UICollectionViewCell {
     
     
     @objc func doNE() {
-    
+        Firestore.firestore().collection("myflights").document().delete()
+        let x1 = nameCitylabel.text ?? ""
+        let x2 = fightnumberlabel.text ?? ""
+        let x3 = timelabel.text ?? ""
+
 
     }
 

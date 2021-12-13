@@ -25,7 +25,8 @@ var details = [
 struct App {
     var photo3 : UIImage
 }
-var array4 = [ App(photo3:  UIImage(named: "Tasnem")!),
+var array4 = [App(photo3:  UIImage(named: "trip")!),
+              App(photo3:  UIImage(named: "Tasnem")!),
                App(photo3:  UIImage(named: "Maram")!),
                App(photo3:  UIImage(named: "000")!),
 ]

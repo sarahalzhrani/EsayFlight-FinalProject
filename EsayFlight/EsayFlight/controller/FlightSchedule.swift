@@ -15,14 +15,16 @@ struct Fligt {
     var terminal : String
     var flightNum: String
     var fligtStatuse: String
+    var isSelcted: Bool = false
    
 }
 
+var dat22 = [Fligt(cityName: "makah", time: "9", date: "2-15", terminal: "5", flightNum: "fd555", fligtStatuse: "onTime")]
 
 class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
    var item: [Flight] = []
     
-    var flightSchedule1 = [Fligt(cityName: "Abha", time: "4: 00", date: "9 - septmper", terminal: "1", flightNum: "ET3416", fligtStatuse: "on time")]
+    var flightSchedule1 = [Fligt(cityName: "Abha", time: "4: 00", date: "9 - septmper", terminal: "1", flightNum: "ET3416", fligtStatuse: "on time", isSelcted: false)]
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -33,8 +35,10 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
             layout.scrollDirection = .horizontal
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing =  12
+            layout.sectionInset = .zero
             let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
             cv.backgroundColor = .white
+        cv.alwaysBounceVertical = true
             return cv
         }()
     
@@ -53,11 +57,18 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
+        layout.sectionInset = .zero
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
         return cv
     }()
 
+    let imageViewbackground : UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named:"background2")
+        iv.contentMode = .scaleAspectFill
+        return iv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,18 +79,22 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
 
         setupCollectionView()
         setupCollectionView2()
-        
+        FlightcollectionView.backgroundView = imageViewbackground
         FlightcollectionView.dataSource = self
         FlightcollectionView.delegate = self
-        FlightcollectionView.backgroundColor = .systemMint
         FlightcollectionView.showsVerticalScrollIndicator = false
         FlightcollectionView.register(FlightScheduleCell.self, forCellWithReuseIdentifier: FlightScheduleCell.identifier)
         
         logscollectionView.dataSource = self
         logscollectionView.delegate = self
-        logscollectionView.backgroundColor = .red
+        logscollectionView.backgroundColor = .systemGray6
         logscollectionView.showsVerticalScrollIndicator = false
         logscollectionView.register(LOgCEllCell.self, forCellWithReuseIdentifier: LOgCEllCell.identifier)
+        
+        MyFlight.shared.listenToMyFlight { newData in
+            self.flightSchedule1 = newData
+            self.FlightcollectionView.reloadData()
+        }
         
         saveData(number: "", name: "")
         self.navigationItem.hidesBackButton = true
@@ -103,7 +118,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     
     func setupCollectionView() {
         FlightcollectionView.translatesAutoresizingMaskIntoConstraints = false
-        FlightcollectionView.topAnchor.constraint(equalTo: view.topAnchor,constant: 30).isActive = true
+        FlightcollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         FlightcollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -300).isActive = true
         FlightcollectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         FlightcollectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -173,6 +188,9 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
 extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView === self.logscollectionView{
+            return dat22.count
+        }
         
         return flightSchedule1.count
     }
@@ -180,7 +198,9 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = FlightcollectionView.dequeueReusableCell(withReuseIdentifier: FlightScheduleCell.identifier, for: indexPath) as! FlightScheduleCell
         let data = flightSchedule1[indexPath.row]
-        cell.Citylabel.text = data.cityName
+        
+        cell.nameCitylabel.text = data.cityName
+        print(cell.nameCitylabel.text)
         cell.timelabel.text = data.time
         cell.fightnumberlabel.text = data.flightNum
         cell.dateNumber.text = data.date
@@ -191,7 +211,7 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
        if (collectionView === logscollectionView){
                
            let cell2 = logscollectionView.dequeueReusableCell(withReuseIdentifier: LOgCEllCell.identifier, for: indexPath) as! LOgCEllCell
-           let data2 = flightSchedule1[indexPath.row]
+           let data2 = dat22[indexPath.row]
            
            cell2.CitylabelA.text = data2.cityName
            cell2.timelabelA.text = data2.time

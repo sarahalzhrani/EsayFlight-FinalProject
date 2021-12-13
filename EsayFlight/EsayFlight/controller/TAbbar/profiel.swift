@@ -86,7 +86,9 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let cell = users[indexPath.row]
+        let cell = self.users[indexPath.row]
+         self.users.remove(at: indexPath.row)
+//         self.tableView1.deleteRows(at: [indexPath], with: .fade)
         let alertcontroller = UIAlertController(title: "Delete"
                   , message: "Are you sure you want to delete?"
                   , preferredStyle: UIAlertController.Style.alert
@@ -102,7 +104,8 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
              style: UIAlertAction.Style.destructive,
              handler: { Action in
           if editingStyle == .delete {
-          Firestore.firestore().collection("profile").document().delete()
+              
+        Firestore.firestore().collection("profile").document(cell.name).delete()
   
           }
           self.tableView1.reloadData()
@@ -124,7 +127,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuButton))
         delegate = self
-        title = NSLocalizedString("profile", comment:"الصفحه الرئيسي")
+        title = NSLocalizedString("profile", comment:"الصفحه الشخصيه")
 
         view.addSubview(Button1)
         NSLayoutConstraint.activate([

@@ -9,7 +9,7 @@ import UIKit
 
 import FirebaseAuth
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     
     var blackSquare: UIView!
     
@@ -21,6 +21,7 @@ class LoginVC: UIViewController {
         tf.layer.borderColor = UIColor.systemMint.cgColor
         tf.textAlignment = .center
         tf.layer.borderWidth = 2
+        tf.resignFirstResponder()
         tf.text = NSLocalizedString(  "Enter your Email", comment: "")
        
         return tf
@@ -35,6 +36,7 @@ class LoginVC: UIViewController {
         tf.layer.borderColor = UIColor.systemMint.cgColor
         tf.textAlignment = .center
         tf.layer.borderWidth = 2
+        tf.resignFirstResponder()
         tf.text = NSLocalizedString( "Enter your password", comment: "")
        
       
@@ -85,7 +87,8 @@ class LoginVC: UIViewController {
         view.addSubview(loginBtn)
         view.addSubview(registerBtn)
         view.addSubview(imageView)
-
+        self.emailTF.delegate = self
+        self.passwordTF.delegate = self
         view.backgroundColor = UIColor.systemMint
         
         

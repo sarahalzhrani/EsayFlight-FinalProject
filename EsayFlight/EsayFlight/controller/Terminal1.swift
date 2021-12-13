@@ -15,20 +15,25 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
+        self.title = NSLocalizedString("Service", comment:"")
+        let nv = UINavigationController()
+        nv.navigationBar.prefersLargeTitles = false
         addControl() 
         view.backgroundColor = .white
         view.addSubview(collectionView1)
         view.addSubview(collectionView2)
         if segmentedControl.selectedSegmentIndex == 0 {
            
-            collectionView1.isHidden = true
-            collectionView2.isHidden = false
+            collectionView1.isHidden = false
+            collectionView2.isHidden = true
             
         } else {
            
-            collectionView1.isHidden = false
-            collectionView2.isHidden = true
+            collectionView1.isHidden = true
+            collectionView2.isHidden = false
+            
+            
         }
             
         setupCollectionConstraints()
@@ -45,7 +50,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         
         self.navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Home", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
       
     }
     

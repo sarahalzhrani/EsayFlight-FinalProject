@@ -20,7 +20,7 @@ class ScanCode: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        image1.image = generateQRCode(from: "sara")
+        image1.image = generateQRCode(from: "https://www.saudia.com/?cid=&gclid=Cj0KCQiA2NaNBhDvARIsAEw55hg2Jb-fby0NNjpf4TB-v6PTbV3wHDOrrhY7hKmeA0Rgy-hRMnlxHPIaAkY8EALw_wcB")
         view.backgroundColor = .white
         view.addSubview(image1)
         NSLayoutConstraint.activate([

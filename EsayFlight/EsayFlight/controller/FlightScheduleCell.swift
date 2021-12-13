@@ -129,7 +129,7 @@ class FlightScheduleCell: UICollectionViewCell {
     let donLable : UIButton = {
 //        $0.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
-        $0.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        $0.setImage(UIImage(systemName: "checkmark"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(doNE), for: .touchUpInside)
         return $0
@@ -156,7 +156,7 @@ class FlightScheduleCell: UICollectionViewCell {
            imagecell.translatesAutoresizingMaskIntoConstraints = false
 
         line = UIView(frame: CGRect(x: 30, y: 120, width: 350, height:1))
-        line.backgroundColor = .white
+        line.backgroundColor = .gray
         line.layer.cornerRadius = 10
         view1.addSubview(line)
      
@@ -277,7 +277,10 @@ class FlightScheduleCell: UICollectionViewCell {
         let x1 = nameCitylabel.text ?? ""
         let x2 = fightnumberlabel.text ?? ""
         let x3 = timelabel.text ?? ""
-
+        
+//        dat22.append(x1)
+//        dat22.append(x2)
+//        dat22.append(x3)
 
     }
 

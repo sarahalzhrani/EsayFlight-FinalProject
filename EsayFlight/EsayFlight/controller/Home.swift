@@ -16,7 +16,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var RentCarBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle(NSLocalizedString("RentCar", comment: ""), for: .normal)
+        btn.setTitle(NSLocalizedString("Rent Car", comment: ""), for: .normal)
         btn.backgroundColor = .white
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
@@ -44,7 +44,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var CallUsBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle(NSLocalizedString("callus", comment: ""), for: .normal)
+        btn.setTitle(NSLocalizedString("Tell us your experience", comment: ""), for: .normal)
         btn.backgroundColor = .white
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
@@ -115,6 +115,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         super.viewDidLoad()
        
         self.view = self.scrollView
+        title = NSLocalizedString("Esay Flight", comment:"الصفحه الشخصيه")
 
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55

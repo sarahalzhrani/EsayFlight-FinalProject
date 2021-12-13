@@ -26,8 +26,8 @@ class Advertisement: UIViewController {
       let model = VideoModel(caption: "",
                   username: "",
                   audioTrackName: "",
-                  videoFileName: "vv",
-                  videoFileFormat: "mp4")
+                  videoFileName: "careem",
+                  videoFileFormat: "MP4")
       data.append (model)
     }
     for _ in 1..<2 {

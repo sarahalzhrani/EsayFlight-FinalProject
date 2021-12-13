@@ -22,7 +22,7 @@ class serchForluggage : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Home", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
         blackSquare = UIView(frame: CGRect(x: 0, y: 80, width: 390, height: 800))
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55
@@ -49,9 +49,10 @@ class serchForluggage : UIViewController {
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .systemMint
+        collectionView.backgroundColor = .systemGray6
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.identifier)
+        collectionView.alwaysBounceVertical = true
         self.view.addSubview(collectionView)
 
         

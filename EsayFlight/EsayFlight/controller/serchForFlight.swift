@@ -7,14 +7,14 @@
 
 import UIKit
 import FirebaseFirestore
+import SPAlert
 
 
 
 class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     var tables = [Fligt] ()
    
-//    [Fligt(cityName: "Jeddah", time: "5:4", date: "8-oct", terminal: "7", flightNum: "JAC123", fligtStatuse: "delay")]
-//
+
     lazy var tableView2: UITableView = {
         let tablaView = UITableView()
         tablaView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +77,9 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             
             }
         
+      
+      
+        
         
   
       }
@@ -125,6 +128,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         let imagecell = UIImageView()
         var line: UIView!
         var view1 = UIView()
+        var view2 = UIView()
         
         let Citylabel: UILabel = {
             let label = UILabel()
@@ -174,7 +178,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         let dateNumber: UILabel = {
             let label = UILabel()
-            label.text = "9-septamprt"
+            label.text = ""
             label.textColor = .gray
             label.font = label.font.withSize(16)
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -225,7 +229,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
 
         let gatelabel: UILabel = {
             let label = UILabel()
-            label.text = "5"
+            label.text = ""
             label.textColor = .gray
             label.font = label.font.withSize(16)
             label.numberOfLines = 0
@@ -249,10 +253,15 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             contentView.backgroundColor = .white
+            view2 = UIView(frame: CGRect(x: 0, y:0, width: 100, height:100))
+            view2.backgroundColor = .red
+            view2.layer.cornerRadius = 10
+            
             view1 = UIView(frame: CGRect(x: 0, y:0, width: 400, height:220))
             view1.backgroundColor = .white
             view1.layer.cornerRadius = 10
             self.addSubview(view1)
+//            self.addSubview(view2)
             view1.addSubview(imagecell)
             imagecell.image = UIImage(named: "000")
             imagecell.layer.masksToBounds = true
@@ -266,7 +275,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
                imagecell.translatesAutoresizingMaskIntoConstraints = false
 
             line = UIView(frame: CGRect(x: 30, y: 120, width: 350, height:1))
-            line.backgroundColor = .white
+            line.backgroundColor = .gray
             line.layer.cornerRadius = 10
             view1.addSubview(line)
          
@@ -371,8 +380,13 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             self.layer.shadowOpacity = 0.2
             self.layer.masksToBounds = false
             self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
-            
-            
+//            let alertView = SPAlertView(title: "Added to Library", message: nil, preset: SPAlertIconPreset.done)
+//            alertView.duration = 3
+//            alertView.present()
+//            alertView.layout.margins.top = 12
+//            alertView.layout.iconSize = 30
+//            alertView.dismissByTap = false
+
         }
         
         required init?(coder: NSCoder) {
@@ -382,15 +396,18 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         var tab2: Fligt!
         
         @objc func aDD() {
+            SPAlert.present(title: "Added to My Flight", preset: .done)
+
+
             
-            let Cityname = Citylabel.text ?? ""
+            let Cityname2 = Citylabel.text ?? ""
             let timename = timelabel.text ?? ""
             let datename = dateNumber.text ?? ""
             let terminalname = gatelabel.text ?? ""
             let flightNumname = fightnumberlabel.text ?? ""
             let fligtStatusename = status.text ?? ""
             
-            MyFlight.shared.addmYflight(flight: Fligt(cityName: Cityname, time: timename,
+            MyFlight.shared.addmYflight(flight: Fligt(cityName: Cityname2, time: timename,
                 date: datename,
               terminal: terminalname,
               flightNum: flightNumname,

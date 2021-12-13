@@ -11,5 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'DropDown'
 
- pod 'GoogleMaps', '5.2.0'	
+ pod 'GoogleMaps', '5.2.0'
+
+pod 'SPAlert'
+	
 end

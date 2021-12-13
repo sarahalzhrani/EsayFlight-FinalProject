@@ -19,7 +19,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     var line2: UIView!
     var line3: UIView!
     var line4: UIView!
-    let data = ["Old","blind","paralyzed","child"]
+    let data = ["Old","blind","paralyzed","child","housemaid reception"]
     let data2 = ["wheel chair","personal escort"]
     let timePicker = UIDatePicker()
     var selectedOption = "" {
@@ -172,6 +172,9 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         view.backgroundColor = .systemMint
         self.navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
+        view.addSubview(navBar)
+        let navItem = UINavigationItem(title: "Ask for Help")
        
         blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
         blackSquare.backgroundColor = .white

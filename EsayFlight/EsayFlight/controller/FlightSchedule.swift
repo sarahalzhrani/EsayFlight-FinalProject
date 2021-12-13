@@ -60,6 +60,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         layout.sectionInset = .zero
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
+        cv.alwaysBounceVertical = true
         return cv
     }()
 
@@ -76,6 +77,8 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         view.addSubview(FlightcollectionView)
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)
+        
+        title = NSLocalizedString("My Flight", comment:"")
 
         setupCollectionView()
         setupCollectionView2()
@@ -98,7 +101,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         
         saveData(number: "", name: "")
         self.navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(closeit))
+
         
         self.navigationItem.hidesBackButton = true
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
@@ -106,9 +109,14 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
        
         let navItem = UINavigationItem(title: "My flights")
 
-               navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
-                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("✚", comment: ""), style: .plain, target: self, action: #selector(openNewPage))
+               navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Home", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
+
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(openNewPage)
+        )
         
         
         mylastFlightlabel.topAnchor.constraint(equalTo:FlightcollectionView.bottomAnchor,constant: 20).isActive = true

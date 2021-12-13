@@ -23,7 +23,6 @@
 		1F608407275CDE8E00B21702 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608406275CDE8E00B21702 /* Color.swift */; };
 		1F608429275F536100B21702 /* MyFlightServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608428275F536100B21702 /* MyFlightServices.swift */; };
 		1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6583CF2760C1750067ADEB /* CallUsVC.swift */; };
-		1F7421F42761307500B53C27 /* vv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F32761307500B53C27 /* vv.mp4 */; };
 		1F7421F62761DB3700B53C27 /* HomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7421F52761DB3700B53C27 /* HomeCell2.swift */; };
 		1F7421F82761F21E00B53C27 /* Travel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F72761F21E00B53C27 /* Travel.mp4 */; };
 		1F7421FA2761F22E00B53C27 /* Taxi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F92761F22E00B53C27 /* Taxi.mp4 */; };
@@ -56,6 +55,7 @@
 		1FB806262756AC1A00CC5D55 /* video6.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806252756AC1900CC5D55 /* video6.MP4 */; };
 		1FB806282756B1DF00CC5D55 /* video7.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB806272756B1DF00CC5D55 /* video7.MP4 */; };
 		1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */; };
+		1FDA791B276730A9009D42FD /* careem.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA791A276730A9009D42FD /* careem.MP4 */; };
 		89A7A04CC98EFAFCF7FBC549 /* Pods_EsayFlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,6 @@
 		1F608406275CDE8E00B21702 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1F608428275F536100B21702 /* MyFlightServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlightServices.swift; sourceTree = "<group>"; };
 		1F6583CF2760C1750067ADEB /* CallUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUsVC.swift; sourceTree = "<group>"; };
-		1F7421F32761307500B53C27 /* vv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vv.mp4; sourceTree = "<group>"; };
 		1F7421F52761DB3700B53C27 /* HomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell2.swift; sourceTree = "<group>"; };
 		1F7421F72761F21E00B53C27 /* Travel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Travel.mp4; sourceTree = "<group>"; };
 		1F7421F92761F22E00B53C27 /* Taxi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Taxi.mp4; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		1FB806272756B1DF00CC5D55 /* video7.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video7.MP4; sourceTree = "<group>"; };
 		1FB806292756B1F000CC5D55 /* video8.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video8.MP4; sourceTree = "<group>"; };
 		1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionCell.swift; sourceTree = "<group>"; };
+		1FDA791A276730A9009D42FD /* careem.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = careem.MP4; sourceTree = "<group>"; };
 		5A29C8781ACD5304C1BD2310 /* Pods-EsayFlight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.debug.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EsayFlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -205,7 +205,7 @@
 				1F7421F92761F22E00B53C27 /* Taxi.mp4 */,
 				1F7421F72761F21E00B53C27 /* Travel.mp4 */,
 				1F4750C6275749C800F1C9FF /* video11.MP4 */,
-				1F7421F32761307500B53C27 /* vv.mp4 */,
+				1FDA791A276730A9009D42FD /* careem.MP4 */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -318,7 +318,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F7421F42761307500B53C27 /* vv.mp4 in Resources */,
 				1F9E1FEF274B6B6F00679CC3 /* LaunchScreen.storyboard in Resources */,
 				1FB8061E2756A97B00CC5D55 /* video3.MP4 in Resources */,
 				1F608402275C9E7000B21702 /* Localizable.strings in Resources */,
@@ -332,6 +331,7 @@
 				1F7421FA2761F22E00B53C27 /* Taxi.mp4 in Resources */,
 				1F7C87AF274CF06D00112F6A /* GoogleService-Info.plist in Resources */,
 				1F7421FC2761F25800B53C27 /* starbucks.mp4 in Resources */,
+				1FDA791B276730A9009D42FD /* careem.MP4 in Resources */,
 				1F4750C32757450800F1C9FF /* video9.MP4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

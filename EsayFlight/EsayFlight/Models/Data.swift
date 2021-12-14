@@ -51,14 +51,14 @@ struct Term1 {
     var name : String
 }
 var array1 = [
-    Term1(image: UIImage(named: "1")!, name: "Macdonldas"),
-    Term1(image: UIImage(named: "2")!, name: "Albaik"),
-    Term1(image: UIImage(named: "3")!, name: "Dankin Dounts"),
-    Term1(image: UIImage(named: "4")!, name: "Starbucks"),
-    Term1(image: UIImage(named: "5")!, name: "pizzHut"),
-    Term1(image: UIImage(named: "6")!, name: "Fridays"),
-    Term1(image: UIImage(named: "7")!, name: "information"),
-    Term1(image: UIImage(named: "8")!, name: "subWay"),
+    Term1(image: UIImage(named: "1")!, name: NSLocalizedString("Macdonldas", comment: "")),
+    Term1(image: UIImage(named: "2")!, name: NSLocalizedString("Albaik", comment: "")),
+    Term1(image: UIImage(named: "3")!, name: NSLocalizedString("Dankin Dounts", comment: "") ),
+    Term1(image: UIImage(named: "4")!, name: NSLocalizedString("Starbucks", comment: "")),
+    Term1(image: UIImage(named: "5")!, name: NSLocalizedString("pizzHut", comment: "")),
+    Term1(image: UIImage(named: "6")!, name: NSLocalizedString("Fridays", comment: "")),
+    Term1(image: UIImage(named: "7")!, name: NSLocalizedString("information", comment: "") ),
+    Term1(image: UIImage(named: "8")!, name: NSLocalizedString("subWay", comment: "") ),
                
 ]
 
@@ -69,9 +69,9 @@ struct Term2 {
     var name1 : String
 }
 var array2 = [
-    Term2(image1: UIImage(named: "a")!, name1: "Movenpick"),
-    Term2(image1: UIImage(named: "b")!, name1: "bean"),
-    Term2(image1: UIImage(named: "c")!, name1: "simit Saray"),
+    Term2(image1: UIImage(named: "a")!, name1: NSLocalizedString("Movenpick", comment: "")),
+    Term2(image1: UIImage(named: "b")!, name1: NSLocalizedString("bean", comment: "")),
+    Term2(image1: UIImage(named: "c")!, name1: NSLocalizedString("simit Saray", comment: "")),
 ]
 
 
@@ -91,11 +91,11 @@ struct Cars {
     var name2 : String
 }
 var array3 = [
-    Cars(image2: UIImage(named: "budget")!, name2: "budget"),
-    Cars(image2: UIImage(named: "AVIS")!, name2: "AVIS"),
-    Cars(image2: UIImage(named: "Hanco")!, name2: "Hanco"),
-    Cars(image2: UIImage(named: "Hertz-Logo")!, name2: "Hertz"),
-    Cars(image2: UIImage(named: "Key")!, name2: "Key"),
-    Cars(image2: UIImage(named: "YELO")!, name2: "YELO"),
+    Cars(image2: UIImage(named: "budget")!, name2: NSLocalizedString("budget", comment: "")),
+    Cars(image2: UIImage(named: "AVIS")!, name2: NSLocalizedString("AVIS", comment: "")),
+    Cars(image2: UIImage(named: "Hanco")!, name2: NSLocalizedString("Hanco", comment: "")),
+    Cars(image2: UIImage(named: "Hertz-Logo")!, name2: NSLocalizedString("Hertz", comment: "") ),
+    Cars(image2: UIImage(named: "Key")!, name2:  NSLocalizedString("Key", comment: "")),
+    Cars(image2: UIImage(named: "YELO")!, name2: NSLocalizedString("YELO", comment: "")),
 ]
 

@@ -23,7 +23,7 @@ class CustomCell: UICollectionViewCell {
 
     let contentlabel: UILabel = {
         let label = UILabel()
-        label.text = "Enter Your Details:"
+        label.text = NSLocalizedString("Enter Your Details:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ class CustomCell: UICollectionViewCell {
     
     let numberlabel: UILabel = {
         let label = UILabel()
-        label.text = "Flight Number:"
+        label.text = NSLocalizedString("Flight Number:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class CustomCell: UICollectionViewCell {
 
     let conectnumberlabel1: UILabel = {
         let label = UILabel()
-        label.text = "Mobile Number:"
+        label.text = NSLocalizedString("Mobile Number:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false

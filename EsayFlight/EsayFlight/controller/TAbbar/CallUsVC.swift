@@ -35,7 +35,7 @@ class CallUsVC: UIViewController {
         label.text = NSLocalizedString("There is a specialized team working to improve the passenger experience at the airport. Please contact us through the following channels :", comment: "")
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,7 +64,7 @@ class CallUsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showMailComposer()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Color")
         view.addSubview(imageView)
         view.addSubview(imageView2)
         view.addSubview(imageView3)
@@ -73,8 +73,8 @@ class CallUsVC: UIViewController {
         view.addSubview(Button2)
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
-        let navItem = UINavigationItem(title: "Tell us your experience")
-        let doneItem = UIBarButtonItem(title:"Back", style: .plain, target: self, action: #selector(baccck2))
+        let navItem = UINavigationItem(title: NSLocalizedString("Tell us your experience", comment: ""))
+        let doneItem = UIBarButtonItem(title:NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(baccck2))
         navItem.leftBarButtonItem = doneItem
 
         navBar.setItems([navItem], animated: false)

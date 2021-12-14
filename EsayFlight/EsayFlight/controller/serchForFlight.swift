@@ -11,9 +11,22 @@ import SPAlert
 
 
 
-class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     var tables = [Fligt] ()
    
+    
+    var isSearch:Bool = false{
+        didSet {
+            tableView2.reloadData()
+        }
+    }
+    
+    var resultSearch: [Fligt] = []{
+        didSet{
+            tableView2.reloadData()
+        }
+    }
+    lazy var searchBar:UISearchBar = UISearchBar()
 
     lazy var tableView2: UITableView = {
         let tablaView = UITableView()
@@ -30,13 +43,24 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         view.addSubview(tableView2)
         tableView2.backgroundColor = .systemGray5
         view.backgroundColor = .white
-        title = "Flights"
+//        title = "Flights"
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
+        view.addSubview(navBar)
+        searchBar.showsCancelButton = true
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        
         NSLayoutConstraint.activate([
             
-            tableView2.topAnchor.constraint(equalTo: view.topAnchor),
-                tableView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                tableView2.rightAnchor.constraint(equalTo: view.rightAnchor),
-                tableView2.leftAnchor.constraint(equalTo: view.leftAnchor)
+        tableView2.topAnchor.constraint(equalTo: view.topAnchor),
+        tableView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        tableView2.rightAnchor.constraint(equalTo: view.rightAnchor),
+        tableView2.leftAnchor.constraint(equalTo: view.leftAnchor)
             ])
         
         
@@ -77,6 +101,24 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             
             }
         
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            isSearch = true
+            print(searchBar.text)
+            let seName = (searchBar.text ?? "")
+            if tables.contains(where: {$0.cityName == seName}) {
+                let result = tables.filter({$0.cityName == seName})
+                resultSearch.removeAll()
+                resultSearch = result
+                print("name is exist")
+            } else {
+                print ("Not Found")
+            }
+        }
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            isSearch = false
+        }
+    
+        
       
       
         
@@ -86,7 +128,12 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tables.count
+        if isSearch {
+            return resultSearch.count
+        } else {
+            return tables.count
+
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

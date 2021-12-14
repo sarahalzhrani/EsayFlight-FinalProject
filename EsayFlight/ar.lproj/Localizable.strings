@@ -30,8 +30,50 @@
 "Flight Statuse:" = "حالة الرحله";
 "Gate:" = "البوابه:" ;
 "Added to My Flight" =  "إضافه الى رحلاتي" ;
-"To" = "";
-"Logs Flights:" = "";
-"My Flight" = "";
-"Add Flight" = "Add Flight";
+"To" = "إلى";
+"Logs Flights:" = "سجل الرحلات";
+"My Flight" = "رحلاتي";
+"Add Flight" = "أضف رحله";
+"Scan parcod" = "إمسح الباركود";
+"cancel" = "إلغاء";
+"Date Flight:" = "تاريخ الرحله";
+"Lost Luggauge" = "الامتعة المفقودة";
+"Edit your searching" = "أدخل تفاصيل بحثك" ;
+"Enter Your Details:" = "ادخل التفاصيل:";
+"Mobile Number:" = "رقم التواصل:";
+"Old" = "كبير سن";
+"blind" = "كفيف";
+"paralyzed" = "مقعد";
+"child" = "طفل";
+"housemaid reception" = "إستقبال عامله منزليه";
+"wheel chair" = "كرسي متحرك";
+"personal escort" = "مرافق شخصي";
+"terminal1" = "الصاله ١";
+"terminal2" = "الصاله٢";
+"Tell us your experience" = "أخبرنا تجربتك";
+"There is a specialized team working to improve the passenger experience at the airport. Please contact us through the following channels :" = "هناك فريق متخصص يعمل على تحسين تجربة الركاب في المطار. يرجى الاتصال بنا من خلال وسائل التواصل التاليه :";
+"Delete" = "حذف" ;
+"Are you sure you want to delete?" = "هل انت متأكد انك تريد الحذف؟?";
+"Rent car Office" = "مكاتب تأجير السيارات";
+"Macdonldas" = "ماكدونالدز" ;
+"Albaik" = "البيك";
+"Dankin Dounts" = "دانكن دونت";
+"Starbucks" = "ستاربكس";
+"pizzHut" = "بيتزاهت";
+"Fridays" = "فرايديز";
+"information" = "معلومات";
+"subWay" = "صب وي";
+"Movenpick" = "موفنبيك";
+"bean" = "بين" ;
+"simit Saray" = "simit Saray";
+"YELO" = "يلو";
+"Key" = "المفتاح";
+"Hertz" = "هيرتز";
+"Hanco" =  "هانكو";
+"AVIS" = "آفيس";
+"budget" =  "بدجيت";
+"simit Saray" = "سميت ساراي";
+
+
+
 

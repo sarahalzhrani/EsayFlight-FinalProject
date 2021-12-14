@@ -43,7 +43,7 @@ class NewSearchVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit your searching"
+        title =  NSLocalizedString("Edit your searching", comment:"")
         view.backgroundColor = .white
        
         view.backgroundColor = .white

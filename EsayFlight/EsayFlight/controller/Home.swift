@@ -17,7 +17,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(NSLocalizedString("Rent Car", comment: ""), for: .normal)
-        btn.backgroundColor = .white
+        btn.backgroundColor = UIColor(named: "Color-1")
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
         btn.layer.borderColor = UIColor.systemMint.cgColor
@@ -30,7 +30,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(NSLocalizedString("Airport News", comment: ""), for: .normal)
-        btn.backgroundColor = .white
+        btn.backgroundColor = UIColor(named: "Color-1")
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
         btn.layer.borderColor = UIColor.systemMint.cgColor
@@ -45,7 +45,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(NSLocalizedString("Tell us your experience", comment: ""), for: .normal)
-        btn.backgroundColor = .white
+        btn.backgroundColor = UIColor(named: "Color-1")
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
         btn.layer.borderColor = UIColor.systemMint.cgColor
@@ -63,7 +63,8 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing =  12
             let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            cv.backgroundColor = .white
+        cv.backgroundColor = UIColor(named: "Color")
+        
             return cv
         }()
     
@@ -73,7 +74,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = UIColor(named: "Color")
         return cv
     }()
     
@@ -123,7 +124,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         scrollView.addSubview(firstcollectionView)
         scrollView.addSubview(MycollectionView)
         scrollView.addSubview(RentCarBtn)
-        scrollView.addSubview(newSBtn)
+//        scrollView.addSubview(newSBtn)
         scrollView.addSubview(CallUsBtn)
         scrollView.addSubview(namelable)
     
@@ -145,12 +146,9 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         CallUsBtn.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
         
-        newSBtn.topAnchor.constraint(equalTo: CallUsBtn.bottomAnchor,constant: 20).isActive = true
-        newSBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
-        newSBtn.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        newSBtn.widthAnchor.constraint(equalToConstant: 350).isActive = true
+//     
         
-        namelable.topAnchor.constraint(equalTo: newSBtn.bottomAnchor,constant: 30).isActive = true
+        namelable.topAnchor.constraint(equalTo: CallUsBtn.bottomAnchor,constant: 30).isActive = true
         namelable.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 20).isActive = true
       
       
@@ -238,7 +236,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             let data1 = array4[indexPath.row]
             
             cell2.imageView2.image = data1.photo3
-            cell2.backgroundColor = .white
+            cell2.backgroundColor = UIColor(named: "Color-1")
             cell2.layer.cornerRadius = 10
             cell2.layer.borderWidth = 25
             cell2.layer.borderColor = UIColor.clear.cgColor

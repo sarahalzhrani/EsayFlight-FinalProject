@@ -34,7 +34,7 @@ class serchForluggage : UIViewController {
             self.collectionView.reloadData()
         }
         
-        title = "Lost Luggauge"
+        title = NSLocalizedString("Lost Luggauge", comment:"")
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,

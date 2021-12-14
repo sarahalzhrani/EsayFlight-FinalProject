@@ -26,25 +26,25 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   var localized: String {
           switch self {
           case .home:
-            return NSLocalizedString("47", comment: "الصفحة الرئيسي")
+            return NSLocalizedString("", comment: "")
           case .info:
-            return NSLocalizedString("48", comment: "")
+            return NSLocalizedString("", comment: "")
           case .appRating:
-            return NSLocalizedString("49", comment: "")
+            return NSLocalizedString("", comment: "")
           case .shareApp:
-            return NSLocalizedString("50", comment: "القائمه السوداء")
+            return NSLocalizedString("", comment: " ")
           case .settings:
-            return NSLocalizedString("51", comment: "")
+            return NSLocalizedString("", comment: "")
           case .centers:
-            return NSLocalizedString("52", comment: "")
+            return NSLocalizedString("", comment: "")
           case .dark:
-            return NSLocalizedString("53", comment:"الوضع الليلي")
+            return NSLocalizedString("", comment:"الوضع الليلي")
           case .language:
-            return NSLocalizedString("54", comment: "")
+            return NSLocalizedString("", comment: "")
           case .about:
-            return NSLocalizedString("55", comment: "عن التطبيق")
+            return NSLocalizedString("", comment: "عن التطبيق")
           case .settt:
-            return NSLocalizedString("56", comment: "الإعدادات")
+            return NSLocalizedString("", comment: "الإعدادات")
           }
         }
 
@@ -87,8 +87,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.delegate = self
     tableView.dataSource = self
     view.backgroundColor = .systemGray6
-    title = NSLocalizedString("31", comment:"الصفحه الرئيسية")
-    // Do any additional setup after loading the view.
+    title = NSLocalizedString("", comment:"الصفحه الرئيسية")
+
   }
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
@@ -116,9 +116,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
    func setSelected(_ selected: Bool, animated: Bool) {
     setSelected(selected, animated: animated)
     if selected {
-      // visual updates (with a small animation)
     } else {
-      // visual updates
     }
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

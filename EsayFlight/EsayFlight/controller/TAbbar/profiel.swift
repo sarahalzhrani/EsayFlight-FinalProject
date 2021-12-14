@@ -32,7 +32,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     
     
     let Button1 : UIButton = {
-        $0.backgroundColor = .white
+        $0.backgroundColor = UIColor(named: "Color-1")
         $0.setTitle(NSLocalizedString("signout", comment: ""), for: .normal)
         $0.setTitleColor(UIColor.systemMint, for: .normal)
         $0.layer.cornerRadius = 22.5
@@ -42,7 +42,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     }(UIButton())
     
     let changelanguage : UIButton = {
-        $0.backgroundColor = .white
+        $0.backgroundColor = UIColor(named: "Color-1")
         $0.setTitle(NSLocalizedString("changelanguage", comment: ""), for: .normal)
         $0.setTitleColor(UIColor.systemMint, for: .normal)
         $0.layer.cornerRadius = 22.5
@@ -88,19 +88,18 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let cell = self.users[indexPath.row]
          self.users.remove(at: indexPath.row)
-//         self.tableView1.deleteRows(at: [indexPath], with: .fade)
-        let alertcontroller = UIAlertController(title: "Delete"
-                  , message: "Are you sure you want to delete?"
+        let alertcontroller = UIAlertController(title: NSLocalizedString("Delete", comment: "")
+                  , message: NSLocalizedString("Are you sure you want to delete?", comment: "")
                   , preferredStyle: UIAlertController.Style.alert
         )
           alertcontroller.addAction(
-            UIAlertAction(title: "cancel",
+            UIAlertAction(title: NSLocalizedString("cancel", comment: ""),
                style: UIAlertAction.Style.default,
                handler: { Action in print("...")
          })
         )
         alertcontroller.addAction(
-         UIAlertAction(title: "Delete",
+         UIAlertAction(title: NSLocalizedString("Delete", comment: ""),
              style: UIAlertAction.Style.destructive,
              handler: { Action in
           if editingStyle == .delete {
@@ -131,12 +130,13 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         super.viewDidLoad()
         
         view.addSubview(tableView1)
-        tableView1.backgroundColor = .white
+        tableView1.backgroundColor = UIColor(named: "Color")
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuButton))
         delegate = self
         title = NSLocalizedString("profile", comment:"الصفحه الشخصيه")
-
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
+        view.addSubview(navBar)
         view.addSubview(Button1)
         NSLayoutConstraint.activate([
             
@@ -309,7 +309,7 @@ class ProfileCell: UITableViewCell {
     
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
   super.init(style: style, reuseIdentifier: reuseIdentifier)
-  contentView.backgroundColor = .white
+  contentView.backgroundColor = UIColor(named: "Color-1")
       
            contentView.addSubview(name)
            contentView.addSubview(helath)

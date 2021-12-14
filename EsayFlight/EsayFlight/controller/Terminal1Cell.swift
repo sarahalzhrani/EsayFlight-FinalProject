@@ -24,7 +24,7 @@ class Terminal1Cell : UICollectionViewCell{
     let resturantNameble: UILabel = {
         let label = UILabel()
         label.text = "name"
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,14 +34,19 @@ class Terminal1Cell : UICollectionViewCell{
         super.init(frame: frame)
         self.addSubview(imageView)
         self.addSubview(resturantNameble)
-       
+        
+        
+        
+        
         imageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 15).isActive = true
         imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         imageView.widthAnchor.constraint(equalToConstant:90).isActive = true
         
         resturantNameble.topAnchor.constraint(equalTo: self.topAnchor,constant: 110).isActive = true
-        resturantNameble.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        resturantNameble.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+   
+       
    
         
     }

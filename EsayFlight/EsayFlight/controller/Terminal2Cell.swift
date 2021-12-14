@@ -17,6 +17,7 @@ class Terminal2Cell : UICollectionViewCell{
       let imageView = UIImageView()
       imageView.image = UIImage(named: "")
       imageView.translatesAutoresizingMaskIntoConstraints = false
+//      imageView.layer.cornerRadius = 50
       return imageView
     }()
     
@@ -36,13 +37,24 @@ class Terminal2Cell : UICollectionViewCell{
         self.addSubview(resturantNameble1)
        
         
+        
+        
+        
         imageView1.topAnchor.constraint(equalTo: self.topAnchor,constant: 15).isActive = true
         imageView1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
         imageView1.heightAnchor.constraint(equalToConstant: 90).isActive = true
         imageView1.widthAnchor.constraint(equalToConstant:90).isActive = true
         
         resturantNameble1.topAnchor.constraint(equalTo: self.topAnchor,constant: 110).isActive = true
-        resturantNameble1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        resturantNameble1.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+//        imageView1.topAnchor.constraint(equalTo: self.topAnchor,constant: 15).isActive = true
+//        imageView1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
+//        imageView1.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//        imageView1.widthAnchor.constraint(equalToConstant:90).isActive = true
+//
+//        resturantNameble1.topAnchor.constraint(equalTo: self.topAnchor,constant: 110).isActive = true
+//        resturantNameble1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
    
         
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import SPAlert
 
 class FlightScheduleCell: UICollectionViewCell {
 
@@ -39,7 +40,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     let dateFlight: UILabel = {
         let label = UILabel()
-        label.text = "Date Flight:"
+        label.text = NSLocalizedString("Date Flight:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +49,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     let statusFlight: UILabel = {
         let label = UILabel()
-        label.text = "Flight Statuse:"
+        label.text =  NSLocalizedString("Flight Statuse:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +98,7 @@ class FlightScheduleCell: UICollectionViewCell {
     }()
     let tOlabel: UILabel = {
         let label = UILabel()
-        label.text = "To"
+        label.text = NSLocalizedString("To", comment:"")
         label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
         label.font = label.font.withSize(25)
         label.numberOfLines = 0
@@ -107,7 +108,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     let terminalabel: UILabel = {
         let label = UILabel()
-        label.text = "Gate:"
+        label.text = NSLocalizedString("Gate:", comment:"")
         label.textColor = .black
         label.font = label.font.withSize(16)
         label.numberOfLines = 0
@@ -285,7 +286,11 @@ class FlightScheduleCell: UICollectionViewCell {
     
     
     @objc func doNE() {
-        Firestore.firestore().collection("myflights").document().delete()
+        let Cityname2 = nameCitylabel.text ?? ""
+        
+        SPAlert.present(message: "Thank God for safety We wish you a pleasant stay", haptic: .none)
+        
+        Firestore.firestore().collection("myflights").document(Cityname2).delete()
         
         let x1 = nameCitylabel.text ?? ""
         let x2 = fightnumberlabel.text ?? ""

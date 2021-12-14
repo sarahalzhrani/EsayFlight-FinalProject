@@ -26,6 +26,7 @@ class HomeCell : UICollectionViewCell{
     var imageView: UIImageView = {
       let imageView = UIImageView()
       imageView.image = UIImage(named: "")
+//      imageView.layer.cornerRadius = 12
       imageView.translatesAutoresizingMaskIntoConstraints = false
       return imageView
     }()
@@ -35,19 +36,14 @@ class HomeCell : UICollectionViewCell{
         self.addSubview(imageView)
         self.addSubview(namelable)
         
-        imageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 50).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-//        imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor,constant: 10).isActive = true
-//        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor,constant: 10).isActive = true
 
-        namelable.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        namelable.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        namelable.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 15).isActive = true
-//        namelable.heightAnchor.constraint(equalToConstant: 15).isActive = true
-//        namelable.widthAnchor.constraint(equalToConstant: 30).isActive = true
-
+        imageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 15).isActive = true
+        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant:90).isActive = true
+        
+        namelable.topAnchor.constraint(equalTo: self.topAnchor,constant: 110).isActive = true
+        namelable.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
    
     
         

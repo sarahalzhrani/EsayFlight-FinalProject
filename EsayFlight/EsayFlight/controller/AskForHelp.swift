@@ -19,8 +19,9 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     var line2: UIView!
     var line3: UIView!
     var line4: UIView!
-    let data = ["Old","blind","paralyzed","child","housemaid reception"]
-    let data2 = ["wheel chair","personal escort"]
+    let data = [ NSLocalizedString("Old", comment: ""),NSLocalizedString("blind", comment: ""),NSLocalizedString("paralyzed", comment: ""),NSLocalizedString("child", comment: ""),NSLocalizedString("housemaid reception", comment: "")]
+    let data2 = [NSLocalizedString("wheel chair", comment: ""),
+                 NSLocalizedString("personal escort", comment: "")]
     let timePicker = UIDatePicker()
     var selectedOption = "" {
         didSet{
@@ -40,7 +41,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         let label = UILabel()
         label.text = NSLocalizedString("Name:", comment: "")
         label.textAlignment = .left
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +50,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let helath : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Health status:", comment: "")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,7 +59,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let specailNeeds : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Flight number:", comment: "")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -68,7 +69,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let flightNumber : UILabel = {
         let label = UILabel()
         label.text =  NSLocalizedString("special Needs:", comment: "")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -77,7 +78,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let dropdownlable : UILabel = {
         let label = UILabel()
         label.text =  NSLocalizedString( "select health status..", comment: "")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -87,7 +88,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let dropdownlable2 : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("select your needs..", comment: "")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -177,7 +178,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         let navItem = UINavigationItem(title: "Ask for Help")
        
         blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
-        blackSquare.backgroundColor = .white
+        blackSquare.backgroundColor = UIColor(named: "Color")
         blackSquare.layer.cornerRadius = 55
         view.addSubview(blackSquare)
         

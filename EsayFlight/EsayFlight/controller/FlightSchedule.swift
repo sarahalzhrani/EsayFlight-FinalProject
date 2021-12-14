@@ -45,7 +45,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     let mylastFlightlabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Logs Flights:", comment:"")
-        label.textColor = .black
+//        label.textColor = .black
         label.font = label.font.withSize(30)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -188,7 +188,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
             self.present(ScanCode(), animated: true, completion: nil)
                                      
         }))
-        alert.addAction(UIAlertAction(title: "cancel", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment:""), style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
   
   }

@@ -19,12 +19,12 @@ class ContainerViewController: UIViewController {
   lazy var infoVC = Home()
   lazy var settin = AskForHelp()
   lazy var list = CallUsVC()
-  lazy var cityy = CarRent()
+  lazy var car = CarRent()
   lazy var center = Location()
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    view.backgroundColor = .red
+      
+    view.backgroundColor = .gray
     addChildVCs()
   }
   private func addChildVCs() {
@@ -32,9 +32,9 @@ class ContainerViewController: UIViewController {
     addChild(menuVC)
     view.addSubview(menuVC.view)
     menuVC.didMove(toParent: self)
-    //--
-    homeVC.delegate = self
-    let navVC = UINavigationController(rootViewController: homeVC)
+      profiel().delegate = self
+      
+    let navVC = UINavigationController(rootViewController: profiel())
     addChild(navVC)
     view.addSubview(navVC.view)
     navVC.didMove(toParent: self)
@@ -111,7 +111,7 @@ extension ContainerViewController: MenuViewControllerDelegate{
     appDelegate?.backgroundColor = .black
   }
   func addcity() {
-    let vc = cityy
+    let vc = car
     homeVC.addChild(vc)
     homeVC.view.addSubview(vc.view)
     vc.view.frame = view.frame
@@ -145,11 +145,11 @@ extension ContainerViewController: MenuViewControllerDelegate{
   func resetToHome() {
     infoVC.view.removeFromSuperview()
     settin.view.removeFromSuperview()
-    cityy.view.removeFromSuperview()
+      car.view.removeFromSuperview()
     list.view.removeFromSuperview()
     center.view.removeFromSuperview()
     infoVC.didMove(toParent: nil)
-    homeVC.title = NSLocalizedString("24", comment:"الصفحه الرئيسية")
+    homeVC.title = NSLocalizedString("", comment:"الصفحه الرئيسية")
   }
   func changrLan() {
     let currentLa = Locale.current.languageCode

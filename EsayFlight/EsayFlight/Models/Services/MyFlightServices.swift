@@ -15,7 +15,7 @@ class MyFlight {
     
     func addmYflight(flight: Fligt) {
         
-        Firestore.firestore().collection("myflights").document().setData([
+        Firestore.firestore().collection("myflights").document(flight.cityName).setData([
             " cityName": flight.cityName,
             "time": flight.time ,
             "date": flight.date,

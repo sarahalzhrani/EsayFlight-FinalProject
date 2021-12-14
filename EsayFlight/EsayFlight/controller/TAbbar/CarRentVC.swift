@@ -17,7 +17,7 @@ class CarRent: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = UIColor(named: "Color")
         return cv
     }()
     
@@ -76,13 +76,13 @@ class CarRent: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         setupCollectionConstraints()
          collectionView1.delegate = self
          collectionView1.dataSource = self
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Color")
      collectionView1.register(CarRentCell.self, forCellWithReuseIdentifier: CarRentCell.identifier)
         
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
-        let navItem = UINavigationItem(title: "Rent car Office")
-        let doneItem = UIBarButtonItem(title:"Back", style: .plain, target: self, action: #selector(baccck))
+        let navItem = UINavigationItem(title: NSLocalizedString("Rent car Office", comment: ""))
+        let doneItem = UIBarButtonItem(title:NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(baccck))
         navItem.leftBarButtonItem = doneItem
 
         navBar.setItems([navItem], animated: false)

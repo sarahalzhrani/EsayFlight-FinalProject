@@ -20,7 +20,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         let nv = UINavigationController()
         nv.navigationBar.prefersLargeTitles = false
         addControl() 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Color")
         view.addSubview(collectionView1)
         view.addSubview(collectionView2)
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -66,7 +66,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = UIColor(named: "Color")
         return cv
     }()
     
@@ -76,7 +76,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing =  12
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = UIColor(named: "Color")
         return cv
     }()
     
@@ -115,7 +115,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         cell.imageView.image = data.image
         cell.resturantNameble.text = data.name
         
-        cell.backgroundColor = .white
+        cell.backgroundColor = UIColor(named: "Color-1")
         cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 25
         cell.layer.borderColor = UIColor.clear.cgColor
@@ -135,7 +135,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
             cell2.imageView1.image = data1.image1
             cell2.resturantNameble1.text = data1.name1
                 
-            cell2.backgroundColor = .white
+            cell2.backgroundColor = UIColor(named: "Color-1")
             cell2.layer.cornerRadius = 10
             cell2.layer.borderWidth = 25
             cell2.layer.borderColor = UIColor.clear.cgColor
@@ -163,10 +163,10 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     func addControl()  {
 
-        segmentedControl.insertSegment(withTitle: "terminal1", at: 0, animated: true)
-        segmentedControl.setTitle("terminal1", forSegmentAt: 0)
-        segmentedControl.insertSegment(withTitle: "terminal2", at: 1, animated: true)
-        segmentedControl.setTitle("terminal2", forSegmentAt: 1)
+        segmentedControl.insertSegment(withTitle: NSLocalizedString("terminal1", comment: "") , at: 0, animated: true)
+        segmentedControl.setTitle(NSLocalizedString("terminal1", comment: ""), forSegmentAt: 0)
+        segmentedControl.insertSegment(withTitle: NSLocalizedString("terminal2", comment: ""), at: 1, animated: true)
+        segmentedControl.setTitle(NSLocalizedString("terminal2", comment: ""), forSegmentAt: 1)
         segmentedControl.addTarget(self, action: #selector(Segment), for: .valueChanged)
         segmentedControl.frame = CGRect(x: 60, y: 150, width: 300, height: 40)
         segmentedControl.selectedSegmentIndex = 0

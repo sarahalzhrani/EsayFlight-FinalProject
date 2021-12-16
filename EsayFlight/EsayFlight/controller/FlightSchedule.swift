@@ -181,8 +181,9 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     @objc func openNewPage() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Add Flight", comment:""), style: .default, handler: { Action in
-            self.present(serchForFlight(), animated: true, completion: nil)
-            
+//            self.present(serchForFlight(), animated: true, completion: nil)
+           let vc = serchForFlight()
+            self.navigationController?.pushViewController(vc,animated: true)
         } ))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Scan parcod", comment:"") , style: .default, handler: { Action in
             self.present(ScanCode(), animated: true, completion: nil)

@@ -17,7 +17,8 @@ class Terminal2Cell : UICollectionViewCell{
       let imageView = UIImageView()
       imageView.image = UIImage(named: "")
       imageView.translatesAutoresizingMaskIntoConstraints = false
-//      imageView.layer.cornerRadius = 50
+        imageView.layer.masksToBounds = true
+      imageView.layer.cornerRadius = 25
       return imageView
     }()
     

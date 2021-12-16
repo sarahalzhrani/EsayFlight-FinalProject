@@ -9,7 +9,7 @@ import FirebaseFirestore
 
 
 
-class AskForHelp : UIViewController, UITextViewDelegate {
+class AskForHelp : UIViewController, UITextFieldDelegate {
     var blackSquare: UIView!
     let dropDown = DropDown()
     let dropDown1 = DropDown()
@@ -41,7 +41,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         let label = UILabel()
         label.text = NSLocalizedString("Name:", comment: "")
         label.textAlignment = .left
-//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,7 +49,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let helath : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Health status:", comment: "")
-//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,7 +57,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let specailNeeds : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Flight number:", comment: "")
-//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,7 +66,6 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     let flightNumber : UILabel = {
         let label = UILabel()
         label.text =  NSLocalizedString("special Needs:", comment: "")
-//        label.textColor = .black
         label.font = label.font.withSize(25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -130,19 +126,27 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     }()
     
     
-    
-    let textView = UITextView(frame: CGRect(x: 30, y: 190, width: 350, height: 45.0))
-    let textView2 = UITextView(frame: CGRect(x: 30, y: 370, width: 350, height: 45.0))
-    let stackView   = UIStackView()
+    var txtField: UITextField = UITextField(frame: CGRect(x: 30, y: 190, width: 350, height: 45.0))
     
 
+    let stackView   = UIStackView()
+    var txtField2: UITextField = UITextField(frame: CGRect(x: 30, y: 370, width: 350, height: 45.0))
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtField.resignFirstResponder()
+        txtField2.resignFirstResponder()
+             return true
+         }
     
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SetupView()
-        
+        self.txtField.delegate = self
+        self.txtField2.delegate = self
+        self.view.addSubview(txtField)
+        self.view.addSubview(txtField2)
         dropDown.selectionAction  = { index, selected in
             self.dropdownlable.text = selected
             self.selectedOption = selected
@@ -158,10 +162,11 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         }
 
         let name =  UserDefaults.standard.value(forKey: "namekey") as? String
-        textView.text = name
+        txtField.text = name
         
         let flight = UserDefaults.standard.value(forKey: "specailNeeds") as? String
-        textView2.text = flight
+        txtField2.text = flight
+        
         
        
     }
@@ -170,13 +175,13 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     
     
     private func SetupView () {
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .white
         self.navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
-        let navItem = UINavigationItem(title: "Ask for Help")
-       
+        _ = UINavigationItem(title: "Ask for Help")
+        
         blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
         blackSquare.backgroundColor = UIColor(named: "Color")
         blackSquare.layer.cornerRadius = 55
@@ -186,7 +191,7 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         Square.backgroundColor = .systemGray6
         Square.layer.cornerRadius = 10
         view.addSubview(Square)
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .white
         line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
         line.backgroundColor = .gray
         line.layer.cornerRadius = 10
@@ -211,8 +216,8 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         view.addSubview(Square2)
         view.addSubview(listeBtn1)
         view.addSubview(listeBtn)
-        self.view.addSubview(textView)
-        self.view.addSubview(textView2)
+//        self.view.addSubview(textView)
+//        self.view.addSubview(textView2)
         view.addSubview(dropdownlable)
         view.addSubview(registerBtn)
         view.addSubview(dropdownlable2)
@@ -242,35 +247,21 @@ class AskForHelp : UIViewController, UITextViewDelegate {
         listeBtn.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 180).isActive = true
         listeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        textView.contentInsetAdjustmentBehavior = .automatic
-        textView.textAlignment = .left
-        textView.backgroundColor = UIColor.systemGray6
-        textView.textColor = UIColor.black
-        textView.font = .systemFont(ofSize: 20)
-        textView.isSelectable = true
-        textView.isEditable = false
-        textView.dataDetectorTypes = UIDataDetectorTypes.link
-        textView.layer.cornerRadius = 10
-        textView.autocorrectionType = UITextAutocorrectionType.yes
-        textView.spellCheckingType = UITextSpellCheckingType.yes
-        textView.isEditable = true
-        textView.delegate = self
+        txtField.textAlignment = .left
+        txtField.backgroundColor = UIColor.systemGray6
+        txtField.textColor = UIColor.black
+        txtField.font = .systemFont(ofSize: 20)
+        txtField.autocorrectionType = UITextAutocorrectionType.yes
+        txtField.spellCheckingType = UITextSpellCheckingType.yes
+        txtField.layer.cornerRadius - 25
+        txtField2.textAlignment = .left
+        txtField2.backgroundColor = UIColor.systemGray6
+        txtField2.textColor = UIColor.black
+        txtField2.font = .systemFont(ofSize: 20)
+        txtField2.autocorrectionType = UITextAutocorrectionType.yes
+        txtField2.spellCheckingType = UITextSpellCheckingType.yes
 
         
-        textView2.contentInsetAdjustmentBehavior = .automatic
-        textView2.textAlignment = .left
-        textView2.backgroundColor = UIColor.systemGray6
-        textView2.textColor = UIColor.black
-        textView2.font = .systemFont(ofSize: 20)
-        textView2.isSelectable = true
-        textView2.isEditable = false
-        textView2.dataDetectorTypes = UIDataDetectorTypes.link
-        textView2.layer.cornerRadius = 10
-        textView2.autocorrectionType = UITextAutocorrectionType.yes
-        textView2.spellCheckingType = UITextSpellCheckingType.yes
-        textView2.isEditable = true
-        textView2.delegate = self
-
     
       
         dropdownlable.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
@@ -322,8 +313,8 @@ class AskForHelp : UIViewController, UITextViewDelegate {
     
     @objc func sendPressed() {
         
-        let  name = textView.text ?? ""
-         let specailNeeds = textView2.text
+        let  name = txtField.text ?? ""
+         let specailNeeds = txtField2.text
         UserDefaults.standard.set(name,forKey: "namekey")
         UserDefaults.standard.set(specailNeeds,forKey: "specailNeeds")
         

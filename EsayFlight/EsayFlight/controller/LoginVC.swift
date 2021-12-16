@@ -75,6 +75,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }()
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          emailTF.resignFirstResponder()
+          passwordTF.resignFirstResponder()
+             return true
+         }
 
     override func viewDidLoad() {
         super.viewDidLoad()

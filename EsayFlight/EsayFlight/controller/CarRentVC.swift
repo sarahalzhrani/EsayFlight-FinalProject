@@ -157,6 +157,8 @@ class CarRentCell : UICollectionViewCell{
     var imageView3: UIImageView = {
       let imageView = UIImageView()
       imageView.image = UIImage(named: "")
+      imageView.layer.masksToBounds = true
+      imageView.layer.cornerRadius = 25
       imageView.translatesAutoresizingMaskIntoConstraints = false
       return imageView
     }()

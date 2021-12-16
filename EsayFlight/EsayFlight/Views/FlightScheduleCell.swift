@@ -157,9 +157,9 @@ class FlightScheduleCell: UICollectionViewCell {
         view1.layer.cornerRadius = 10
         contentView.addSubview(view1)
         view1.addSubview(imagecell)
-        imagecell.image = UIImage(named: "000")
+        imagecell.image = UIImage(named: "air2")
         imagecell.layer.masksToBounds = true
-        imagecell.layer.cornerRadius = 100
+//        imagecell.layer.cornerRadius = 100
         imagecell.contentMode = .scaleAspectFit
 
            NSLayoutConstraint.activate([imagecell.leftAnchor.constraint(equalTo: leftAnchor),
@@ -296,9 +296,7 @@ class FlightScheduleCell: UICollectionViewCell {
         let x2 = fightnumberlabel.text ?? ""
         let x3 = timelabel.text ?? ""
         saveData(number: x2, name: x1, date1: x3)
-//        dat22.append(x1)
-//        dat22.append(x2)
-//        dat22.append(x3)
+
 
     }
 

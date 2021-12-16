@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        guard let scene = (scene as? UIWindowScene) else { return }
 //            /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
 //            let window = UIWindow(windowScene: scene)
-//              window.rootViewController = LoginVC()
+//              window.rootViewController = AnimationLaunch()
 //              window.makeKeyAndVisible()
 //              self.window = window
 //    }

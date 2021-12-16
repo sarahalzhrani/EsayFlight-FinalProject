@@ -310,9 +310,9 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             self.addSubview(view1)
 //            self.addSubview(view2)
             view1.addSubview(imagecell)
-            imagecell.image = UIImage(named: "000")
+            imagecell.image = UIImage(named: "air2")
             imagecell.layer.masksToBounds = true
-            imagecell.layer.cornerRadius = 100
+//            imagecell.layer.cornerRadius = 100
             imagecell.contentMode = .scaleAspectFit
 
                NSLayoutConstraint.activate([imagecell.leftAnchor.constraint(equalTo: leftAnchor),

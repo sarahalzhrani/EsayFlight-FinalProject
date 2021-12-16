@@ -19,7 +19,7 @@ class LOgCEllCell: UICollectionViewCell {
     let CitylabelA: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textColor = .black
+        label.textColor = .gray
         label.font = label.font.withSize(16)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ class LOgCEllCell: UICollectionViewCell {
     let timelabelA: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textColor = .black
+        label.textColor = .gray
         label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,7 +63,8 @@ class LOgCEllCell: UICollectionViewCell {
     let tOlabelA: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("To", comment:"")
-        label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
+        label.textColor = .gray
+//        UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
         label.font = label.font.withSize(25)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,9 +85,9 @@ class LOgCEllCell: UICollectionViewCell {
         self.addSubview(line)
         
         self.backgroundColor = .white
-        imagecell.image = UIImage(named: "000")
+        imagecell.image = UIImage(named: "air1")
         imagecell.layer.masksToBounds = true
-        imagecell.layer.cornerRadius = 100
+//        imagecell.layer.cornerRadius = 100
         imagecell.contentMode = .scaleAspectFit
 
            NSLayoutConstraint.activate([imagecell.leftAnchor.constraint(equalTo: leftAnchor),

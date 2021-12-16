@@ -21,8 +21,8 @@
 		1F4750C7275749C800F1C9FF /* video11.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F4750C6275749C800F1C9FF /* video11.MP4 */; };
 		1F484AF92767D2940048F280 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */; };
 		1F484AFA2767D2940048F280 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */; };
+		1F484AFE2768CFE30048F280 /* AnimationLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */; };
 		1F608402275C9E7000B21702 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F608404275C9E7000B21702 /* Localizable.strings */; };
-		1F608407275CDE8E00B21702 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608406275CDE8E00B21702 /* Color.swift */; };
 		1F608429275F536100B21702 /* MyFlightServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608428275F536100B21702 /* MyFlightServices.swift */; };
 		1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6583CF2760C1750067ADEB /* CallUsVC.swift */; };
 		1F7421F62761DB3700B53C27 /* HomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7421F52761DB3700B53C27 /* HomeCell2.swift */; };
@@ -74,10 +74,10 @@
 		1F4750C6275749C800F1C9FF /* video11.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video11.MP4; sourceTree = "<group>"; };
 		1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLaunch.swift; sourceTree = "<group>"; };
 		1F6083FF275C9DA800B21702 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1F608403275C9E7000B21702 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F608405275C9E7100B21702 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1F608406275CDE8E00B21702 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1F608428275F536100B21702 /* MyFlightServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlightServices.swift; sourceTree = "<group>"; };
 		1F6583CF2760C1750067ADEB /* CallUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUsVC.swift; sourceTree = "<group>"; };
 		1F7421F52761DB3700B53C27 /* HomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell2.swift; sourceTree = "<group>"; };
@@ -140,22 +140,56 @@
 		1F1FBDB6274F73C900D9F691 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F9E1FE6274B6B6D00679CC3 /* LoginVC.swift */,
 				1F608428275F536100B21702 /* MyFlightServices.swift */,
 				1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1F484AFB2768BCE30048F280 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				1FDA791A276730A9009D42FD /* careem.MP4 */,
+				1F4750C6275749C800F1C9FF /* video11.MP4 */,
+				1F7421F72761F21E00B53C27 /* Travel.mp4 */,
+				1F7421F92761F22E00B53C27 /* Taxi.mp4 */,
+				1F7421FB2761F25800B53C27 /* starbucks.mp4 */,
+				1FB8061D2756A97B00CC5D55 /* video3.MP4 */,
+				1FB8061F2756A98500CC5D55 /* video4.mp4 */,
+				1FB806212756A99000CC5D55 /* video5.MP4 */,
+				1FB806272756B1DF00CC5D55 /* video7.MP4 */,
+				1FB806292756B1F000CC5D55 /* video8.MP4 */,
+				1F4750C22757450800F1C9FF /* video9.MP4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		1F484AFC2768BDB20048F280 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */,
+				1F7C87B5274E12A700112F6A /* HomeCell.swift */,
+				1F7421F52761DB3700B53C27 /* HomeCell2.swift */,
+				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
+				1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */,
+				1F1FBDB9274F868300D9F691 /* searchCell.swift */,
+				1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */,
+				1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */,
+				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
+				1F7421FF2762396200B53C27 /* MenuViewController.swift */,
+				1F7421FD276238E500B53C27 /* ContainerViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1F6583CE2760C0BC0067ADEB /* TAbbar */ = {
 			isa = PBXGroup;
 			children = (
-				1F6583CF2760C1750067ADEB /* CallUsVC.swift */,
+				1F1FBDC32754A60D00D9F691 /* TabVC.swift */,
+				1F7C87B0274CFFAE00112F6A /* Home.swift */,
 				1F7C87BB274E2B0900112F6A /* profiel.swift */,
 				1F1FBDB7274F811700D9F691 /* Location.swift */,
-				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
 				1F1FBDBD275359DE00D9F691 /* Advertisement.swift */,
-				1F1FBDC52754A74600D9F691 /* CarRentVC.swift */,
 			);
 			path = TAbbar;
 			sourceTree = "<group>";
@@ -163,7 +197,6 @@
 		1F7C87B4274D273C00112F6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1F608406275CDE8E00B21702 /* Color.swift */,
 				1F7C87B2274D273100112F6A /* Data.swift */,
 				1F1FBDB6274F73C900D9F691 /* Services */,
 			);
@@ -173,36 +206,17 @@
 		1F7C87BF274E2B3B00112F6A /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				1F7421FF2762396200B53C27 /* MenuViewController.swift */,
-				1F7421FD276238E500B53C27 /* ContainerViewController.swift */,
-				1F1FBDC32754A60D00D9F691 /* TabVC.swift */,
-				1F7C87B0274CFFAE00112F6A /* Home.swift */,
-				1F7C87B5274E12A700112F6A /* HomeCell.swift */,
-				1F7421F52761DB3700B53C27 /* HomeCell2.swift */,
+				1F9E1FE6274B6B6D00679CC3 /* LoginVC.swift */,
 				1F7C87B7274E2ABC00112F6A /* serchForFlight.swift */,
 				1F7422012763CD7B00B53C27 /* FlightSchedule.swift */,
-				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
-				1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */,
 				1F7C87B9274E2ADD00112F6A /* serchForluggage.swift */,
 				1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */,
 				1F7422052764AD7C00B53C27 /* scanCode.swift */,
-				1F1FBDB9274F868300D9F691 /* searchCell.swift */,
 				1F7C87BD274E2B3300112F6A /* AskForHelp.swift */,
+				1F1FBDC52754A74600D9F691 /* CarRentVC.swift */,
+				1F6583CF2760C1750067ADEB /* CallUsVC.swift */,
 				1F1FBDBB275359AE00D9F691 /* Terminal1.swift */,
-				1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */,
-				1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */,
-				1F6583CE2760C0BC0067ADEB /* TAbbar */,
-				1F4750C22757450800F1C9FF /* video9.MP4 */,
-				1FB806292756B1F000CC5D55 /* video8.MP4 */,
-				1FB806272756B1DF00CC5D55 /* video7.MP4 */,
-				1FB806212756A99000CC5D55 /* video5.MP4 */,
-				1FB8061F2756A98500CC5D55 /* video4.mp4 */,
-				1FB8061D2756A97B00CC5D55 /* video3.MP4 */,
-				1F7421FB2761F25800B53C27 /* starbucks.mp4 */,
-				1F7421F92761F22E00B53C27 /* Taxi.mp4 */,
-				1F7421F72761F21E00B53C27 /* Travel.mp4 */,
-				1F4750C6275749C800F1C9FF /* video11.MP4 */,
-				1FDA791A276730A9009D42FD /* careem.MP4 */,
+				1F484AFB2768BCE30048F280 /* Video */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -234,6 +248,8 @@
 				1F7C87B4274D273C00112F6A /* Models */,
 				1F9E1FE2274B6B6D00679CC3 /* AppDelegate.swift */,
 				1F9E1FE4274B6B6D00679CC3 /* SceneDelegate.swift */,
+				1F484AFC2768BDB20048F280 /* Views */,
+				1F6583CE2760C0BC0067ADEB /* TAbbar */,
 				1F7C87BF274E2B3B00112F6A /* controller */,
 				1F9E1FEB274B6B6F00679CC3 /* Assets.xcassets */,
 				1F9E1FED274B6B6F00679CC3 /* LaunchScreen.storyboard */,
@@ -399,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7C87BA274E2ADD00112F6A /* serchForluggage.swift in Sources */,
+				1F484AFE2768CFE30048F280 /* AnimationLaunch.swift in Sources */,
 				1F9E1FE7274B6B6D00679CC3 /* LoginVC.swift in Sources */,
 				1F484AF92767D2940048F280 /* Flight+CoreDataClass.swift in Sources */,
 				1F7421FE276238E600B53C27 /* ContainerViewController.swift in Sources */,
@@ -421,7 +438,6 @@
 				1F7421F62761DB3700B53C27 /* HomeCell2.swift in Sources */,
 				1F1FBDC227535A2900D9F691 /* Terminal2Cell.swift in Sources */,
 				1F7C87BE274E2B3300112F6A /* AskForHelp.swift in Sources */,
-				1F608407275CDE8E00B21702 /* Color.swift in Sources */,
 				1F1FBDBC275359AE00D9F691 /* Terminal1.swift in Sources */,
 				1F1FBDC027535A0A00D9F691 /* Terminal1Cell.swift in Sources */,
 				1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */,

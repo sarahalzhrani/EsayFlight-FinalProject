@@ -16,6 +16,8 @@ class Terminal1Cell : UICollectionViewCell{
     var imageView: UIImageView = {
       let imageView = UIImageView()
       imageView.image = UIImage(named: "")
+      imageView.layer.masksToBounds = true
+      imageView.layer.cornerRadius = 25
       imageView.translatesAutoresizingMaskIntoConstraints = false
       return imageView
     }()
@@ -24,7 +26,6 @@ class Terminal1Cell : UICollectionViewCell{
     let resturantNameble: UILabel = {
         let label = UILabel()
         label.text = "name"
-//        label.textColor = .black
         label.font = label.font.withSize(20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

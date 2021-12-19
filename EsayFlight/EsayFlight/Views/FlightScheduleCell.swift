@@ -290,7 +290,13 @@ class FlightScheduleCell: UICollectionViewCell {
         
         SPAlert.present(message: "Thank God for safety We wish you a pleasant stay", haptic: .none)
         
-        Firestore.firestore().collection("myflights").document(Cityname2).delete()
+        Firestore.firestore().collection("myflights").document(Cityname2).delete { err in
+            if let error = err {
+                print("NO Delete with error \(error)")
+            } else {
+                print("item deleted from collection \(Cityname2)")
+            }
+        }
         
         let x1 = nameCitylabel.text ?? ""
         let x2 = fightnumberlabel.text ?? ""

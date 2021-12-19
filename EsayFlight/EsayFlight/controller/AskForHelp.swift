@@ -124,11 +124,11 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     }()
     
     
-    var txtField: UITextField = UITextField(frame: CGRect(x: 30, y: 190, width: 350, height: 45.0))
+    var txtField: UITextField = UITextField(frame: CGRect(x: 30, y: 190, width: 350, height: 42))
     
 
     let stackView   = UIStackView()
-    var txtField2: UITextField = UITextField(frame: CGRect(x: 30, y: 370, width: 350, height: 45.0))
+    var txtField2: UITextField = UITextField(frame: CGRect(x: 30, y: 370, width: 350, height: 42))
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         txtField.resignFirstResponder()
@@ -145,6 +145,12 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         self.txtField2.delegate = self
         self.view.addSubview(txtField)
         self.view.addSubview(txtField2)
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background2")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         dropDown.selectionAction  = { index, selected in
             self.dropdownlable.text = selected
             self.selectedOption = selected
@@ -181,15 +187,15 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         _ = UINavigationItem(title: "Ask for Help")
         
         blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
-        blackSquare.backgroundColor = UIColor(named: "Color")
+//        blackSquare.backgroundColor = .systemGray5
         blackSquare.layer.cornerRadius = 55
-        view.addSubview(blackSquare)
+//        view.addSubview(blackSquare)
         
         Square = UIView(frame: CGRect(x: 30, y: 290, width: 350, height:40))
-        Square.backgroundColor = .systemGray6
+        Square.backgroundColor = .white
         Square.layer.cornerRadius = 10
         view.addSubview(Square)
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray5
         line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
         line.backgroundColor = .gray
         line.layer.cornerRadius = 10
@@ -209,7 +215,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
          view.addSubview(line4)
         
         Square2 = UIView(frame: CGRect(x: 30, y: 470, width: 350, height:40))
-        Square2.backgroundColor = .systemGray6
+        Square2.backgroundColor = .white
         Square2.layer.cornerRadius = 10
         view.addSubview(Square2)
         view.addSubview(listeBtn1)
@@ -240,18 +246,19 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
 
        
         listeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
-        listeBtn.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 180).isActive = true
+        listeBtn.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 200).isActive = true
         listeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        txtField.textAlignment = .left
-        txtField.backgroundColor = UIColor.systemGray6
+        txtField.textAlignment = .center
+        txtField.backgroundColor = .white
         txtField.textColor = UIColor.black
         txtField.font = .systemFont(ofSize: 20)
         txtField.autocorrectionType = UITextAutocorrectionType.yes
         txtField.spellCheckingType = UITextSpellCheckingType.yes
-        txtField.layer.cornerRadius - 25
-        txtField2.textAlignment = .left
-        txtField2.backgroundColor = UIColor.systemGray6
+        txtField.layer.cornerRadius = 15
+        txtField2.layer.cornerRadius = 15
+        txtField2.textAlignment = .center
+        txtField2.backgroundColor = .white
         txtField2.textColor = UIColor.black
         txtField2.font = .systemFont(ofSize: 20)
         txtField2.autocorrectionType = UITextAutocorrectionType.yes
@@ -265,8 +272,8 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         dropdownlable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
       
         registerBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 550).isActive = true
-        registerBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
-        registerBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
+        registerBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+        registerBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -18).isActive = true
         registerBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         dropdownlable2.topAnchor.constraint(equalTo: view.topAnchor, constant: 480).isActive = true

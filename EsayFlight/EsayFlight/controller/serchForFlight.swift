@@ -10,11 +10,16 @@ import FirebaseFirestore
 import SPAlert
 
 
-
 class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     var tables = [Fligt] ()
-   
     
+//    var selectedIndex:Int?{
+//        didSet {
+//            tableView2.reloadData()
+//            tableView2.scrollToRow(at: IndexPath(row: selectedIndex!, section: 0), at: .middle, animated: true)
+//        }
+//    }
+    var tab2: Fligt!
     var isSearch:Bool = false{
         didSet {
             tableView2.reloadData()
@@ -27,7 +32,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         }
     }
     lazy var searchBar:UISearchBar = UISearchBar()
-
+    
     lazy var tableView2: UITableView = {
         let tablaView = UITableView()
         tablaView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,13 +41,14 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         tablaView.register(tableflightCell.self, forCellReuseIdentifier: tableflightCell.identifire)
         tablaView.backgroundColor = UIColor(named: "Color")
         return tablaView
-       }()
+    }()
     
     override func viewDidLoad() {
-          super.viewDidLoad()
+        super.viewDidLoad()
         view.addSubview(tableView2)
         tableView2.backgroundColor = .systemGray5
         view.backgroundColor = .white
+        //        title = "Flights"
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
         searchBar.showsCancelButton = true
@@ -56,115 +62,87 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         
         NSLayoutConstraint.activate([
             
-        tableView2.topAnchor.constraint(equalTo: view.topAnchor),
-        tableView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        tableView2.rightAnchor.constraint(equalTo: view.rightAnchor),
-        tableView2.leftAnchor.constraint(equalTo: view.leftAnchor)
-            ])
+            tableView2.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView2.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView2.leftAnchor.constraint(equalTo: view.leftAnchor)
+        ])
         
         
         
         Firestore.firestore().collection("flights").addSnapshotListener { snapshot, error in
-            
-            
-            if error != nil {
-                print(snapshot)
-                return
-            }
-            print(snapshot)
-            
-            guard let docs = snapshot?.documents else {
-                return
-            }
+            if error != nil {return}
+            guard let docs = snapshot?.documents else { return }
             print(docs)
             
             var details : [Fligt] = []
             for doc in docs {
                 let data = doc.data()
-               
-                    let flightdetails = Fligt(
-                        cityName: (data["cityName"] as? String) ?? "",
-                        time: (data["time"] as? String) ?? "",
-                        date: (data["date"] as? String) ?? "",
-                        terminal: (data["terminal"] as? String) ?? "",
-                        flightNum: (data["flightNum"] as? String ) ?? "",
-                        fligtStatuse: (data["fligtStatuse"] as? String) ?? ""
-                        
-                        
-                                           )
+                let flightdetails = Fligt(
+                    cityName: (data["cityName"] as? String) ?? "",
+                    time: (data["time"] as? String) ?? "",
+                    date: (data["date"] as? String) ?? "",
+                    terminal: (data["terminal"] as? String) ?? "",
+                    flightNum: (data["flightNum"] as? String ) ?? "",
+                    fligtStatuse: (data["fligtStatuse"] as? String) ?? ""
+                )
                 details.append(flightdetails)
-                    
-                }
-                 self.tables = details
-                self.tableView2.reloadData()
-            
             }
-        
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            isSearch = true
-            print(searchBar.text)
-            let seName = (searchBar.text ?? "")
-            if tables.contains(where: {$0.cityName == seName}) {
-                let result = tables.filter({$0.cityName == seName})
-                resultSearch.removeAll()
-                resultSearch = result
-                print("name is exist")
-            } else {
-                print ("Not Found")
-            }
+            self.tables = details
+            self.tableView2.reloadData()
         }
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            isSearch = false
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isSearch = true
+        print(searchBar.text)
+        let seName = (searchBar.text ?? "")
+        if tables.contains(where: {$0.cityName == seName}) {
+            let result = tables.filter({$0.cityName == seName})
+            resultSearch.removeAll()
+            resultSearch = result
+            print("name is exist")
+        } else {
+            print ("Not Found")
         }
-    
-        
-      
-      
-        
-        
-  
-      }
-    
-    
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearch = false
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch {
             return resultSearch.count
         } else {
             return tables.count
-
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableflightCell", for: indexPath) as! tableflightCell
         let data = tables[indexPath.row]
-        
         cell.gatelabel.text = data.terminal
         cell.status.text = data.fligtStatuse
         cell.fightnumberlabel.text = data.flightNum
         cell.timelabel.text = data.time
         cell.Citylabel.text = data.cityName
         cell.dateNumber.text = data.date
-
-    
-        return cell}
-    
-    var selectedIndex  = -1
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         if indexPath.row == selectedIndex {
-          return 140
-         }else {
-          return 250
-         }
-        }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tables[indexPath.row].isSelcted = true
        
+        return cell
     }
     
+    var selectedIndex = -1
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndex {
+            return 130
+        } else {
+            return 250
+        }
+    }
+    
+
 }
 
+
+//MARK: TABLE VEW CEll
     class tableflightCell: UITableViewCell {
         static let identifire = "tableflightCell"
         

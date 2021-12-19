@@ -19,7 +19,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     var line2: UIView!
     var line3: UIView!
     var line4: UIView!
-    let data = [ NSLocalizedString("Old", comment: ""),NSLocalizedString("blind", comment: ""),NSLocalizedString("paralyzed", comment: ""),NSLocalizedString("child", comment: ""),NSLocalizedString("housemaid reception", comment: "")]
+    let data = [ NSLocalizedString("Old", comment: ""),NSLocalizedString("blind", comment: ""),NSLocalizedString("paralyzed", comment: ""),NSLocalizedString("child", comment: ""),NSLocalizedString("housemaid reception", comment: ""),NSLocalizedString("Lockdown baggage claim", comment: "") ]
     let data2 = [NSLocalizedString("wheel chair", comment: ""),
                  NSLocalizedString("personal escort", comment: "")]
     let timePicker = UIDatePicker()
@@ -74,7 +74,6 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     let dropdownlable : UILabel = {
         let label = UILabel()
         label.text =  NSLocalizedString( "select health status..", comment: "")
-//        label.textColor = .black
         label.font = label.font.withSize(19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -84,7 +83,6 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     let dropdownlable2 : UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("select your needs..", comment: "")
-//        label.textColor = .black
         label.font = label.font.withSize(19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -216,8 +214,6 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         view.addSubview(Square2)
         view.addSubview(listeBtn1)
         view.addSubview(listeBtn)
-//        self.view.addSubview(textView)
-//        self.view.addSubview(textView2)
         view.addSubview(dropdownlable)
         view.addSubview(registerBtn)
         view.addSubview(dropdownlable2)
@@ -299,7 +295,10 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     
       
     @objc func handleCancel() {
-        dismiss(animated: true, completion: nil)
+        let vc = profiel()
+        self.navigationController?.pushViewController(vc,animated: true)
+        
+//        dismiss(animated: true, completion: nil)
     }
 
     

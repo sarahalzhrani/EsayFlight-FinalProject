@@ -43,7 +43,6 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
         view.addSubview(tableView2)
         tableView2.backgroundColor = .systemGray5
         view.backgroundColor = .white
-//        title = "Flights"
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
         searchBar.showsCancelButton = true
@@ -308,11 +307,9 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             view1.backgroundColor = .white
             view1.layer.cornerRadius = 10
             self.addSubview(view1)
-//            self.addSubview(view2)
             view1.addSubview(imagecell)
             imagecell.image = UIImage(named: "air2")
             imagecell.layer.masksToBounds = true
-//            imagecell.layer.cornerRadius = 100
             imagecell.contentMode = .scaleAspectFit
 
                NSLayoutConstraint.activate([imagecell.leftAnchor.constraint(equalTo: leftAnchor),
@@ -427,12 +424,7 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             self.layer.shadowOpacity = 0.2
             self.layer.masksToBounds = false
             self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
-//            let alertView = SPAlertView(title: "Added to Library", message: nil, preset: SPAlertIconPreset.done)
-//            alertView.duration = 3
-//            alertView.present()
-//            alertView.layout.margins.top = 12
-//            alertView.layout.iconSize = 30
-//            alertView.dismissByTap = false
+
 
         }
         

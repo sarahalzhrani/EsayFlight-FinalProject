@@ -87,7 +87,6 @@ class LOgCEllCell: UICollectionViewCell {
         self.backgroundColor = .white
         imagecell.image = UIImage(named: "air1")
         imagecell.layer.masksToBounds = true
-//        imagecell.layer.cornerRadius = 100
         imagecell.contentMode = .scaleAspectFit
 
            NSLayoutConstraint.activate([imagecell.leftAnchor.constraint(equalTo: leftAnchor),

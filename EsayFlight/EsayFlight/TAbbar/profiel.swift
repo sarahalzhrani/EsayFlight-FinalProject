@@ -15,7 +15,7 @@ protocol HomeViewControllerDelegate: AnyObject {
   func didTapMenuButton()
 }
 
-class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, HomeViewControllerDelegate {
+class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     weak var delegate: HomeViewControllerDelegate?
     
@@ -132,11 +132,20 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         view.addSubview(tableView1)
         tableView1.backgroundColor = UIColor(named: "Color")
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuButton))
-        delegate = self
-        title = NSLocalizedString("profile", comment:"الصفحه الشخصيه")
+
+        
+        
+//        delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(newask)
+        )
+        title = NSLocalizedString("My order", comment:"الصفحه الشخصيه")
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
+        
         view.addSubview(Button1)
         NSLayoutConstraint.activate([
             
@@ -219,12 +228,23 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         exit(0)
 
     }
+    
     @objc func didTapMenuButton() {
-      delegate?.didTapMenuButton()
+//      delegate?.didTapMenuButton()
+//        let vc = AskForHelp()
+//        self.navigationController?.pushViewController(vc,animated: true)
+        let vc = AskForHelp()
+//            self.navigationController?.pushViewController(vc,animated: true)
+            self.present(AskForHelp(), animated: true, completion: nil)
+        
         print("tapp is active ")
     }
     
+    @objc func newask() {
+        let vc = AskForHelp()
+        self.present(AskForHelp(), animated: true, completion: nil)
     
+    }
    
 }
 class ProfileCell: UITableViewCell {

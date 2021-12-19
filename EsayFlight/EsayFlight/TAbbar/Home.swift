@@ -89,9 +89,8 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     func setupCollectionConstraints2() {
         MycollectionView.translatesAutoresizingMaskIntoConstraints = false
         MycollectionView.topAnchor.constraint(equalTo: namelable.bottomAnchor,constant: 10).isActive = true
+        MycollectionView.leftAnchor.constraint(equalTo: scrollView.leftAnchor,constant: 16).isActive = true
         MycollectionView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-//        MycollectionView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-//        MycollectionView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
         MycollectionView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
 
         }
@@ -279,13 +278,17 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 
             }else if indexPath.row == 1 {
                 
-                let navigationController = UINavigationController(
-                    rootViewController:AskForHelp()
-                )
+//                let navigationController = UINavigationController(
+//                    rootViewController: profiel()
+                let vc = profiel()
+                self.navigationController?.pushViewController(vc,animated: true)
                 
-                navigationController.navigationBar.prefersLargeTitles = true
-                navigationController.modalPresentationStyle = .fullScreen
-                present(navigationController, animated: true, completion: nil)
+//                navigationController.navigationBar.prefersLargeTitles = true
+//                navigationController.modalPresentationStyle = .fullScreen
+//                present(navigationController, animated: true, completion: nil)
+                
+               
+                
             } else if indexPath.row == 2 {
                 
                 let navigationController = UINavigationController(
@@ -294,6 +297,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 navigationController.modalPresentationStyle = .fullScreen
                 navigationController.navigationBar.prefersLargeTitles = true
                 present(navigationController, animated: true, completion: nil)
+                
             }  else if indexPath.row == 3 {
                 let navigationController = UINavigationController(
                     rootViewController: serchForluggage()

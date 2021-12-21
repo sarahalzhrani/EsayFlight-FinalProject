@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 import FirebaseAuth
 
 class LoginVC: UIViewController, UITextFieldDelegate {
@@ -130,44 +130,86 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     @objc func registerBtnPressed() {
-        let email = emailTF.text ?? ""
-        let password = passwordTF.text ?? ""
         
-        if email.isEmpty || password.isEmpty {
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error as Any)
-                return
+        if let email = emailTF.text, email.isEmpty == false,
+           let password = passwordTF.text, password.isEmpty == false {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if error == nil {
+                    // go to main vc
+                    let vc = UINavigationController(rootViewController: TabBarVC())
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    print(error?.localizedDescription )
+                }
+                guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+                Firestore.firestore().document("users/\(currentUserID)").setData([
+//                    "name" : self.name.text as Any,
+                    "id" : currentUserID,
+                    "email" : self.emailTF.text as Any
+//                    "status" : "online"
+                ])
             }
-            
-            self.present(Home(), animated: true, completion: nil)
         }
+
+        
+//        let email = emailTF.text ?? ""
+//        let password = passwordTF.text ?? ""
+//
+//        if email.isEmpty || password.isEmpty {
+//            return
+//        }
+//
+//        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+//            if error != nil {
+//                print(error as Any)
+//                return
+//            }
+//
+//            let vc1 = TabBarVC()
+//            vc1.modalPresentationStyle = .fullScreen
+//            self.present(vc1, animated: true, completion: nil)
+//        }
         
     }
     @objc func loginBtnPressed() {
-        let email = emailTF.text ?? ""
-        let password = passwordTF.text ?? ""
+//        let email = emailTF.text ?? ""
+//        let password = passwordTF.text ?? ""
+//
+//        if email.isEmpty || password.isEmpty {
+//            return
+//        }
+//
+//        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+//            if error != nil {
+//                print(error as Any)
+//                return
+//            }
         
-        if email.isEmpty || password.isEmpty {
-            return
-        }
         
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error as Any)
-                return
+        if let email = emailTF.text, email.isEmpty == false,
+           let password = passwordTF.text, password.isEmpty == false {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if error == nil {
+                    // go to main vc
+                    let vc = UINavigationController(rootViewController: TabBarVC())
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    print(error?.localizedDescription)
+                }
             }
-            let vc = TabBarVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+        }
+//            let vc = TabBarVC()
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: true, completion: nil)
         
         }
         
     }
 
 
-}
+
 

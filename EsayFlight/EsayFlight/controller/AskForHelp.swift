@@ -75,6 +75,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         let label = UILabel()
         label.text =  NSLocalizedString( "select health status..", comment: "")
         label.font = label.font.withSize(19)
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -84,6 +85,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         let label = UILabel()
         label.text = NSLocalizedString("select your needs..", comment: "")
         label.font = label.font.withSize(19)
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -116,8 +118,8 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         btn.setTitle("send", for: .normal)
         btn.backgroundColor = .white
         btn.layer.cornerRadius = 15
-        btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
-        btn.layer.borderColor = UIColor.systemMint.cgColor
+        btn.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        btn.layer.borderColor = UIColor.black.cgColor
         btn.layer.borderWidth = 2
         btn.addTarget(self, action: #selector(sendPressed), for: .touchUpInside)
         return btn
@@ -147,7 +149,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         self.view.addSubview(txtField2)
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "background2")
+        backgroundImage.image = UIImage(named: "abc")
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
@@ -191,32 +193,36 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         blackSquare.layer.cornerRadius = 55
 //        view.addSubview(blackSquare)
         
-        Square = UIView(frame: CGRect(x: 30, y: 290, width: 350, height:40))
+        Square = UIView(frame: CGRect(x: 30, y: 290, width: 350, height:43))
         Square.backgroundColor = .white
         Square.layer.cornerRadius = 10
+        Square.layer.borderColor = UIColor.black.cgColor
+        Square.layer.borderWidth = 2
         view.addSubview(Square)
         view.backgroundColor = .systemGray5
-        line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
-        line.backgroundColor = .gray
-        line.layer.cornerRadius = 10
-        view.addSubview(line)
-       
-         line2 = UIView(frame: CGRect(x: 30, y: 331, width: 350, height:1))
-         line2.backgroundColor = .gray
-         line2.layer.cornerRadius = 10
-         view.addSubview(line2)
-         line3 = UIView(frame: CGRect(x: 30, y: 416, width: 350, height:1))
-         line3.backgroundColor = .gray
-         line3.layer.cornerRadius = 10
-         view.addSubview(line3)
-         line4 = UIView(frame: CGRect(x: 30, y: 511, width: 350, height:1))
-         line4.backgroundColor = .gray
-         line4.layer.cornerRadius = 10
-         view.addSubview(line4)
+//        line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
+//        line.backgroundColor = .gray
+//        line.layer.cornerRadius = 10
+//        view.addSubview(line)
+//
+//         line2 = UIView(frame: CGRect(x: 30, y: 331, width: 350, height:1))
+//         line2.backgroundColor = .gray
+//         line2.layer.cornerRadius = 10
+//         view.addSubview(line2)
+//         line3 = UIView(frame: CGRect(x: 30, y: 416, width: 350, height:1))
+//         line3.backgroundColor = .gray
+//         line3.layer.cornerRadius = 10
+//         view.addSubview(line3)
+//         line4 = UIView(frame: CGRect(x: 30, y: 511, width: 350, height:1))
+//         line4.backgroundColor = .gray
+//         line4.layer.cornerRadius = 10
+//         view.addSubview(line4)
         
-        Square2 = UIView(frame: CGRect(x: 30, y: 470, width: 350, height:40))
+        Square2 = UIView(frame: CGRect(x: 30, y: 470, width: 350, height:43))
         Square2.backgroundColor = .white
         Square2.layer.cornerRadius = 10
+        Square2.layer.borderColor = UIColor.black.cgColor
+        Square2.layer.borderWidth = 2
         view.addSubview(Square2)
         view.addSubview(listeBtn1)
         view.addSubview(listeBtn)
@@ -251,15 +257,19 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         
         txtField.textAlignment = .center
         txtField.backgroundColor = .white
-        txtField.textColor = UIColor.black
+        txtField.textColor = UIColor.gray
         txtField.font = .systemFont(ofSize: 20)
         txtField.autocorrectionType = UITextAutocorrectionType.yes
         txtField.spellCheckingType = UITextSpellCheckingType.yes
         txtField.layer.cornerRadius = 15
+        txtField.layer.borderColor = UIColor.black.cgColor
+        txtField.layer.borderWidth = 2
+        txtField2.layer.borderColor = UIColor.black.cgColor
+        txtField2.layer.borderWidth = 2
         txtField2.layer.cornerRadius = 15
         txtField2.textAlignment = .center
         txtField2.backgroundColor = .white
-        txtField2.textColor = UIColor.black
+        txtField2.textColor = UIColor.gray
         txtField2.font = .systemFont(ofSize: 20)
         txtField2.autocorrectionType = UITextAutocorrectionType.yes
         txtField2.spellCheckingType = UITextSpellCheckingType.yes

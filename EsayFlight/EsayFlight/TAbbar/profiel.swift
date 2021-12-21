@@ -210,16 +210,21 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         
     }
     @objc func signOut() {
+        
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            let vc = LoginVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
         }
-    }
+                    let vc = LoginVC()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+
+        }
+    
     
     @objc func changeLang() {
         let currentLang = Locale.current.languageCode

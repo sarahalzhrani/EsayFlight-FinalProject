@@ -72,7 +72,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 175/255, green: 238/255, blue: 238/250, alpha: 2)
         view.addSubview(FlightcollectionView)
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)

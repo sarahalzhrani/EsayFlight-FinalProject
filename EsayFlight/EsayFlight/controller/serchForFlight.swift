@@ -102,6 +102,8 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
             resultSearch = result
             print("name is exist")
         } else {
+            resultSearch.removeAll()
+
             print ("Not Found")
         }
     }

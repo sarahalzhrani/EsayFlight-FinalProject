@@ -16,7 +16,9 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var RentCarBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle(NSLocalizedString("Rent Car", comment: ""), for: .normal)
+        btn.setTitle(NSLocalizedString("Rent Car\n in your destination", comment: ""), for: .normal)
+        btn.titleLabel?.numberOfLines = 0
+        btn.titleLabel?.lineBreakMode = .byWordWrapping
         btn.backgroundColor = UIColor(named: "Color-1")
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
@@ -98,10 +100,11 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     let namelable: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Suggest For you:", comment:"") 
+        label.text = NSLocalizedString("Suggest For you To Planing your vaction:", comment:"")
         label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
         label.textAlignment = .center
-        label.font = label.font.withSize(25)
+        label.numberOfLines = 0
+        label.font = label.font.withSize(18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -216,6 +219,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         let data = details[indexPath.row]
         cell.namelable.text = data.name
         cell.imageView.image = data.image
+        cell.namelable2.text = data.descrption
         
         cell.backgroundColor =  .systemMint
         cell.layer.cornerRadius = 10

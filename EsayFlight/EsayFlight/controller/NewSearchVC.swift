@@ -17,6 +17,7 @@ class NewSearchVC: UIViewController, UITextFieldDelegate {
         tf.placeholder = "Add details.."
         tf.delegate = self
         tf.backgroundColor = .white
+        tf.textAlignment = .center
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1
         tf.layer.borderColor = UIColor.black.cgColor
@@ -37,6 +38,7 @@ class NewSearchVC: UIViewController, UITextFieldDelegate {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Add your Flight Number.."
         tf.delegate = self
+        tf.textAlignment = .center
         tf.backgroundColor = .white
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1
@@ -60,6 +62,7 @@ class NewSearchVC: UIViewController, UITextFieldDelegate {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Add your Phone Number.."
         tf.delegate = self
+        tf.textAlignment = .center
         tf.backgroundColor = .white
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1

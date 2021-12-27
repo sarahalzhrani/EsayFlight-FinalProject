@@ -67,6 +67,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         btn.addTarget(self, action: #selector(registerBtnPressed), for: .touchUpInside)
         return btn
     }()
+    
+    var forgetBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle(NSLocalizedString("Forget your password?", comment: ""), for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 12)
+        btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(forgetBtnBtnPressed), for: .touchUpInside)
+        return btn
+    }()
     var imageView: UIImageView = {
       let imageView = UIImageView()
       imageView.image = UIImage(named: "Frame 1")
@@ -91,6 +101,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         view.addSubview(passwordTF)
         view.addSubview(loginBtn)
         view.addSubview(registerBtn)
+        view.addSubview(forgetBtn)
         view.addSubview(imageView)
         self.emailTF.delegate = self
         self.passwordTF.delegate = self
@@ -113,6 +124,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             loginBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             loginBtn.heightAnchor.constraint(equalToConstant: 40),
             
+            forgetBtn.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 5),
+//            forgetBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
+            forgetBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             
             registerBtn.topAnchor.constraint(equalTo: loginBtn.bottomAnchor, constant: 24),
             registerBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
@@ -145,49 +159,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
                 guard let currentUserID = Auth.auth().currentUser?.uid else {return}
                 Firestore.firestore().document("users/\(currentUserID)").setData([
-//                    "name" : self.name.text as Any,
                     "id" : currentUserID,
                     "email" : self.emailTF.text as Any
-//                    "status" : "online"
                 ])
             }
         }
-
-        
-//        let email = emailTF.text ?? ""
-//        let password = passwordTF.text ?? ""
-//
-//        if email.isEmpty || password.isEmpty {
-//            return
-//        }
-//
-//        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-//            if error != nil {
-//                print(error as Any)
-//                return
-//            }
-//
-//            let vc1 = TabBarVC()
-//            vc1.modalPresentationStyle = .fullScreen
-//            self.present(vc1, animated: true, completion: nil)
-//        }
-        
     }
     @objc func loginBtnPressed() {
-//        let email = emailTF.text ?? ""
-//        let password = passwordTF.text ?? ""
-//
-//        if email.isEmpty || password.isEmpty {
-//            return
-//        }
-//
-//        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-//            if error != nil {
-//                print(error as Any)
-//                return
-//            }
-        
-        
         if let email = emailTF.text, email.isEmpty == false,
            let password = passwordTF.text, password.isEmpty == false {
             Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -202,13 +180,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-//            let vc = TabBarVC()
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true, completion: nil)
+
+        }
         
+    @objc func forgetBtnBtnPressed() {
+        let vc = RestPassWoord()
+        self.navigationController?.pushViewController(vc,animated: true)
         }
         
     }
+    
+    
+    
 
 
 

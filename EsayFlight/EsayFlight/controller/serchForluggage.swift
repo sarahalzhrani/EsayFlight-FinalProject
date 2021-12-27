@@ -12,7 +12,7 @@ class serchForluggage : UIViewController {
     var blackSquare: UIView!
     
     var inform = [
-        Search(id: UUID().uuidString, content: "Enter your Searching here", flightnumber: "Enter your Flight Number here", contactNumber: "Enter your phone number:")
+        Search(id: UUID().uuidString, content: "", flightnumber: "", contactNumber: "")
     ]
 
     
@@ -59,7 +59,7 @@ class serchForluggage : UIViewController {
     }
     
     @objc func addNewserch() {
-        let note = Search(id: UUID().uuidString, content: "New ", flightnumber: "flight number:", contactNumber:  "Phone Number:")
+        let note = Search(id: UUID().uuidString, content: "", flightnumber: "", contactNumber:  "")
         SearchService.shared.updateOrAddNewSearch(note: note)
        
     }

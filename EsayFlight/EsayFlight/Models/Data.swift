@@ -12,13 +12,14 @@ import UIKit
 struct Homme {
  var image: UIImage
  var name: String
+ var descrption : String
 }
  
 var details = [
-               Homme (image: UIImage(named: "air")!, name: NSLocalizedString("Flight", comment: "")),
-               Homme (image: UIImage(named: "information")!, name: NSLocalizedString("Ask for help", comment: "")),
-               Homme (image: UIImage(named: "services")!, name: NSLocalizedString("Services", comment: "")),
-               Homme (image: UIImage(named: "luggage")!, name: NSLocalizedString("lost luggage", comment: ""))
+    Homme (image: UIImage(named: "air")!, name: NSLocalizedString("Flight", comment: ""), descrption: NSLocalizedString("Follow your flight", comment: "")),
+    Homme (image: UIImage(named: "information")!, name: NSLocalizedString("Ask for help", comment: ""), descrption: NSLocalizedString("If you need any help", comment: "")),
+    Homme (image: UIImage(named: "services")!, name: NSLocalizedString("Services", comment: ""), descrption: NSLocalizedString("Services24", comment: "")),
+    Homme (image: UIImage(named: "luggage")!, name: NSLocalizedString("lost luggage", comment: ""), descrption: NSLocalizedString("If you lost luggage", comment: "")),
                 ]
 // home collectionView2
 

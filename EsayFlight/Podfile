@@ -6,9 +6,6 @@ target 'EsayFlight' do
   use_frameworks!
 
   # Pods for EsayFlight
-pod 'Firebase/Analytics'	
-pod 'Firebase/Auth'	
-pod 'Firebase/Firestore'
 pod 'DropDown'
 
  pod 'GoogleMaps', '5.2.0'

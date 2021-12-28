@@ -11,13 +11,11 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-protocol HomeViewControllerDelegate: AnyObject {
-  func didTapMenuButton()
-}
+
 
 class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    weak var delegate: HomeViewControllerDelegate?
+  
     
     lazy var tableView1: UITableView = {
         let tablaView = UITableView()
@@ -135,7 +133,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
 
         
         
-//        delegate = self
+
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,

@@ -91,9 +91,9 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     func setupCollectionConstraints2() {
         collectionView2.translatesAutoresizingMaskIntoConstraints = false
-        collectionView2.heightAnchor.constraint(equalToConstant: 320).isActive = true
+        collectionView2.heightAnchor.constraint(equalToConstant: 550).isActive = true
         collectionView2.widthAnchor.constraint(equalToConstant: 320).isActive = true
-        collectionView2.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        collectionView2.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 60).isActive = true
         collectionView2.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
     }

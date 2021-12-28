@@ -73,6 +73,11 @@ var array2 = [
     Term2(image1: UIImage(named: "a")!, name1: NSLocalizedString("Movenpick", comment: "")),
     Term2(image1: UIImage(named: "b")!, name1: NSLocalizedString("bean", comment: "")),
     Term2(image1: UIImage(named: "c")!, name1: NSLocalizedString("simit Saray", comment: "")),
+    Term2(image1: UIImage(named: "d")!, name1: NSLocalizedString("Pull", comment: "")),
+    Term2(image1: UIImage(named: "e")!, name1: NSLocalizedString("Domino's pizza", comment: "")),
+    Term2(image1: UIImage(named: "f")!, name1: NSLocalizedString("Pinkberry", comment: "")),
+    Term2(image1: UIImage(named: "g")!, name1: NSLocalizedString("Burger king", comment: "")),
+    Term2(image1: UIImage(named: "h")!, name1: NSLocalizedString("MamaRoti", comment: "")),
 ]
 
 

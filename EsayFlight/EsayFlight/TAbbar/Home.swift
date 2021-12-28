@@ -6,11 +6,15 @@
 //
 
 import UIKit
+protocol HomeViewControllerDelegate: AnyObject {
+  func didTapMenuButton()
+}
 
-class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, HomeViewControllerDelegate {
     
     var blackSquare = UIView()
     let scrollView = UIScrollView()
+    weak var delegate: HomeViewControllerDelegate?
     
     
     var RentCarBtn: UIButton = {
@@ -126,9 +130,9 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         scrollView.addSubview(firstcollectionView)
         scrollView.addSubview(MycollectionView)
         scrollView.addSubview(RentCarBtn)
-//        scrollView.addSubview(newSBtn)
         scrollView.addSubview(CallUsBtn)
         scrollView.addSubview(namelable)
+                delegate = self
     
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -164,6 +168,11 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         MycollectionView.register(HomeCell2.self, forCellWithReuseIdentifier: HomeCell2.identifier)
         setupCollectionConstraints2()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(didTapMenuButton)
+        )
         
         view.isUserInteractionEnabled = true
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -172,7 +181,9 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     }
     
-    
+    @objc func didTapMenuButton() {
+      delegate?.didTapMenuButton()
+    }
     
     
     @objc func RentBtnPressed() {

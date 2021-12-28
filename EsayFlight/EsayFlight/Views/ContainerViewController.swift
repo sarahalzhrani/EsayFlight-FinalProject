@@ -14,7 +14,7 @@ class ContainerViewController: UIViewController {
   }
   private var menuState: MenuState = .closed
   let menuVC = MenuViewController()
-  let homeVC = profiel()
+  let homeVC = Home()
   var navVC: UINavigationController?
   lazy var infoVC = Home()
   lazy var settin = AskForHelp()
@@ -32,9 +32,9 @@ class ContainerViewController: UIViewController {
     addChild(menuVC)
     view.addSubview(menuVC.view)
     menuVC.didMove(toParent: self)
-      profiel().delegate = self
+      Home().delegate = self
       
-    let navVC = UINavigationController(rootViewController: profiel())
+    let navVC = UINavigationController(rootViewController: UIViewController())
     addChild(navVC)
     view.addSubview(navVC.view)
     navVC.didMove(toParent: self)

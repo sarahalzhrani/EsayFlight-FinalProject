@@ -150,7 +150,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if error == nil {
                     // go to main vc
-                    let vc = UINavigationController(rootViewController: TabBarVC())
+                    let vc = UINavigationController(rootViewController: ViewController())
                     vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)

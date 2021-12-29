@@ -9,7 +9,17 @@ import UIKit
 import FirebaseAuth
 import SPAlert
 
+
 class RestPassWoord : UIViewController {
+    
+    let name: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Forgot Password", comment: "")
+        label.textAlignment = .left
+        label.font = label.font.withSize(25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     
     var emailTF : UITextField = {
@@ -21,7 +31,7 @@ class RestPassWoord : UIViewController {
         tf.textAlignment = .center
         tf.layer.borderWidth = 2
         tf.resignFirstResponder()
-        tf.text = NSLocalizedString( "Enter your password", comment: "")
+        tf.text = NSLocalizedString( "Enter your email", comment: "")
        
       
         return tf
@@ -47,8 +57,14 @@ class RestPassWoord : UIViewController {
         view.backgroundColor = .white
         view.addSubview(emailTF)
         view.addSubview(forgetBtn)
+        view.addSubview(name)
         NSLayoutConstraint.activate([
-            emailTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 500),
+            name.topAnchor.constraint(equalTo: view.topAnchor, constant: 500),
+            name.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
+            name.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
+            name.heightAnchor.constraint(equalToConstant: 40),
+            
+            emailTF.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
             emailTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             emailTF.heightAnchor.constraint(equalToConstant: 40),
@@ -65,12 +81,24 @@ class RestPassWoord : UIViewController {
         let auth = Auth.auth()
         
         auth.sendPasswordReset(withEmail: emailTF.text!) { (error) in
-            if error == nil {
+            if let error = error {
                 
-                SPAlert.present(message: "Email cann't found", haptic: .none)
+    let alert = UIAlertController(title: NSLocalizedString("Error", comment: "")
+                                            , message: error.localizedDescription, preferredStyle:.alert)
+                self.present(alert, animated: true, completion: nil)
+                    alert.addAction(
+                    UIAlertAction(title: NSLocalizedString("cancel", comment: ""),
+                       style: UIAlertAction.Style.default,
+                       handler: { Action in print("...")
+                 })
+                )
+                
 
                 return
             }
+
+//                        )
+            
             SPAlert.present(message: "A password resit email has been sent!", haptic: .none)
             
 //            let alert = UIAlertController (title:"Hurray", message:"A password resit email has been sent!", preferredStyle: UIAlertController.Style.alert)

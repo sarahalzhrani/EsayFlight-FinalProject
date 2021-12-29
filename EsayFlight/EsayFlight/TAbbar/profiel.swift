@@ -251,6 +251,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
    
 }
 class ProfileCell: UITableViewCell {
+    
  static let identifire = "ProfileCell"
    
     

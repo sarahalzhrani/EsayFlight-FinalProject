@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F120106277C50940021E73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F120105277C50940021E73A /* ViewController.swift */; };
 		1F1FBDB3274F736D00D9F691 /* NewSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */; };
 		1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */; };
 		1F1FBDB8274F811700D9F691 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB7274F811700D9F691 /* Location.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		0AEA421C33E8EF8D66D7B5B7 /* Pods-EsayFlight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.release.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.release.xcconfig"; sourceTree = "<group>"; };
+		1F120105277C50940021E73A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchVC.swift; sourceTree = "<group>"; };
 		1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchLuggaugeService.swift; sourceTree = "<group>"; };
 		1F1FBDB7274F811700D9F691 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */,
 				1F65BC702779AD3A00379F4D /* RestPassWoord.swift */,
 				1F7C87B5274E12A700112F6A /* HomeCell.swift */,
+				1F120105277C50940021E73A /* ViewController.swift */,
 				1F65BC6E2779A40300379F4D /* WelcomeVC.swift */,
 				1F7421F52761DB3700B53C27 /* HomeCell2.swift */,
 				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
@@ -458,6 +461,7 @@
 				1F7422022763CD7B00B53C27 /* FlightSchedule.swift in Sources */,
 				1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */,
 				1F1FBDBE275359DE00D9F691 /* Advertisement.swift in Sources */,
+				1F120106277C50940021E73A /* ViewController.swift in Sources */,
 				1F65BC712779AD3A00379F4D /* RestPassWoord.swift in Sources */,
 				1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */,
 				1F1FBDC62754A74600D9F691 /* CarRentVC.swift in Sources */,

@@ -119,13 +119,25 @@ class serchForFlight : UIViewController,  UINavigationControllerDelegate, UITabl
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableflightCell", for: indexPath) as! tableflightCell
-        let data = tables[indexPath.row]
-        cell.gatelabel.text = data.terminal
-        cell.status.text = data.fligtStatuse
-        cell.fightnumberlabel.text = data.flightNum
-        cell.timelabel.text = data.time
-        cell.Citylabel.text = data.cityName
-        cell.dateNumber.text = data.date
+        if isSearch {
+            let data = resultSearch[indexPath.row]
+            cell.gatelabel.text = data.terminal
+            cell.status.text = data.fligtStatuse
+            cell.fightnumberlabel.text = data.flightNum
+            cell.timelabel.text = data.time
+            cell.Citylabel.text = data.cityName
+            cell.dateNumber.text = data.date
+            
+        } else{
+            let data = tables[indexPath.row]
+            cell.gatelabel.text = data.terminal
+            cell.status.text = data.fligtStatuse
+            cell.fightnumberlabel.text = data.flightNum
+            cell.timelabel.text = data.time
+            cell.Citylabel.text = data.cityName
+            cell.dateNumber.text = data.date
+        }
+       
        
         return cell
     }

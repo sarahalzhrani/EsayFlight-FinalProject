@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F120106277C50940021E73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F120105277C50940021E73A /* ViewController.swift */; };
 		1F1FBDB3274F736D00D9F691 /* NewSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */; };
 		1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */; };
 		1F1FBDB8274F811700D9F691 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB7274F811700D9F691 /* Location.swift */; };
@@ -33,6 +32,11 @@
 		1F65BC6D2778913600379F4D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1F65BC6C2778913600379F4D /* FirebaseFirestore */; };
 		1F65BC6F2779A40300379F4D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BC6E2779A40300379F4D /* WelcomeVC.swift */; };
 		1F65BC712779AD3A00379F4D /* RestPassWoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BC702779AD3A00379F4D /* RestPassWoord.swift */; };
+		1F6D83502782CEE5002A49E9 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D834F2782CEE5002A49E9 /* MapController.swift */; };
+		1F6D83522782CFF9002A49E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D83512782CFF9002A49E9 /* Extensions.swift */; };
+		1F6D83542782D572002A49E9 /* LocationRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D83532782D572002A49E9 /* LocationRequestController.swift */; };
+		1F6D8356278304E0002A49E9 /* SearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D8355278304E0002A49E9 /* SearchInputView.swift */; };
+		1F6D83582783051A002A49E9 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D83572783051A002A49E9 /* SearchCell.swift */; };
 		1F7421F62761DB3700B53C27 /* HomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7421F52761DB3700B53C27 /* HomeCell2.swift */; };
 		1F7421F82761F21E00B53C27 /* Travel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F72761F21E00B53C27 /* Travel.mp4 */; };
 		1F7421FA2761F22E00B53C27 /* Taxi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F92761F22E00B53C27 /* Taxi.mp4 */; };
@@ -68,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		0AEA421C33E8EF8D66D7B5B7 /* Pods-EsayFlight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.release.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.release.xcconfig"; sourceTree = "<group>"; };
-		1F120105277C50940021E73A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchVC.swift; sourceTree = "<group>"; };
 		1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchLuggaugeService.swift; sourceTree = "<group>"; };
 		1F1FBDB7274F811700D9F691 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		1F6583CF2760C1750067ADEB /* CallUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUsVC.swift; sourceTree = "<group>"; };
 		1F65BC6E2779A40300379F4D /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		1F65BC702779AD3A00379F4D /* RestPassWoord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPassWoord.swift; sourceTree = "<group>"; };
+		1F6D834F2782CEE5002A49E9 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		1F6D83512782CFF9002A49E9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1F6D83532782D572002A49E9 /* LocationRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestController.swift; sourceTree = "<group>"; };
+		1F6D8355278304E0002A49E9 /* SearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputView.swift; sourceTree = "<group>"; };
+		1F6D83572783051A002A49E9 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		1F7421F52761DB3700B53C27 /* HomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell2.swift; sourceTree = "<group>"; };
 		1F7421F72761F21E00B53C27 /* Travel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Travel.mp4; sourceTree = "<group>"; };
 		1F7421F92761F22E00B53C27 /* Taxi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Taxi.mp4; sourceTree = "<group>"; };
@@ -183,10 +191,10 @@
 		1F484AFC2768BDB20048F280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1F6D83512782CFF9002A49E9 /* Extensions.swift */,
 				1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */,
 				1F65BC702779AD3A00379F4D /* RestPassWoord.swift */,
 				1F7C87B5274E12A700112F6A /* HomeCell.swift */,
-				1F120105277C50940021E73A /* ViewController.swift */,
 				1F65BC6E2779A40300379F4D /* WelcomeVC.swift */,
 				1F7421F52761DB3700B53C27 /* HomeCell2.swift */,
 				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
@@ -243,6 +251,10 @@
 		1F9E1FD6274B6B6D00679CC3 = {
 			isa = PBXGroup;
 			children = (
+				1F6D83572783051A002A49E9 /* SearchCell.swift */,
+				1F6D8355278304E0002A49E9 /* SearchInputView.swift */,
+				1F6D83532782D572002A49E9 /* LocationRequestController.swift */,
+				1F6D834F2782CEE5002A49E9 /* MapController.swift */,
 				1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */,
 				1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */,
 				1F608404275C9E7000B21702 /* Localizable.strings */,
@@ -450,7 +462,9 @@
 				1F7421FE276238E600B53C27 /* ContainerViewController.swift in Sources */,
 				1F7C87B8274E2ABC00112F6A /* serchForFlight.swift in Sources */,
 				1F608429275F536100B21702 /* MyFlightServices.swift in Sources */,
+				1F6D83522782CFF9002A49E9 /* Extensions.swift in Sources */,
 				1F9E1FE3274B6B6D00679CC3 /* AppDelegate.swift in Sources */,
+				1F6D8356278304E0002A49E9 /* SearchInputView.swift in Sources */,
 				1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */,
 				1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */,
 				1F6583D02760C1750067ADEB /* CallUsVC.swift in Sources */,
@@ -459,9 +473,9 @@
 				1F7422042763CDA600B53C27 /* FlightScheduleCell.swift in Sources */,
 				1F7422062764AD7C00B53C27 /* scanCode.swift in Sources */,
 				1F7422022763CD7B00B53C27 /* FlightSchedule.swift in Sources */,
+				1F6D83582783051A002A49E9 /* SearchCell.swift in Sources */,
 				1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */,
 				1F1FBDBE275359DE00D9F691 /* Advertisement.swift in Sources */,
-				1F120106277C50940021E73A /* ViewController.swift in Sources */,
 				1F65BC712779AD3A00379F4D /* RestPassWoord.swift in Sources */,
 				1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */,
 				1F1FBDC62754A74600D9F691 /* CarRentVC.swift in Sources */,
@@ -475,6 +489,8 @@
 				1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */,
 				1F7C87BC274E2B0900112F6A /* profiel.swift in Sources */,
 				1F7422002762396200B53C27 /* MenuViewController.swift in Sources */,
+				1F6D83542782D572002A49E9 /* LocationRequestController.swift in Sources */,
+				1F6D83502782CEE5002A49E9 /* MapController.swift in Sources */,
 				1F1FBDC42754A60D00D9F691 /* TabVC.swift in Sources */,
 				1F7C87B3274D273100112F6A /* Data.swift in Sources */,
 				1F484AFA2767D2940048F280 /* Flight+CoreDataProperties.swift in Sources */,

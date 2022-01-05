@@ -161,7 +161,7 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
   let playerView = AVPlayerLayer()
   playerView.player = player
   playerView.frame = contentView.bounds
-  playerView.videoGravity = .resizeAspectFill
+//  playerView.videoGravity = .resizeAspectFill
   videoContainer.layer.addSublayer(playerView)
   player?.volume = 2
   player?.play()

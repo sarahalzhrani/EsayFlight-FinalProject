@@ -41,8 +41,6 @@
 		1F7421F82761F21E00B53C27 /* Travel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F72761F21E00B53C27 /* Travel.mp4 */; };
 		1F7421FA2761F22E00B53C27 /* Taxi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421F92761F22E00B53C27 /* Taxi.mp4 */; };
 		1F7421FC2761F25800B53C27 /* starbucks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1F7421FB2761F25800B53C27 /* starbucks.mp4 */; };
-		1F7421FE276238E600B53C27 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7421FD276238E500B53C27 /* ContainerViewController.swift */; };
-		1F7422002762396200B53C27 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7421FF2762396200B53C27 /* MenuViewController.swift */; };
 		1F7422022763CD7B00B53C27 /* FlightSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422012763CD7B00B53C27 /* FlightSchedule.swift */; };
 		1F7422042763CDA600B53C27 /* FlightScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */; };
 		1F7422062764AD7C00B53C27 /* scanCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7422052764AD7C00B53C27 /* scanCode.swift */; };
@@ -103,8 +101,6 @@
 		1F7421F72761F21E00B53C27 /* Travel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Travel.mp4; sourceTree = "<group>"; };
 		1F7421F92761F22E00B53C27 /* Taxi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Taxi.mp4; sourceTree = "<group>"; };
 		1F7421FB2761F25800B53C27 /* starbucks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starbucks.mp4; sourceTree = "<group>"; };
-		1F7421FD276238E500B53C27 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		1F7421FF2762396200B53C27 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1F7422012763CD7B00B53C27 /* FlightSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSchedule.swift; sourceTree = "<group>"; };
 		1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightScheduleCell.swift; sourceTree = "<group>"; };
 		1F7422052764AD7C00B53C27 /* scanCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanCode.swift; sourceTree = "<group>"; };
@@ -203,8 +199,6 @@
 				1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */,
 				1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */,
 				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
-				1F7421FF2762396200B53C27 /* MenuViewController.swift */,
-				1F7421FD276238E500B53C27 /* ContainerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,7 +453,6 @@
 				1F484AFE2768CFE30048F280 /* AnimationLaunch.swift in Sources */,
 				1F9E1FE7274B6B6D00679CC3 /* LoginVC.swift in Sources */,
 				1F484AF92767D2940048F280 /* Flight+CoreDataClass.swift in Sources */,
-				1F7421FE276238E600B53C27 /* ContainerViewController.swift in Sources */,
 				1F7C87B8274E2ABC00112F6A /* serchForFlight.swift in Sources */,
 				1F608429275F536100B21702 /* MyFlightServices.swift in Sources */,
 				1F6D83522782CFF9002A49E9 /* Extensions.swift in Sources */,
@@ -488,7 +481,6 @@
 				1F65BC6F2779A40300379F4D /* WelcomeVC.swift in Sources */,
 				1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */,
 				1F7C87BC274E2B0900112F6A /* profiel.swift in Sources */,
-				1F7422002762396200B53C27 /* MenuViewController.swift in Sources */,
 				1F6D83542782D572002A49E9 /* LocationRequestController.swift in Sources */,
 				1F6D83502782CEE5002A49E9 /* MapController.swift in Sources */,
 				1F1FBDC42754A60D00D9F691 /* TabVC.swift in Sources */,

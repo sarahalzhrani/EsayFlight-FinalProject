@@ -148,10 +148,10 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         self.view.addSubview(txtField)
         self.view.addSubview(txtField2)
         
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "abc")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "abc")
+//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+//        self.view.insertSubview(backgroundImage, at: 0)
         
         dropDown.selectionAction  = { index, selected in
             self.dropdownlable.text = selected
@@ -181,7 +181,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     
     
     private func SetupView () {
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
         self.navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(handleCancel))
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))

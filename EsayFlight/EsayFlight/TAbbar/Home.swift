@@ -6,27 +6,24 @@
 //
 
 import UIKit
-protocol HomeViewControllerDelegate: AnyObject {
-  func didTapMenuButton()
-}
 
-class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, HomeViewControllerDelegate {
+
+class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var blackSquare = UIView()
     let scrollView = UIScrollView()
-    weak var delegate: HomeViewControllerDelegate?
     
     
     var RentCarBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle(NSLocalizedString("Rent Car\n in your destination", comment: ""), for: .normal)
+        btn.setTitle(NSLocalizedString("Rent Car\n In your destination", comment: ""), for: .normal)
         btn.titleLabel?.numberOfLines = 0
         btn.titleLabel?.lineBreakMode = .byWordWrapping
         btn.backgroundColor = UIColor(named: "Color-1")
-        btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
+        btn.setTitleColor(UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
-        btn.layer.borderColor = UIColor.systemMint.cgColor
+        btn.layer.borderColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2).cgColor
         btn.layer.borderWidth = 2
         btn.addTarget(self, action: #selector(RentBtnPressed), for: .touchUpInside)
         return btn
@@ -52,9 +49,9 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(NSLocalizedString("Tell us your experience", comment: ""), for: .normal)
         btn.backgroundColor = UIColor(named: "Color-1")
-        btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
+        btn.setTitleColor(UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: UIControl.State.normal)
         btn.layer.cornerRadius = 15
-        btn.layer.borderColor = UIColor.systemMint.cgColor
+        btn.layer.borderColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2).cgColor
         btn.layer.borderWidth = 2
         btn.addTarget(self, action: #selector(connectBtnPressed), for: .touchUpInside)
         return btn
@@ -132,7 +129,6 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         scrollView.addSubview(RentCarBtn)
         scrollView.addSubview(CallUsBtn)
         scrollView.addSubview(namelable)
-                delegate = self
     
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -168,11 +164,6 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         MycollectionView.register(HomeCell2.self, forCellWithReuseIdentifier: HomeCell2.identifier)
         setupCollectionConstraints2()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add,
-            target: self,
-            action: #selector(didTapMenuButton)
-        )
         
         view.isUserInteractionEnabled = true
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -181,9 +172,6 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     }
     
-    @objc func didTapMenuButton() {
-      delegate?.didTapMenuButton()
-    }
     
     
     @objc func RentBtnPressed() {
@@ -232,7 +220,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         cell.imageView.image = data.image
         cell.namelable2.text = data.descrption
         
-        cell.backgroundColor =  .systemMint
+        cell.backgroundColor =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 25
         cell.layer.borderColor = UIColor.clear.cgColor

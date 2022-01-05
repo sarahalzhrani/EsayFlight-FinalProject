@@ -32,7 +32,8 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     let Button1 : UIButton = {
         $0.backgroundColor = UIColor(named: "Color-1")
         $0.setTitle(NSLocalizedString("signout", comment: ""), for: .normal)
-        $0.setTitleColor(UIColor.systemMint, for: .normal)
+        $0.setTitleColor(UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: .normal)
+
         $0.layer.cornerRadius = 22.5
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(signOut), for: .touchUpInside)
@@ -42,7 +43,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     let changelanguage : UIButton = {
         $0.backgroundColor = UIColor(named: "Color-1")
         $0.setTitle(NSLocalizedString("changelanguage", comment: ""), for: .normal)
-        $0.setTitleColor(UIColor.systemMint, for: .normal)
+        $0.setTitleColor( UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: .normal)
         $0.layer.cornerRadius = 22.5
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(changeLang), for: .touchUpInside)

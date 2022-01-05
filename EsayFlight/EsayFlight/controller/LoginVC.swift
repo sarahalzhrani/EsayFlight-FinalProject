@@ -30,7 +30,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         let label = UILabel()
         label.textColor = .white
         label.text = NSLocalizedString("Esay Flight", comment: "")
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont(name: "Optima-Italic", size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -38,13 +38,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     var passwordTF: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-//        tf.isSecureTextEntry = true
+        tf.isSecureTextEntry = true
 //        tf.backgroundColor = .systemGray6
+        tf.rightViewMode = .unlessEditing
         tf.layer.cornerRadius = 15
         tf.layer.borderColor = UIColor.white.cgColor
         tf.textAlignment = .center
         tf.layer.borderWidth = 2
         tf.resignFirstResponder()
+        tf.rightViewMode = .always
+        
         tf.placeholder = NSLocalizedString( "Enter your password", comment: "")
        
       
@@ -85,13 +88,21 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         btn.addTarget(self, action: #selector(forgetBtnBtnPressed), for: .touchUpInside)
         return btn
     }()
+    
+    var button: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -15, bottom: 5, right: 15)
+        button.addTarget(self, action: #selector(showandhiden), for: .touchUpInside)
+        return button
+    }()
     var imageView: UIImageView = {
       let imageView = UIImageView()
       imageView.image = UIImage(named: "Frame 1")
       imageView.translatesAutoresizingMaskIntoConstraints = false
       return imageView
     }()
-    
+   
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
           emailTF.resignFirstResponder()
@@ -105,6 +116,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 //        blackSquare.backgroundColor = .white
 //        blackSquare.layer.cornerRadius = 55
 //        view.addSubview(blackSquare)
+        passwordTF.addSubview(button)
         view.addSubview(emailTF)
         view.addSubview(passwordTF)
         view.addSubview(loginBtn)
@@ -118,7 +130,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         backgroundImage.image = UIImage(named: "screen")
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
-        
+       
+        passwordTF.rightView = button
         NSLayoutConstraint.activate([
             emailTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
@@ -149,10 +162,27 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             titlew.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 120),
             titlew.heightAnchor.constraint(equalToConstant: 200),
             titlew.widthAnchor.constraint(equalToConstant: 200),
+            
+//            button.topAnchor.constraint(equalTo: view.topAnchor),
+            button.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 120),
+            button.heightAnchor.constraint(equalToConstant: 40),
+            button.widthAnchor.constraint(equalToConstant: 30),
         ])
    }
     
-    
+    @objc func showandhiden(_ sender: Any) {
+        print("itsworke")
+        (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
+        if  (sender as! UIButton).isSelected {
+            self.passwordTF.isSecureTextEntry = false
+            button.setImage(UIImage(named: "open"), for: .normal)
+            
+        } else {
+        self.passwordTF.isSecureTextEntry = true
+        button.setImage(UIImage(named: "close"), for: .normal)
+    }
+        
+    }
     
     @objc func registerBtnPressed() {
         

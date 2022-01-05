@@ -98,11 +98,11 @@ class NewSearchVC: UIViewController, UITextFieldDelegate {
         
         title =  NSLocalizedString("Edit your searching", comment:"")
      
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "abc")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
-        view.backgroundColor = .white
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "abc")
+//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+//        self.view.insertSubview(backgroundImage, at: 0)
+        view.backgroundColor = .gray
         
         view.addSubview(contentTF)
         view.addSubview(details)

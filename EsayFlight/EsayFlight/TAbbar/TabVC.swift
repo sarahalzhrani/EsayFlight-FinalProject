@@ -26,8 +26,8 @@ class TabBarVC : UITabBarController {
             
             createNavController(for:Home(), title: NSLocalizedString("Home", comment: "Esay Flight"), image: UIImage(systemName: "house")!),
             createNavController(for:MapController(), title: NSLocalizedString("Maps", comment: ""), image: UIImage(systemName: "location")!),
-            createNavController(for:profiel(), title: NSLocalizedString("profile", comment: ""), image: UIImage(systemName: "person")!),
-            createNavController(for:Advertisement(), title: NSLocalizedString("Advertisement", comment: ""), image: UIImage(systemName: "seal")!),
+//            createNavController(for:profiel(), title: NSLocalizedString("profile", comment: ""), image: UIImage(systemName: "person")!),
+            createNavController(for:Advertisement(), title: NSLocalizedString("viedos", comment: ""), image: UIImage(systemName: "seal")!),
 //            createNavController(for:ProfileVC(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!),
         ]
     }

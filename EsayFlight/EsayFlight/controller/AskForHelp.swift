@@ -19,7 +19,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
     var line2: UIView!
     var line3: UIView!
     var line4: UIView!
-    let data = [ NSLocalizedString("Old", comment: ""),NSLocalizedString("blind", comment: ""),NSLocalizedString("paralyzed", comment: ""),NSLocalizedString("child", comment: ""),NSLocalizedString("housemaid reception", comment: ""),NSLocalizedString("Lockdown baggage claim", comment: "") ]
+    let data = [ NSLocalizedString("Old", comment: ""),NSLocalizedString("blind", comment: ""),NSLocalizedString("paralyzed", comment: ""),NSLocalizedString("child", comment: ""),NSLocalizedString("Lockdown baggage claim", comment: "") ]
     let data2 = [NSLocalizedString("wheel chair", comment: ""),
                  NSLocalizedString("personal escort", comment: "")]
     let timePicker = UIDatePicker()
@@ -148,10 +148,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         self.view.addSubview(txtField)
         self.view.addSubview(txtField2)
         
-//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-//        backgroundImage.image = UIImage(named: "abc")
-//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-//        self.view.insertSubview(backgroundImage, at: 0)
+
         
         dropDown.selectionAction  = { index, selected in
             self.dropdownlable.text = selected
@@ -199,7 +196,7 @@ class AskForHelp : UIViewController, UITextFieldDelegate {
         Square.layer.borderColor = UIColor.black.cgColor
         Square.layer.borderWidth = 2
         view.addSubview(Square)
-        view.backgroundColor = .systemGray5
+//        view.backgroundColor = .systemGray5
 //        line = UIView(frame: CGRect(x: 30, y: 236, width: 350, height:1))
 //        line.backgroundColor = .gray
 //        line.layer.cornerRadius = 10

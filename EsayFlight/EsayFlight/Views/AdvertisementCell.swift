@@ -45,7 +45,7 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
   }()
   private let likeButton: UIButton = {
      let button = UIButton()
-    button.setBackgroundImage(UIImage(systemName: "heart.fill"), for:.normal)
+    button.setBackgroundImage(UIImage(systemName: ""), for:.normal)
     button.tintColor = .white
     return button
   }()
@@ -61,6 +61,11 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
     button.tintColor = .white
     return button
   }()
+    
+    private func setPlayPauseIcon(isPlaying: Bool) {
+        let config = UIImage.SymbolConfiguration(pointSize: 100)
+        likeButton.setImage(UIImage(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill", withConfiguration: config) , for: .normal)
+      }
   private let videoContainer = UIView()
   //Delegate
   weak var delegate: VideoCollectionViewCellDelegate?
@@ -96,8 +101,16 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
       contentView.sendSubviewToBack(videoContainer)
     }
       @objc private func didTapLikeButton() {
-      guard let model = model else { return }
-      delegate?.didTapLikeButton(with: model)
+//      guard let model = model else { return }
+//      delegate?.didTapLikeButton(with: model)
+//          player!.pause()
+          if ((player?.isMuted) != nil){
+              player!.pause()
+              }
+              else {
+                  player!.play()
+              }
+          setPlayPauseIcon(isPlaying: player!.isMuted)
       }
       @objc private func didTapCommentButton() {
       guard let model = model else { return }
@@ -122,10 +135,11 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
         let width = contentView.frame.size.width
         let height = contentView.frame.size.height - 100
         // Buttons
+//          shareButton.frame = CGRect (x: 5, y: height-50, width: width-size-10, height: 50)
         shareButton.frame = CGRect(x: width-size, y: height-size, width: size, height: size)
 //        shareButton.backgroundColor = .red
         commentButton.frame = CGRect(x: width-size, y: height-(size*2)-10, width: size, height: size)
-        likeButton.frame = CGRect(x: width-size, y: height-(size*3)-10, width: size, height: size)
+        likeButton.frame = CGRect(x: 190, y: height-300, width: size, height: size)
         profileButton.frame = CGRect(x: width-size, y: height-(size*4)-14, width: size, height: size)
         //labels
         // username. caption, audio
@@ -161,7 +175,7 @@ class VideoCollectionViewCell: UICollectionViewCell, UINavigationControllerDeleg
   let playerView = AVPlayerLayer()
   playerView.player = player
   playerView.frame = contentView.bounds
-//  playerView.videoGravity = .resizeAspectFill
+  playerView.videoGravity = .resizeAspect
   videoContainer.layer.addSublayer(playerView)
   player?.volume = 2
   player?.play()

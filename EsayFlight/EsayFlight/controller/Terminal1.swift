@@ -170,7 +170,7 @@ class Terminal1 : UIViewController, UICollectionViewDelegate, UICollectionViewDa
         segmentedControl.addTarget(self, action: #selector(Segment), for: .valueChanged)
         segmentedControl.frame = CGRect(x: 60, y: 150, width: 300, height: 40)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.backgroundColor = UIColor.systemMint
+        segmentedControl.backgroundColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         segmentedControl.layer.borderColor = UIColor.white.cgColor
         segmentedControl.selectedSegmentTintColor = UIColor.white
         segmentedControl.layer.borderWidth = 1

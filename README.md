@@ -6,9 +6,8 @@
 ## Description
 
 ***EsayFlight*** 
-It is a program that enables the user to view the departing flights, follow the status of the flight before its departure, identify the time of the flight, the location of the gate, and determine the service locations.
-And as a user with special needs, the user can ask for help before arriving at the airport
-And as a restaurant or company, you can advertise in the program.
+It is a App that enables the  user with special needs to see the departing flights, follow the status of the flight before its departure, identify the time of the flight, the location of the gate, and determine the service locations. And the user can ask for help before arriving at the airport,also they can ask for help to search for thier lost lauggage ..
+
 
 
 ## User Stories
@@ -22,12 +21,12 @@ And as a restaurant or company, you can advertise in the program.
 - ** logs flight:** As a user I can see my old flight 
 - ** service:** As a user I  can see the service that found in airport so that i can kno each place 
 - ** Ask for help:** As a user I can send my order of helping so that i can easily get what i need 
+- ** my order:** As user I can see my order of help and I can delete it
 - ** lost luggage:** As a user I can search of my lost luggage and add my contact number so that they could tell me when they found it
 - ** Rent car:**  As user I can rent a car from the office rent a car before i reach so that I can save my time when i arrive
 - ** Tell us your Experience:** As user I can connect with airport and send my suggestion or complaining
 - ** Suggest For You:** As user I can see suggestion app for planning my vacation
 - ** Maps:** As user I can see  ican see airport maps and many location in it 
-- ** profile:** As user I can see my order of help and I can delete it
 - ** Adevertisement:**  As user I can see the add that many good for me so that i can choose one of them
 
 

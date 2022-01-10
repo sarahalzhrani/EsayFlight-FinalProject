@@ -29,16 +29,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     
     
     
-    let Button1 : UIButton = {
-        $0.backgroundColor = UIColor(named: "Color-1")
-        $0.setTitle(NSLocalizedString("signout", comment: ""), for: .normal)
-        $0.setTitleColor(UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: .normal)
-
-        $0.layer.cornerRadius = 22.5
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        return $0
-    }(UIButton())
+    
     
     let changelanguage : UIButton = {
         $0.backgroundColor = UIColor(named: "Color-1")
@@ -145,21 +136,12 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
         view.addSubview(navBar)
         
-        view.addSubview(Button1)
         NSLayoutConstraint.activate([
             
             tableView1.topAnchor.constraint(equalTo: view.topAnchor),
                 tableView1.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                 tableView1.rightAnchor.constraint(equalTo: view.rightAnchor),
                 tableView1.leftAnchor.constraint(equalTo: view.leftAnchor),
-            
-            
-            
-            Button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 450),
-            Button1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            Button1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            Button1.heightAnchor.constraint(equalToConstant: 70)
-            
             
             
         ])
@@ -208,21 +190,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
             }
         
     }
-    @objc func signOut() {
-        
-        
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError.localizedDescription)")
-        }
-                    let vc = LoginVC()
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-
-        }
+  
     
     
     @objc func changeLang() {
@@ -234,11 +202,8 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     }
     
     @objc func didTapMenuButton() {
-//      delegate?.didTapMenuButton()
-//        let vc = AskForHelp()
-//        self.navigationController?.pushViewController(vc,animated: true)
+
         let vc = AskForHelp()
-//            self.navigationController?.pushViewController(vc,animated: true)
             self.present(AskForHelp(), animated: true, completion: nil)
         
         print("tapp is active ")

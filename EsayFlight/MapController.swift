@@ -25,15 +25,15 @@ class MapController: UIViewController {
         button.addTarget(self, action: #selector(handleCenterLocation), for: .touchUpInside)
         return button
     }()
-//
-//    let removeOverlaysButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setImage(#imageLiteral(resourceName: "baseline_clear_white_36pt_1x").withRenderingMode(.alwaysOriginal), for: .normal)
-//        button.backgroundColor = .red
-//        button.addTarget(self, action: #selector(handleRemoveOverlays), for: .touchUpInside)
-//        button.alpha = 0
-//        return button
-//    }()
+    
+    let removeOverlaysButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "baseline_clear_white_36pt_1x").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(handleRemoveOverlays), for: .touchUpInside)
+        button.alpha = 0
+        return button
+    }()
     
     // MARK: - Init
     
@@ -55,7 +55,7 @@ class MapController: UIViewController {
         searchInputView.directionsEnabled = false
         
         UIView.animate(withDuration: 0.5) {
-//            self.removeOverlaysButton.alpha = 0
+            self.removeOverlaysButton.alpha = 0
             self.centerMapButton.alpha = 1
         }
         
@@ -92,10 +92,10 @@ class MapController: UIViewController {
         view.addSubview(centerMapButton)
         centerMapButton.anchor(top: nil, left: nil, bottom: searchInputView.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 16, paddingRight: 16, width: 50, height: 50)
         
-//        view.addSubview(removeOverlaysButton)
-//        let dimension: CGFloat = 50
-//        removeOverlaysButton.anchor(top: nil, left: view.leftAnchor, bottom: searchInputView.topAnchor, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 268, paddingRight: 0, width: dimension, height: dimension)
-//        removeOverlaysButton.layer.cornerRadius = dimension / 2
+        view.addSubview(removeOverlaysButton)
+        let dimension: CGFloat = 50
+        removeOverlaysButton.anchor(top: nil, left: view.leftAnchor, bottom: searchInputView.topAnchor, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 268, paddingRight: 0, width: dimension, height: dimension)
+        removeOverlaysButton.layer.cornerRadius = dimension / 2
     }
     
     func configureMapView() {
@@ -135,7 +135,7 @@ extension MapController: SearchInputViewDelegate {
                 self.selectedAnnotation = annotation
                 
                 UIView.animate(withDuration: 0.5, animations: {
-//                    self.removeOverlaysButton.alpha = 1
+                    self.removeOverlaysButton.alpha = 1
                     self.centerMapButton.alpha = 0
                 })
             }

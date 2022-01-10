@@ -54,8 +54,8 @@ enum CommunicationOption: Int, CaseIterable, sectionType {
     }
     var description: String {
         switch self {
-        case .darkmode: return "Social"
-        case .changelanguage: return "communication"
+        case .darkmode: return "darkmode"
+        case .changelanguage: return "changelanguage"
         case .email: return "email"
         }
     }

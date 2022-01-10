@@ -6,25 +6,20 @@
 //
 
 import UIKit
-import SwiftUI
-
+import FirebaseAuth
 private let reuseIdentifier = "SettingsCell"
 
 class ViewController: UIViewController {
     
-    // MARK: - Properties
     
     var tableView: UITableView!
     var userInfoHeader: UserInfoHeader!
-    
-    // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 
-    // MARK: - Helper Functions
     
     func configureTableView() {
         tableView = UITableView()
@@ -45,10 +40,10 @@ class ViewController: UIViewController {
     func configureUI() {
         configureTableView()
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         navigationItem.title = "Settings"
     }
 
@@ -72,7 +67,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor  = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        view.backgroundColor  =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         let title = UILabel()
         title.font = UIFont.boldSystemFont(ofSize: 16)
         title.textColor = .white
@@ -81,6 +76,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        
         return view
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -95,13 +91,36 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .Social:
             let social = SocialOption(rawValue: indexPath.row)
             cell.sectionType = social
-//            cell.textLabel?.text = social?.description
         case .communication:
             let communications = CommunicationOption(rawValue: indexPath.row)
-//            cell.textLabel?.text = communications?.description
             cell.sectionType = communications
         }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = settingsSection(rawValue:indexPath.section) else { return }
+        switch section{
+        case .Social:
+            let social = SocialOption(rawValue: indexPath.row)
+            if indexPath.row == 0 {
+                
+            } else if indexPath.row == 1 {
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                    dismiss(animated: true, completion: nil)
+                } catch let signOutError as NSError {
+                    print ("Error signing out: \(signOutError.localizedDescription)")
+                }
+                            let vc = LoginVC()
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                
+            }
+         
+        case .communication:
+            print(CommunicationOption(rawValue: indexPath.row))
+        }
     }
     
     

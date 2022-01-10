@@ -10,12 +10,13 @@ import UIKit
 import SwiftUI
 
 class SettingsCell: UITableViewCell {
+    
     var sectionType: sectionType? {
         didSet {
-            guard let sectionType = sectionType else {return}
-
+            guard let sectionType = sectionType else { return }
             textLabel?.text = sectionType.description
             switchControl.isHidden = !sectionType.containsSwitch
+            
         }
     }
     
@@ -23,9 +24,12 @@ class SettingsCell: UITableViewCell {
         let switchControl = UISwitch()
         switchControl.isOn = true
         switchControl.isUserInteractionEnabled = true
-        switchControl.onTintColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        switchControl.onTintColor =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         switchControl.translatesAutoresizingMaskIntoConstraints = false
-        switchControl.addTarget(self, action: #selector(handleswitchAction), for: .valueChanged)
+//        switchControl.addTarget(self, action: #selector(handleswitchAction), for: .valueChanged)
+//        switchControl.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
+        switchControl.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
+
         return switchControl
         
     }()
@@ -38,19 +42,19 @@ class SettingsCell: UITableViewCell {
         addSubview(switchControl)
         switchControl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         switchControl.rightAnchor.constraint(equalTo: rightAnchor,constant: -12).isActive = true
+      
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    @objc func handleswitchAction(sender: UISwitch) {
-        if (sender.isOn == true){
-               print("on")
-           }
-           else{
-               print("off")
-           }
+    @objc func switchValueDidChange(_ sender: UISwitch!) {
+        if sender.isOn {
+              print("on")
+          }
+          else{
+              print("off")
+          }
       
     }
 }

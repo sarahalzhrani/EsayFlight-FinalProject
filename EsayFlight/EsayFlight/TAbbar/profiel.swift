@@ -124,7 +124,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
         view.backgroundColor = .white
 
         
-        
+      
 
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -190,6 +190,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
             }
         
     }
+ 
   
     
     

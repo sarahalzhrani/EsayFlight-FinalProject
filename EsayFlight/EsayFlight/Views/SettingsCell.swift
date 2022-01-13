@@ -22,13 +22,13 @@ class SettingsCell: UITableViewCell {
     
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
-        switchControl.isOn = true
+        switchControl.isOn = false
+        switchControl.setOn(true, animated: false)
         switchControl.isUserInteractionEnabled = true
         switchControl.onTintColor =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         switchControl.translatesAutoresizingMaskIntoConstraints = false
-//        switchControl.addTarget(self, action: #selector(handleswitchAction), for: .valueChanged)
-//        switchControl.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
-        switchControl.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
+        switchControl.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
+      
 
         return switchControl
         
@@ -39,23 +39,36 @@ class SettingsCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(switchControl)
+        contentView.addSubview(switchControl)
         switchControl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         switchControl.rightAnchor.constraint(equalTo: rightAnchor,constant: -12).isActive = true
-      
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    @objc func switchValueDidChange(_ sender: UISwitch!) {
+    
+    @objc func switchValueDidChange(_ sender: UISwitch) {
         if sender.isOn {
-              print("on")
-          }
+            var social : CommunicationOption?
+            if let social = social {
+                switch (social) {
+                case.darkmode:
+                    print("1111")
+                case.changelanguage:
+                    print("222")
+                case.email:
+                    print("333")
+                default:
+                    print("none")
+                }
+        }
           else{
               print("off")
           }
-      
-    }
-}
 
+    }
+   
+}
+}

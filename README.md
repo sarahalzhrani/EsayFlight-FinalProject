@@ -66,9 +66,8 @@ User profile:
 | New request          | user only `<PrivateRoute>  | link to new request of lost luggage , navigate to  lost luggage page  after pressed on new           |
 | Rent car             | user only `<PrivateRoute>  | link to new rent car office , navigate to  rent car page  after pressed on rent car                  |
 | Tellusyourexperience | user only `<PrivateRoute>  | link to Tellusyourexperience , navigate to  Tellusyourexperience page  after pressed on Tellusyourexperience|
-| Maps                 | user only `<PrivateRoute>` | link to show airport location , navigate to my maps page after pressed on maps           |
-| profile              | user only `<PrivateRoute>` | link to show lelp reqest , navigate to my profile page after pressed on profile          |
-| Advertisment          | user only `<PrivateRoute>`| link to show Advertisment, navigate to Advertisment page after pressed on add Advertisment          |
+| Maps                 | user only `<PrivateRoute>` | link to show airport location , navigate to my maps page after pressed on maps                        |
+| settingpage          | user only `<PrivateRoute>` | link to show profil information , navigate to logoutpage page after pressed on logout                 |
 
 ## Components
 
@@ -88,82 +87,31 @@ User profile:
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
-- Exit Point Service
-  - exitPoint.list()
-  - exitPoint.detail(id)
-  - exitPoint.add(id)
-  - exitPoint.delete(id)
-- User Service
-  - user.detail(id)
+- MyFlight Service
+  - MyFlight.list()
+- SearchService Service
+  - SearchService
 
 
 
-# Server / Backend
-
-## Models
-
-User model
-
-```
-{
-  user: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  favorites: [{type: Schema.Types.ObjectId,ref:'Exit'}]
-  userAgreement: {type: boolean, required: true, default: false}
-}
-```
-
-Exit model
-
-```
- {
-   name: {type: String, required: true},
-   img: {type: String},
-   aproachLat: {type: Number, required: true}
-   aproachLong: {type: Number, required: true}
-   aproachDescription: {type: String}
-   exitLat: {type: Number, required: true}
-   exitLong: {type: Number, required: true}
-   exitDescription: {type: String}
-   landiZoneLat: {type: Number, required: true}
-   landingZoneLong: {type: Number, required: true}
-   landingZoneDescription: {type: String}
-   creator: {type: Schema.Types.ObjectId,ref:'User'}
-   altitud: {type: number}
-   
- }
-```
+`
 
 
 
 ## Links
 
-### Trello/Kanban
-
-[Link to your trello board](https://trello.com/b/PBqtkUFX/curasan) or picture of your physical board
 
 ### Git
 
 The url to your repository and to your deployed project
 
-[Client repository Link](https://github.com/screeeen/project-client)
+[Client repository Link](https://github.com/sarahalzhrani/EsayFlight-FinalProject)
 
-[Server repository Link](https://github.com/screeeen/project-server)
-
-[Deployed App Link](http://heroku.com/)
 
 ### Slides
 
 The url to your presentation slides
 
-[Slides Link](http://slides.com/)
+[Slides Link](https://docs.google.com/presentation/d/14WSHjYGcYT586UjiNIfVX8-q6-QvdQqfx4DVnuxdo5Y/edit#slide=id.g10bcaf71b42_0_1269)
 
-Wireframe
-
-The url to your presentation slides
-
-[Figma Link](http://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88)
-
-https://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88
 

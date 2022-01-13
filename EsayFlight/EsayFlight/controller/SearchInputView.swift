@@ -160,7 +160,7 @@ class SearchInputView: UIView {
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         
         addSubview(searchBar)
-        searchBar.anchor(top: indicatorView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 100)
+        searchBar.anchor(top: indicatorView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 40)
     }
     
     func configureTableView() {

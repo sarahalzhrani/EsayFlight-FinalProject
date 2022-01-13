@@ -11,8 +11,6 @@
 		1F1FBDB5274F73C000D9F691 /* SerchLuggaugeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */; };
 		1F1FBDB8274F811700D9F691 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB7274F811700D9F691 /* Location.swift */; };
 		1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDB9274F868300D9F691 /* searchCell.swift */; };
-		1F1FBDBC275359AE00D9F691 /* Terminal1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDBB275359AE00D9F691 /* Terminal1.swift */; };
-		1F1FBDBE275359DE00D9F691 /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDBD275359DE00D9F691 /* Advertisement.swift */; };
 		1F1FBDC027535A0A00D9F691 /* Terminal1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */; };
 		1F1FBDC227535A2900D9F691 /* Terminal2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */; };
 		1F1FBDC42754A60D00D9F691 /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBDC32754A60D00D9F691 /* TabVC.swift */; };
@@ -57,7 +55,6 @@
 		1FB153E1278AD30B00DE583E /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB153E0278AD30B00DE583E /* UserInfoHeader.swift */; };
 		1FB153E3278AD38100DE583E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB153E2278AD38100DE583E /* ViewController.swift */; };
 		1FB153E5278AF3AC00DE583E /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB153E4278AF3AC00DE583E /* SettingSection.swift */; };
-		1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */; };
 		1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */; };
 		89A7A04CC98EFAFCF7FBC549 /* Pods_EsayFlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */; };
 /* End PBXBuildFile section */
@@ -68,8 +65,6 @@
 		1F1FBDB4274F73C000D9F691 /* SerchLuggaugeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchLuggaugeService.swift; sourceTree = "<group>"; };
 		1F1FBDB7274F811700D9F691 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1F1FBDB9274F868300D9F691 /* searchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCell.swift; sourceTree = "<group>"; };
-		1F1FBDBB275359AE00D9F691 /* Terminal1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal1.swift; sourceTree = "<group>"; };
-		1F1FBDBD275359DE00D9F691 /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
 		1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal1Cell.swift; sourceTree = "<group>"; };
 		1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal2Cell.swift; sourceTree = "<group>"; };
 		1F1FBDC32754A60D00D9F691 /* TabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
@@ -113,7 +108,6 @@
 		1FB153E0278AD30B00DE583E /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
 		1FB153E2278AD38100DE583E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FB153E4278AF3AC00DE583E /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
-		1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementCell.swift; sourceTree = "<group>"; };
 		1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionCell.swift; sourceTree = "<group>"; };
 		5A29C8781ACD5304C1BD2310 /* Pods-EsayFlight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.debug.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EsayFlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,13 +147,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		1F484AFB2768BCE30048F280 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
 		1F484AFC2768BDB20048F280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,14 +157,12 @@
 				1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */,
 				1F65BC702779AD3A00379F4D /* RestPassWoord.swift */,
 				1F7C87B5274E12A700112F6A /* HomeCell.swift */,
-				1F65BC6E2779A40300379F4D /* WelcomeVC.swift */,
 				1F7421F52761DB3700B53C27 /* HomeCell2.swift */,
 				1F7422032763CDA600B53C27 /* FlightScheduleCell.swift */,
 				1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */,
 				1F1FBDB9274F868300D9F691 /* searchCell.swift */,
 				1F1FBDBF27535A0A00D9F691 /* Terminal1Cell.swift */,
 				1F1FBDC127535A2900D9F691 /* Terminal2Cell.swift */,
-				1FB8060C2755FBDF00CC5D55 /* AdvertisementCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,7 +174,6 @@
 				1F7C87B0274CFFAE00112F6A /* Home.swift */,
 				1F7C87BB274E2B0900112F6A /* profiel.swift */,
 				1F1FBDB7274F811700D9F691 /* Location.swift */,
-				1F1FBDBD275359DE00D9F691 /* Advertisement.swift */,
 			);
 			path = TAbbar;
 			sourceTree = "<group>";
@@ -208,16 +192,19 @@
 			isa = PBXGroup;
 			children = (
 				1F9E1FE6274B6B6D00679CC3 /* LoginVC.swift */,
+				1F6D83532782D572002A49E9 /* LocationRequestController.swift */,
+				1FB153E2278AD38100DE583E /* ViewController.swift */,
+				1F6D8355278304E0002A49E9 /* SearchInputView.swift */,
+				1F65BC6E2779A40300379F4D /* WelcomeVC.swift */,
 				1F7C87B7274E2ABC00112F6A /* serchForFlight.swift */,
 				1F7C87BD274E2B3300112F6A /* AskForHelp.swift */,
 				1F7422012763CD7B00B53C27 /* FlightSchedule.swift */,
 				1F7C87B9274E2ADD00112F6A /* serchForluggage.swift */,
 				1F1FBDB2274F736D00D9F691 /* NewSearchVC.swift */,
 				1F7422052764AD7C00B53C27 /* scanCode.swift */,
+				1F6D834F2782CEE5002A49E9 /* MapController.swift */,
 				1F1FBDC52754A74600D9F691 /* CarRentVC.swift */,
 				1F6583CF2760C1750067ADEB /* CallUsVC.swift */,
-				1F1FBDBB275359AE00D9F691 /* Terminal1.swift */,
-				1F484AFB2768BCE30048F280 /* Video */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -225,10 +212,6 @@
 		1F9E1FD6274B6B6D00679CC3 = {
 			isa = PBXGroup;
 			children = (
-				1FB153E2278AD38100DE583E /* ViewController.swift */,
-				1F6D8355278304E0002A49E9 /* SearchInputView.swift */,
-				1F6D83532782D572002A49E9 /* LocationRequestController.swift */,
-				1F6D834F2782CEE5002A49E9 /* MapController.swift */,
 				1F484AF72767D2940048F280 /* Flight+CoreDataClass.swift */,
 				1F484AF82767D2940048F280 /* Flight+CoreDataProperties.swift */,
 				1F608404275C9E7000B21702 /* Localizable.strings */,
@@ -440,7 +423,6 @@
 				1FB153E3278AD38100DE583E /* ViewController.swift in Sources */,
 				1F6D83582783051A002A49E9 /* SearchCell.swift in Sources */,
 				1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */,
-				1F1FBDBE275359DE00D9F691 /* Advertisement.swift in Sources */,
 				1F65BC712779AD3A00379F4D /* RestPassWoord.swift in Sources */,
 				1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */,
 				1FB153E1278AD30B00DE583E /* UserInfoHeader.swift in Sources */,
@@ -449,11 +431,9 @@
 				1F7421F62761DB3700B53C27 /* HomeCell2.swift in Sources */,
 				1F1FBDC227535A2900D9F691 /* Terminal2Cell.swift in Sources */,
 				1F7C87BE274E2B3300112F6A /* AskForHelp.swift in Sources */,
-				1F1FBDBC275359AE00D9F691 /* Terminal1.swift in Sources */,
 				1F1FBDC027535A0A00D9F691 /* Terminal1Cell.swift in Sources */,
 				1FB153E5278AF3AC00DE583E /* SettingSection.swift in Sources */,
 				1F65BC6F2779A40300379F4D /* WelcomeVC.swift in Sources */,
-				1FB8060D2755FBDF00CC5D55 /* AdvertisementCell.swift in Sources */,
 				1F7C87BC274E2B0900112F6A /* profiel.swift in Sources */,
 				1F6D83542782D572002A49E9 /* LocationRequestController.swift in Sources */,
 				1F6D83502782CEE5002A49E9 /* MapController.swift in Sources */,

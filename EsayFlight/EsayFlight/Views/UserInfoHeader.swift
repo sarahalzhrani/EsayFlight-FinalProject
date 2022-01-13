@@ -7,8 +7,10 @@
 
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
-class UserInfoHeader: UIView {
+class UserInfoHeader: UIView, UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
     
     // MARK: - Properties
     
@@ -17,13 +19,13 @@ class UserInfoHeader: UIView {
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = UIImage(named: "icons8-passenger_with_baggage")
+        iv.image = UIImage(named: "user")
         return iv
     }()
     
     let usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tony Stark"
+        label.text = "sara"
         label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -31,18 +33,20 @@ class UserInfoHeader: UIView {
     
     let emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "tony.stark@gmail.com"
+        label.text = "sara1121@gmail.com"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+  
     
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+   
         let profileImageDimension: CGFloat = 60
         
         addSubview(profileImageView)
@@ -59,7 +63,22 @@ class UserInfoHeader: UIView {
         addSubview(emailLabel)
         emailLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: 10).isActive = true
         emailLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
+        
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore()
+            .document("users/\(currentUserID)")
+            .addSnapshotListener{ doucument, error in
+                if error != nil {
+                    print (error as Any)
+                    return
+                }
+                self.emailLabel.text = doucument?.data()?["email"] as? String
+//                self.status.text = doucument?.data()?["status"] as? String
+//                self.profileImage.image = doucument?.data()?["image"] as? UIImage
+                
+            }
     }
+  
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

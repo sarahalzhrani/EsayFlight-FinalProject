@@ -21,8 +21,8 @@ class FlightScheduleCell: UICollectionViewCell {
     let nameCitylabel: UILabel = {
         let label = UILabel()
 //        label.text = "dd"
-        label.textColor = .red
-        label.backgroundColor = .yellow
+//        label.textColor = .red
+//        label.backgroundColor = .yellow
         label.font = label.font.withSize(16)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

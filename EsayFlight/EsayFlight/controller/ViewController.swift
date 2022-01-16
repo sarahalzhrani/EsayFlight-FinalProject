@@ -39,8 +39,7 @@ class ViewController: UIViewController {
     
     func configureUI() {
         configureTableView()
-        
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
@@ -103,6 +102,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .Social:
             let social = SocialOption(rawValue: indexPath.row)
             if indexPath.row == 0 {
+                let vc =  Editingprofile()
+                present(vc, animated: true, completion: nil)
+               
                 
             } else if indexPath.row == 1 {
                 let firebaseAuth = Auth.auth()

@@ -26,9 +26,7 @@ class TabBarVC : UITabBarController {
             
             createNavController(for:Home(), title: NSLocalizedString("Home", comment: "Esay Flight"), image: UIImage(systemName: "house")!),
             createNavController(for:MapController(), title: NSLocalizedString("Maps", comment: ""), image: UIImage(systemName: "location")!),
-//            createNavController(for:profiel(), title: NSLocalizedString("profile", comment: ""), image: UIImage(systemName: "person")!),
-            createNavController(for:ViewController(), title: NSLocalizedString("sitting", comment: ""), image: UIImage(systemName: "seal")!),
-//            createNavController(for:ProfileVC(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!),
+            createNavController(for:ViewController(), title: NSLocalizedString("Sitting", comment: ""), image: UIImage(systemName: "gearshape")!),
         ]
     }
     override func viewDidLoad() {
@@ -36,23 +34,19 @@ class TabBarVC : UITabBarController {
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemGray6
         tabBar.tintColor = .label
+        tabBarItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: -2, right: 0)
+        
         setupVCs()
         view.isUserInteractionEnabled = true
         
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-//            swipeLeft.direction = .right
-//            self.view.addGestureRecognizer(swipeLeft)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tabBar.frame.size.height = 70
+        tabBar.frame.origin.y = view.frame.height - 70
     }
     
     
-    
-//    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
-//       if gesture.direction == .right{
-//           present(
-//               UINavigationController(rootViewController: FreeWIfi()),
-//               animated: true,
-//               completion: nil
-//           )
-//       }
+
 }
 

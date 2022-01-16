@@ -73,7 +73,7 @@ class UserInfoHeader: UIView, UIImagePickerControllerDelegate ,UINavigationContr
                     return
                 }
                 self.emailLabel.text = doucument?.data()?["email"] as? String
-//                self.status.text = doucument?.data()?["status"] as? String
+                self.usernameLabel.text = doucument?.data()?["name"] as? String
 //                self.profileImage.image = doucument?.data()?["image"] as? UIImage
                 
             }

@@ -7,8 +7,6 @@
 
 
 import UIKit
-import SwiftUI
-
 class SettingsCell: UITableViewCell {
     
     var sectionType: sectionType? {
@@ -33,9 +31,6 @@ class SettingsCell: UITableViewCell {
         return switchControl
         
     }()
-    
-    
-
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

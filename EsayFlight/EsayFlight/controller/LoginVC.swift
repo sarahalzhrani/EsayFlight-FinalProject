@@ -26,6 +26,22 @@ class LoginVC: UIViewController, UITextFieldDelegate {
        
         return tf
     }()
+    
+    
+    
+    var nameTF: UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+//        tf.backgroundColor = .systemGray6
+        tf.layer.cornerRadius = 15
+        tf.layer.borderColor = UIColor.white.cgColor
+        tf.textAlignment = .center
+        tf.layer.borderWidth = 2
+        tf.resignFirstResponder()
+        tf.placeholder = NSLocalizedString(  "Enter your name", comment: "")
+       
+        return tf
+    }()
     let titlew : UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -117,6 +133,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 //        blackSquare.layer.cornerRadius = 55
 //        view.addSubview(blackSquare)
         passwordTF.addSubview(button)
+        view.addSubview(nameTF)
         view.addSubview(emailTF)
         view.addSubview(passwordTF)
         view.addSubview(loginBtn)
@@ -133,7 +150,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
        
         passwordTF.rightView = button
         NSLayoutConstraint.activate([
-            emailTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
+            nameTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
+            nameTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
+            nameTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
+            nameTF.heightAnchor.constraint(equalToConstant: 40),
+            
+            emailTF.topAnchor.constraint(equalTo: nameTF.bottomAnchor, constant: 24),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
             emailTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             emailTF.heightAnchor.constraint(equalToConstant: 40),
@@ -213,7 +235,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 guard let currentUserID = Auth.auth().currentUser?.uid else {return}
                 Firestore.firestore().document("users/\(currentUserID)").setData([
                     "id" : currentUserID,
-                    "email" : self.emailTF.text as Any
+                    "email" : self.emailTF.text as Any,
+                    "name" : self.nameTF.text as Any
                 ])
             }
         }

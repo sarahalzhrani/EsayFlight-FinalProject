@@ -20,7 +20,7 @@ protocol SearchInputViewDelegate {
 
 class SearchInputView: UIView {
     
-    // MARK: - Properties
+    
     
     var searchBar: UISearchBar!
     var tableView: UITableView!
@@ -50,8 +50,7 @@ class SearchInputView: UIView {
         return view
     }()
     
-    // MARK: - Init
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureViewComponents()
@@ -63,7 +62,7 @@ class SearchInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Selectors
+  
     
     @objc func handleSwipeGesture(sender: UISwipeGestureRecognizer) {
         
@@ -110,8 +109,7 @@ class SearchInputView: UIView {
         }
     }
     
-    // MARK: - Helper Functions
-    
+
     func disableViewInteraction(directionsEnabled: Bool) {
         self.directionsEnabled = directionsEnabled
         
@@ -187,7 +185,6 @@ class SearchInputView: UIView {
     }
 }
 
-// MARK: - UISearchBarDelegate
 
 extension SearchInputView: UISearchBarDelegate {
     
@@ -223,7 +220,7 @@ extension SearchInputView: UISearchBarDelegate {
     }
 }
 
-// MARK: - UITableViewDataSource/Delegate
+
 
 extension SearchInputView: UITableViewDelegate, UITableViewDataSource {
     
@@ -251,7 +248,6 @@ extension SearchInputView: UITableViewDelegate, UITableViewDataSource {
         let selectedMapItem = searchResults[indexPath.row]
         delegate?.selectedAnnotation(withMapItem: selectedMapItem)
         
-        // FIXME: Refactor
         
         if expansionState == .FullyExpanded {
             self.searchBar.endEditing(true)

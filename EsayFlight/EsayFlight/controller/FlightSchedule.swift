@@ -44,7 +44,6 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     let mylastFlightlabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Logs Flights:", comment:"")
-        //        label.textColor = .black
         label.font = label.font.withSize(30)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +76,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)
         fitchData()
+        logscollectionView.reloadData()
         
         title = NSLocalizedString("My Flight", comment:"")
         

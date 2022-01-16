@@ -17,7 +17,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var RentCarBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle(NSLocalizedString("Rent Car\n In your destination", comment: ""), for: .normal)
+        btn.setTitle(NSLocalizedString("Rent Car\n in your destination", comment: ""), for: .normal)
         btn.titleLabel?.numberOfLines = 0
         btn.titleLabel?.lineBreakMode = .byWordWrapping
         btn.backgroundColor = UIColor(named: "Color-1")

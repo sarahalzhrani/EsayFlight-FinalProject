@@ -58,6 +58,7 @@
 		1FDA79192764EC2D009D42FD /* LogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */; };
 		1FEA76EC2793F509007C5021 /* Terminal1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEA76EB2793F509007C5021 /* Terminal1.swift */; };
 		1FEA76EE27940F4D007C5021 /* Editingprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEA76ED27940F4D007C5021 /* Editingprofile.swift */; };
+		1FEA76F02796EC89007C5021 /* ScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEA76EF2796EC88007C5021 /* ScannerDelegate.swift */; };
 		89A7A04CC98EFAFCF7FBC549 /* Pods_EsayFlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		1FDA79182764EC2D009D42FD /* LogCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionCell.swift; sourceTree = "<group>"; };
 		1FEA76EB2793F509007C5021 /* Terminal1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal1.swift; sourceTree = "<group>"; };
 		1FEA76ED27940F4D007C5021 /* Editingprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editingprofile.swift; sourceTree = "<group>"; };
+		1FEA76EF2796EC88007C5021 /* ScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerDelegate.swift; sourceTree = "<group>"; };
 		5A29C8781ACD5304C1BD2310 /* Pods-EsayFlight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsayFlight.debug.xcconfig"; path = "Target Support Files/Pods-EsayFlight/Pods-EsayFlight.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0DA6505E907BD972130518 /* Pods_EsayFlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EsayFlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 			children = (
 				1FB153DE278AD2F100DE583E /* SettingsCell.swift */,
 				1FB153E0278AD30B00DE583E /* UserInfoHeader.swift */,
+				1FEA76EF2796EC88007C5021 /* ScannerDelegate.swift */,
 				1F6D83572783051A002A49E9 /* SearchCell.swift */,
 				1F6D83512782CFF9002A49E9 /* Extensions.swift */,
 				1F484AFD2768CFE30048F280 /* AnimationLaunch.swift */,
@@ -429,6 +432,7 @@
 				1FB153E3278AD38100DE583E /* ViewController.swift in Sources */,
 				1F6D83582783051A002A49E9 /* SearchCell.swift in Sources */,
 				1F1FBDBA274F868300D9F691 /* searchCell.swift in Sources */,
+				1FEA76F02796EC89007C5021 /* ScannerDelegate.swift in Sources */,
 				1F65BC712779AD3A00379F4D /* RestPassWoord.swift in Sources */,
 				1FEA76EE27940F4D007C5021 /* Editingprofile.swift in Sources */,
 				1F7C87B1274CFFAE00112F6A /* Home.swift in Sources */,
@@ -606,6 +610,8 @@
 				DEVELOPMENT_TEAM = VVJKC8N3PQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsayFlight/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to scan Codes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "pleas allow access to see your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -634,6 +640,8 @@
 				DEVELOPMENT_TEAM = VVJKC8N3PQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsayFlight/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need to scan Codes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "pleas allow access to see your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

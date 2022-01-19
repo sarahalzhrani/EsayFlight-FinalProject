@@ -84,8 +84,8 @@
 "Services24" = "خدمة ٢٤";
 "If you lost luggage" = "لتتبع الامتعه الضائعه";
 "Rent Car\n in your destination" = "استأجر سيارة\n في وجهتك";
-"Suggest For you To Planing your vaction:" = "برامج مقترحه لتخطيط لإجازتك:";
-"Enter your lagguage details :" = "أدخل تفاصيل امتعتك المفقوده :";
+"Suggest App For you :" = "برامج مقترحه لك";
+"Enter your lagguage details :" = "أدخل تفاصيل المفقودات :";
 "Enter your flight number :" = "ادخل رقم الرحله:";
 "Enter your Phone number :" = "ادخل رقم التواصل  :";
 "Save" = "حفظ";
@@ -97,8 +97,12 @@
 "Parking" = "مواقف سيارات";
 "My order" = "طلبات المساعده";
 "Sitting" = "الإعدادات";
-"Search for a place or address" = "Search for a place or address";
-
+"Search for a place or address" = "ابحث عن اماكن وعناوين";
+"log Out" = "تسجيل خروج";
+"Darkmode" = "النمط الليلي";
+"Email" = "الإيميل";
+"Changelanguage" = "تغيير اللغه";
+"Editing profile" = "تعديل الملف الشخصي";
 
 
 

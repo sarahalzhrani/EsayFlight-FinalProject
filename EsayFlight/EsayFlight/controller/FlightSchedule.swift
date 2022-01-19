@@ -68,6 +68,11 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         iv.contentMode = .scaleAspectFill
         return iv
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fitchData()
+       
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +80,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         view.addSubview(FlightcollectionView)
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)
-        fitchData()
+       
         logscollectionView.reloadData()
         
         title = NSLocalizedString("My Flight", comment:"")
@@ -160,7 +165,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
             
         } ))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Scan parcod", comment:"") , style: .default, handler: { Action in
-            self.present(ScanCode(), animated: true, completion: nil)
+            self.present(ViewController22(), animated: true, completion: nil)
             
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment:""), style: .destructive, handler: nil))
@@ -212,7 +217,7 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
        
     }
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let data2 = flightSchedule1[indexPath.row]
+        _ = flightSchedule1[indexPath.row]
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

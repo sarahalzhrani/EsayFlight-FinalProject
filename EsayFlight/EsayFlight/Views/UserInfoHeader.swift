@@ -11,8 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class UserInfoHeader: UIView, UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
-    
-    // MARK: - Properties
+
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -40,8 +39,7 @@ class UserInfoHeader: UIView, UIImagePickerControllerDelegate ,UINavigationContr
         return label
     }()
   
-    
-    // MARK: - Init
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,7 +72,6 @@ class UserInfoHeader: UIView, UIImagePickerControllerDelegate ,UINavigationContr
                 }
                 self.emailLabel.text = doucument?.data()?["email"] as? String
                 self.usernameLabel.text = doucument?.data()?["name"] as? String
-//                self.profileImage.image = doucument?.data()?["image"] as? UIImage
                 
             }
     }

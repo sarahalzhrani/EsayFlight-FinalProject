@@ -31,8 +31,8 @@ enum SocialOption: Int, CaseIterable, sectionType {
     var containsSwitch: Bool{ return false}
     var description: String {
         switch self {
-        case .editingprofile: return "Editing profile"
-        case .logout: return "log Out"
+        case .editingprofile: return  NSLocalizedString("Editing profile", comment:"")
+        case .logout: return  NSLocalizedString("log Out", comment:"") 
         }
     }
     
@@ -54,9 +54,9 @@ enum CommunicationOption: Int, CaseIterable, sectionType {
     }
     var description: String {
         switch self {
-        case .darkmode: return "darkmode"
-        case .changelanguage: return "changelanguage"
-        case .email: return "email"
+        case .darkmode: return  NSLocalizedString("Darkmode", comment:"") 
+        case .changelanguage: return NSLocalizedString("Changelanguage", comment:"") 
+        case .email: return  NSLocalizedString("Email", comment:"") 
         }
     }
     

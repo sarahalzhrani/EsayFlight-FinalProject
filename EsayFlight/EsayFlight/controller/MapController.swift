@@ -11,7 +11,7 @@ import CoreLocation
 
 class MapController: UIViewController {
     
-    // MARK: - Properties
+
     
     var mapView: MKMapView!
     var locationManager: CLLocationManager!

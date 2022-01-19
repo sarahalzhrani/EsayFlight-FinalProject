@@ -137,23 +137,26 @@ class CallUsVC: UIViewController {
 
     }
     @objc func sendEmail() {
+       
         showMailComposer()
     
     }
     
-    func showMailComposer() {
+    func showMailComposer(){
+        
+        print("it's pressed")
         
         guard MFMailComposeViewController.canSendMail() else {
-        
+
             return
         }
-        
+
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
         composer.setToRecipients(["kaiacustomercare@kaia.gov.sa"])
         composer.setSubject("")
         composer.setMessageBody("", isHTML: false)
-        
+
         present(composer, animated: true)
     }
     

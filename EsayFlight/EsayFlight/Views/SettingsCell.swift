@@ -20,8 +20,8 @@ class SettingsCell: UITableViewCell {
     
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
-        switchControl.isOn = false
-        switchControl.setOn(true, animated: false)
+        switchControl.isOn = true
+        switchControl.setOn(false, animated: true)
         switchControl.isUserInteractionEnabled = true
         switchControl.onTintColor =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         switchControl.translatesAutoresizingMaskIntoConstraints = false
@@ -45,25 +45,25 @@ class SettingsCell: UITableViewCell {
     }
     
     @objc func switchValueDidChange(_ sender: UISwitch) {
-        if sender.isOn {
-            var social : CommunicationOption?
-            if let social = social {
-                switch (social) {
-                case.darkmode:
-                    print("1111")
-                case.changelanguage:
-                    print("222")
-                case.email:
-                    print("333")
-                default:
-                    print("none")
-                }
-        }
-          else{
-              print("off")
-          }
-
-    }
+//        if sender.isOn {
+//            var social : CommunicationOption?
+//            if let social = social {
+//                switch (social) {
+//                case.darkmode:
+//                    print("1111")
+//                case.changelanguage:
+//                    print("222")
+//                case.email:
+//                    print("333")
+//                default:
+//                    print("none")
+//                }
+//        }
+//          else{
+//              print("off")
+//          }
+//
+//    }
    
 }
 }

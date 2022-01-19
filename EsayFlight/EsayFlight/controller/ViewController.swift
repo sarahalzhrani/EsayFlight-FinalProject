@@ -10,7 +10,8 @@ import FirebaseAuth
 private let reuseIdentifier = "SettingsCell"
 
 class ViewController: UIViewController {
-    
+    var  social : CommunicationOption = .changelanguage
+    var appDelegate = UIApplication.shared.windows.first
     
     var tableView: UITableView!
     var userInfoHeader: UserInfoHeader!
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
-        navigationItem.title = "Settings"
+        navigationItem.title = NSLocalizedString("Settings", comment:"")
     }
 
 }
@@ -93,9 +94,79 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .communication:
             let communications = CommunicationOption(rawValue: indexPath.row)
             cell.sectionType = communications
+            cell.switchControl.tag = indexPath.row
+            cell.switchControl.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
         }
         return cell
     }
+    
+    
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+            if sender.isOn {
+                if sender.tag == 0 {
+                    social = .darkmode
+                } else if sender.tag == 1 {
+                    social =  .changelanguage
+                }
+                else {
+                    social = .email
+                }
+                switch social {
+                case .darkmode:
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                    UserDefaults.standard.set(true, forKey: "switchState")
+                    break
+                case .changelanguage:
+                    let alert1 = UIAlertController(
+                        title: ("Warning"),
+                        message: "The app will exit to change the language",
+                        preferredStyle: .alert)
+                    alert1.addAction(
+                        UIAlertAction(
+                            title: "OK",
+                            style: .default,
+                            handler: { action in
+                                let currentLang = Locale.current.languageCode
+                                let newLanguage = currentLang == "en" ? "ar" : "en"
+                                UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+                                exit(0)
+                                print("OK")
+                            }
+                        )
+                    )
+                    present(alert1, animated: true, completion: nil)
+                    print("try2")
+                    break
+                case .email:
+                    let alert1 = UIAlertController(
+                        title: ("Warning"),
+                        message: "Allow us to send our new",
+                        preferredStyle: .alert)
+                    alert1.addAction(
+                        UIAlertAction(
+                            title: "OK",
+                            style: .default,
+                            handler: { action in
+                                print("OK")
+                            }
+                        )
+                    )
+                    present(alert1, animated: true, completion: nil)
+                    break
+                default:
+                    print("trydefault")
+                }
+            }
+            else {
+                if sender.tag == 0 {
+                    social = .darkmode
+    
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                    UserDefaults.standard.set(false, forKey: "switchState")
+                }
+            }
+        }
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let section = settingsSection(rawValue:indexPath.section) else { return }
         switch section{
@@ -127,4 +198,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
+    

@@ -85,7 +85,7 @@
 "Services24" ="Services24";
 "If you lost luggage" = "If you lost luggage";
 "Rent Car\n in your destination" = "Rent Car\n in your destination";
-"Suggest For you To Planing your vaction:" = "Suggest For you To Planing your vaction:";
+"Suggest App For you :" = "Suggest App For you :";
 "Enter your lagguage details :" = "Enter your lagguage details :";
 "Enter your flight number :" = "Enter your flight number :";
 "Enter your Phone number :"= "Enter your Phone number :";
@@ -103,3 +103,9 @@
 "Enter new name " = "Enter new name ";
 "Enter your email.." = "Enter your email..";
 "Change your Email:" = "Change your Email:";
+"log Out" = "log Out";
+"Editing profile" = "Editing profile";
+"Darkmode" = "Darkmode";
+"Changelanguage" = "Changelanguage";
+"Email" = "Email";
+

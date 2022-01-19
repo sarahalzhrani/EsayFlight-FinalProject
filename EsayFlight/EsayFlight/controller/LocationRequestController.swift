@@ -40,7 +40,7 @@ class LocationRequestController: UIViewController {
         button.setTitle("Enable Location", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.backgroundColor = .mainBlue()
+        button.backgroundColor =  UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleRequestLocation), for: .touchUpInside)
         return button

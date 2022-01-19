@@ -82,7 +82,8 @@ class Editingprofile: UIViewController, UITextFieldDelegate {
 //        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
 //        self.view.insertSubview(backgroundImage, at: 0)
         view.backgroundColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
-        
+        self.contentTF2.delegate = self
+        self.contentTF.delegate = self
         view.addSubview(contentTF)
         view.addSubview(details)
         view.addSubview(contentTF2)

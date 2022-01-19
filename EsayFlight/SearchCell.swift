@@ -14,8 +14,7 @@ protocol SearchCellDelegate {
 }
 
 class SearchCell: UITableViewCell {
-    
-    // MARK: - Properties
+
     
     var delegate: SearchCellDelegate?
     
@@ -69,8 +68,6 @@ class SearchCell: UITableViewCell {
         return label
     }()
     
-    // MARK: - Init
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -98,14 +95,14 @@ class SearchCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK - Selectors
+  
     
     @objc func handleGetDirections() {
         guard let mapItem = self.mapItem else { return }
         delegate?.getDirections(forMapItem: mapItem)
     }
     
-    // MARK: - Helper Functions
+
     
     func animateButtonIn() {
         directionsButton.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)

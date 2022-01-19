@@ -10,13 +10,14 @@ import FirebaseAuth
 import SPAlert
 
 
-class RestPassWoord : UIViewController {
+class RestPassWoord : UIViewController, UITextFieldDelegate {
     
     let name: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("Forgot Password", comment: "")
         label.textAlignment = .left
         label.font = label.font.withSize(25)
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -25,13 +26,13 @@ class RestPassWoord : UIViewController {
     var emailTF : UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.backgroundColor = .systemGray6
+//        tf.backgroundColor = .
         tf.layer.cornerRadius = 15
-        tf.layer.borderColor = UIColor.systemMint.cgColor
+        tf.layer.borderColor = UIColor.white.cgColor
         tf.textAlignment = .center
         tf.layer.borderWidth = 2
         tf.resignFirstResponder()
-        tf.text = NSLocalizedString( "Enter your email", comment: "")
+        tf.placeholder = NSLocalizedString( "Enter your email", comment: "")
        
       
         return tf
@@ -43,10 +44,10 @@ class RestPassWoord : UIViewController {
         btn.setTitle(NSLocalizedString("send", comment: ""), for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
         btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
-        btn.backgroundColor = .white
+//        btn.backgroundColor = .white
         btn.layer.cornerRadius = 15
-        btn.setTitleColor(UIColor.systemMint, for: UIControl.State.normal)
-        btn.layer.borderColor = UIColor.systemMint.cgColor
+        btn.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        btn.layer.borderColor = UIColor.white.cgColor
         btn.layer.borderWidth = 2
         btn.addTarget(self, action: #selector(forgetBtnBtnPressed), for: .touchUpInside)
         return btn
@@ -58,6 +59,14 @@ class RestPassWoord : UIViewController {
         view.addSubview(emailTF)
         view.addSubview(forgetBtn)
         view.addSubview(name)
+        self.emailTF.delegate = self
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 60))
+        view.addSubview(navBar)
+        let navItem = UINavigationItem(title: NSLocalizedString("Forget password?", comment: ""))
+        let doneItem = UIBarButtonItem(title:NSLocalizedString("Back", comment: ""), style: .plain, target: self, action: #selector(baccck2))
+        navItem.leftBarButtonItem = doneItem
+
+        navBar.setItems([navItem], animated: false)
         NSLayoutConstraint.activate([
             name.topAnchor.constraint(equalTo: view.topAnchor, constant: 500),
             name.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
@@ -74,6 +83,11 @@ class RestPassWoord : UIViewController {
             forgetBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             forgetBtn.heightAnchor.constraint(equalToConstant: 40),
             ])
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "screen")
+//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+//        self.view.insertSubview(backgroundImage, at: 0)
+        view.backgroundColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
             
     }
     
@@ -104,6 +118,16 @@ class RestPassWoord : UIViewController {
 //            let alert = UIAlertController (title:"Hurray", message:"A password resit email has been sent!", preferredStyle: UIAlertController.Style.alert)
         }
         
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTF.resignFirstResponder()
+        return true
+    }
+    @objc func baccck2() {
+
+        let vc = LoginVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 
     

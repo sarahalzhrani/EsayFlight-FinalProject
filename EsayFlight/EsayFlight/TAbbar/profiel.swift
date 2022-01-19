@@ -31,16 +31,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     
     
     
-    let changelanguage : UIButton = {
-        $0.backgroundColor = UIColor(named: "Color-1")
-        $0.setTitle(NSLocalizedString("changelanguage", comment: ""), for: .normal)
-        $0.setTitleColor( UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2), for: .normal)
-        $0.layer.cornerRadius = 22.5
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(changeLang), for: .touchUpInside)
-        return $0
-    }(UIButton())
- 
+    
     
     var blackSquare: UIView!
    
@@ -146,14 +137,7 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
             
         ])
         
-        
-        view.addSubview(changelanguage)
-        NSLayoutConstraint.activate([
-            changelanguage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 500),
-            changelanguage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            changelanguage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            changelanguage.heightAnchor.constraint(equalToConstant: 70)
-        ])
+    
         
         
         
@@ -195,11 +179,8 @@ class profiel : UIViewController,  UINavigationControllerDelegate, UITableViewDe
     
     
     @objc func changeLang() {
-        let currentLang = Locale.current.languageCode
-        let newLanguage = currentLang == "en" ? "ar" : "en"
-        UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
-        exit(0)
-
+     
+       
     }
     
     @objc func didTapMenuButton() {

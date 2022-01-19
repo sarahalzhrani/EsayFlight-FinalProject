@@ -101,7 +101,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     let namelable: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Suggest For you To Planing your vaction:", comment:"")
+        label.text = NSLocalizedString("Suggest App For you :", comment:"")
         label.textColor = UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2)
         label.textAlignment = .center
         label.numberOfLines = 0

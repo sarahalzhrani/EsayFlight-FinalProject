@@ -123,6 +123,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
           emailTF.resignFirstResponder()
           passwordTF.resignFirstResponder()
+        nameTF.resignFirstResponder()
              return true
          }
 
@@ -142,6 +143,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         view.addSubview(titlew)
         self.emailTF.delegate = self
         self.passwordTF.delegate = self
+        self.nameTF.delegate = self
         view.backgroundColor = UIColor.systemMint
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "screen")
@@ -260,8 +262,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
         
     @objc func forgetBtnBtnPressed() {
-        let vc = RestPassWoord()
-        self.navigationController?.pushViewController(vc,animated: true)
+        print("it's worke")
+        let vc1 = RestPassWoord()
+        vc1.modalPresentationStyle = .fullScreen
+        self.present(vc1, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(vc1,animated: true)
         }
         
     }

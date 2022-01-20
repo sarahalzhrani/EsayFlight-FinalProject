@@ -46,7 +46,7 @@ class WelcomeViewController: UIViewController {
             pageview.addSubview(imageView)
                button.layer.cornerRadius = 13
                button.setTitleColor(.white, for: .normal)
-               button.backgroundColor = .black
+               button.backgroundColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
                button.setTitle("Continue", for: .normal)
                 if x == 2{
                button.setTitle("Get Started", for: .normal)
@@ -63,12 +63,10 @@ class WelcomeViewController: UIViewController {
          @objc func didtapButtont(_ button: UIButton) {
              guard button.tag < 3 else {
                // dismiss
-//               Core.shared.setIsNotNewUser()
                  let vc = UINavigationController(rootViewController: TabBarVC())
                  vc.modalTransitionStyle = .crossDissolve
                  vc.modalPresentationStyle = .fullScreen
                  self.present(vc, animated: true, completion: nil)
-//                 dismiss(animated: true, completion: nil)
                return
                  
              }

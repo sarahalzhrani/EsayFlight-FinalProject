@@ -119,7 +119,7 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         super.viewDidLoad()
        
         self.view = self.scrollView
-        title = NSLocalizedString("Esay Flight", comment:"")
+        title = NSLocalizedString("Easy Flight", comment:"")
 
         blackSquare.backgroundColor = .white
         blackSquare.layer.cornerRadius = 55
@@ -315,24 +315,24 @@ class Home : UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             let data1 = array4[indexPath.row]
             
             if indexPath.row == 0 {
-                if let url1 = URL(string: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795") {
+                if let url1 = URL(string: "https://apps.apple.com/us/app/be-my-eyes/id905177575") {
                           UIApplication.shared.open(url1)
                         }
                 
                 
             }else if indexPath.row == 1 {
                 
-                if let url6 = URL(string: "https://apps.apple.com/sa/app/tripadvisor-plan-book-trips") {
+                if let url6 = URL(string: "https://apps.apple.com/us/app/wheelmate/id515277627") {
                           UIApplication.shared.open(url6)
                         }
     
               
             } else if indexPath.row == 2 {
-                if let url7 = URL(string: "https://apps.apple.com/sa/app/ترافيل-ديف/id1426181755") {
+                if let url7 = URL(string: "https://apps.apple.com/gb/app/changing-places-toilet-finder/id1160975684") {
                           UIApplication.shared.open(url7)
                         }
             } else if indexPath.row == 3 {
-                if let url7 = URL(string: "https://apps.apple.com/us/app/ترافيل-ديف/id1426181755") {
+                if let url7 = URL(string: "https://apps.apple.com/us/app/red-panic-button/id422029296") {
                           UIApplication.shared.open(url7)
                         }
             

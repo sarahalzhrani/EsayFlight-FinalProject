@@ -35,7 +35,6 @@ class MapController: UIViewController {
         return button
     }()
     
-    // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +46,6 @@ class MapController: UIViewController {
         super.viewWillAppear(animated)
         centerMapOnUserLocation(shouldLoadAnnotations: true)
     }
-    
-    // MARK: - Selectors
     
     @objc func handleRemoveOverlays() {
         
@@ -75,7 +72,7 @@ class MapController: UIViewController {
         centerMapOnUserLocation(shouldLoadAnnotations: false)
     }
     
-    // MARK: - Helper Functions
+ 
     
     func configureViewComponents() {
         view.backgroundColor = .white
@@ -109,7 +106,7 @@ class MapController: UIViewController {
     }
 }
 
-// MARK: - SearchCellDelegate
+
 
 extension MapController: SearchCellDelegate {
     
@@ -123,7 +120,7 @@ extension MapController: SearchCellDelegate {
     }
 }
 
-// MARK: - SearchInputViewDelegate
+
 
 extension MapController: SearchInputViewDelegate {
     
@@ -186,7 +183,7 @@ extension MapController: SearchInputViewDelegate {
     }
 }
 
-// MARK: - MKMapViewDelegate
+
 
 extension MapController: MKMapViewDelegate {
     
@@ -205,7 +202,7 @@ extension MapController: MKMapViewDelegate {
     
 }
 
-// MARK: - MapKit Helper Functions
+
 
 extension MapController {
     
@@ -316,7 +313,7 @@ extension MapController {
     }
 }
 
-// MARK: - CLLocationManagerDelegate
+
 
 extension MapController: CLLocationManagerDelegate {
     

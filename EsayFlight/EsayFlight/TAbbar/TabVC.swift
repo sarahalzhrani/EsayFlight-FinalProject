@@ -24,7 +24,7 @@ class TabBarVC : UITabBarController {
         viewControllers = [
             
             
-            createNavController(for:Home(), title: NSLocalizedString("Home", comment: "Esay Flight"), image: UIImage(systemName: "house")!),
+            createNavController(for:Home(), title: NSLocalizedString("Easy Flight", comment: "Easy Flight"), image: UIImage(systemName: "house")!),
             createNavController(for:MapController(), title: NSLocalizedString("Maps", comment: ""), image: UIImage(systemName: "location")!),
             createNavController(for:ViewController(), title: NSLocalizedString("Sitting", comment: ""), image: UIImage(systemName: "gearshape")!),
         ]

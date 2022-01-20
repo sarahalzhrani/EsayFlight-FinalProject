@@ -45,8 +45,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     let titlew : UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = NSLocalizedString("Esay Flight", comment: "")
-        label.font = UIFont(name: "Optima-Italic", size: 30)
+        label.text = NSLocalizedString("Easy Flight", comment: "")
+        label.font = UIFont(name: "Hoefler Text Italic" , size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -107,6 +107,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     var button: UIButton = {
         let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "close"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -15, bottom: 5, right: 15)
         button.addTarget(self, action: #selector(showandhiden), for: .touchUpInside)
@@ -129,10 +130,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        blackSquare = UIView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: 800))
-//        blackSquare.backgroundColor = .white
-//        blackSquare.layer.cornerRadius = 55
-//        view.addSubview(blackSquare)
+
         passwordTF.addSubview(button)
         view.addSubview(nameTF)
         view.addSubview(emailTF)
@@ -146,7 +144,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.nameTF.delegate = self
         view.backgroundColor = UIColor.systemMint
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "screen")
+        backgroundImage.image = UIImage(named: "first")
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
        
@@ -182,13 +180,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             registerBtn.heightAnchor.constraint(equalToConstant: 40),
             
             
-            titlew.topAnchor.constraint(equalTo: view.topAnchor,constant: 190),
-            titlew.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 120),
+            titlew.topAnchor.constraint(equalTo: view.topAnchor,constant: 230),
+            titlew.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 140),
             titlew.heightAnchor.constraint(equalToConstant: 200),
             titlew.widthAnchor.constraint(equalToConstant: 200),
             
 //            button.topAnchor.constraint(equalTo: view.topAnchor),
-            button.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 120),
+            button.rightAnchor.constraint(equalTo: passwordTF.rightAnchor,constant: -16),
+
+//            button.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 120),
             button.heightAnchor.constraint(equalToConstant: 40),
             button.widthAnchor.constraint(equalToConstant: 30),
         ])
@@ -254,6 +254,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 } else {
+                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: "")
+                                                  , message: error?.localizedDescription, preferredStyle:.alert)
+                                self.present(alert, animated: true, completion: nil)
+                                    alert.addAction(
+                                    UIAlertAction(title: NSLocalizedString("cancel", comment: ""),
+                                       style: UIAlertAction.Style.default,
+                                       handler: { Action in print("...")
+                                 })
+                                )
                     print(error?.localizedDescription)
                 }
             }

@@ -25,9 +25,9 @@ It is a App that enables the  user with special needs to see the departing fligh
 - ** lost luggage:** As a user I can search of my lost luggage and add my contact number so that they could tell me when they found it
 - ** Rent car:**  As user I can rent a car from the office rent a car before i reach so that I can save my time when i arrive
 - ** Tell us your Experience:** As user I can connect with airport and send my suggestion or complaining
-- ** Suggest For You:** As user I can see suggestion app for planning my vacation
-- ** Maps:** As user I can see  ican see airport maps and many location in it 
-- ** Adevertisement:**  As user I can see the add that many good for me so that i can choose one of them
+- ** Suggest For You:** As user I can see suggestion app that will help me
+- ** Maps:** As user I can see  ican see airport maps and many location in it  and draw route
+- ** setting:**  As user I can see the app setting that will help me choose what i want
 
 
 ## Backlog

@@ -23,7 +23,7 @@ var dat22 = [Fligt(cityName: "makah", time: "9", date: "2-15", terminal: "5", fl
 
 
 class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
-    var item: [Flight] = []
+    var item: [Flight] = [] 
     
     var flightSchedule1 = [Fligt(cityName: "Abha", time: "4: 00", date: "9 - septmper", terminal: "1", flightNum: "ET3416", fligtStatuse: "on time", isSelcted: false)]
     
@@ -68,11 +68,12 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         iv.contentMode = .scaleAspectFill
         return iv
     }()
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fitchData()
-       
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        fitchData()
+//
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +81,9 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         view.addSubview(FlightcollectionView)
         view.addSubview(logscollectionView)
         view.addSubview(mylastFlightlabel)
-       
+        fitchData()
+//        logscollectionView.reloadData()
         logscollectionView.reloadData()
-        
         title = NSLocalizedString("My Flight", comment:"")
         
         setupCollectionView()
@@ -138,6 +139,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         newItems.flightName = name
         do {
             try context.save()
+
         }
         catch{
             
@@ -148,7 +150,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
         do {
             let item = try context.fetch(Flight.fetchRequest())
             self.item = item
-            logscollectionView.reloadData()
+            self.logscollectionView.reloadData()
         }
         catch{
             
@@ -165,7 +167,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
             
         } ))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Scan parcod", comment:"") , style: .default, handler: { Action in
-            self.present(ViewController22(), animated: true, completion: nil)
+            self.present(ScanCode(), animated: true, completion: nil)
             
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment:""), style: .destructive, handler: nil))
@@ -177,6 +179,7 @@ class FlightSchedule : UIViewController, UICollectionViewDelegateFlowLayout, UIN
     }
 }
 // MARK: Collection View
+
 extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.logscollectionView{
@@ -202,6 +205,7 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
             cell2.layer.shadowRadius = 7
             cell2.layer.shadowOpacity = 0.5
             cell2.layer.masksToBounds = false
+           
             return cell2
         } else  {
             let cell = FlightcollectionView.dequeueReusableCell(withReuseIdentifier: FlightScheduleCell.identifier, for: indexPath) as! FlightScheduleCell
@@ -212,13 +216,26 @@ extension FlightSchedule: UICollectionViewDelegate, UICollectionViewDataSource{
             cell.dateNumber.text = data.date
             cell.status.text = data.fligtStatuse
             cell.gatelabel.text = data.terminal
+            cell.didfinshadddata = {
+                self.fitchData()
+                
+            }
+//            cell.donLable.tag = indexPath.row
+//            cell.donLable.addTarget(self, action: #selector(doNE), for: .valueChanged)
+            
             return cell
         }
-       
+        
     }
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        _ = flightSchedule1[indexPath.row]
-    }
+    
+    
+//    @objc func doNE() {
+//        logscollectionView.reloadData()
+//
+//    }
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        _ = flightSchedule1[indexPath.row]
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == self.logscollectionView{

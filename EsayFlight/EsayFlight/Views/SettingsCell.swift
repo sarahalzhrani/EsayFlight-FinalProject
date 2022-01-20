@@ -36,7 +36,8 @@ class SettingsCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(switchControl)
         switchControl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        switchControl.rightAnchor.constraint(equalTo: rightAnchor,constant: -12).isActive = true
+//        switchControl.rightAnchor.constraint(equalTo: rightAnchor,constant: -12).isActive = true
+        switchControl.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -12).isActive = true
 
     }
     
@@ -45,25 +46,8 @@ class SettingsCell: UITableViewCell {
     }
     
     @objc func switchValueDidChange(_ sender: UISwitch) {
-//        if sender.isOn {
-//            var social : CommunicationOption?
-//            if let social = social {
-//                switch (social) {
-//                case.darkmode:
-//                    print("1111")
-//                case.changelanguage:
-//                    print("222")
-//                case.email:
-//                    print("333")
-//                default:
-//                    print("none")
-//                }
-//        }
-//          else{
-//              print("off")
-//          }
-//
-//    }
+
    
 }
+    
 }

@@ -83,10 +83,7 @@ class RestPassWoord : UIViewController, UITextFieldDelegate {
             forgetBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
             forgetBtn.heightAnchor.constraint(equalToConstant: 40),
             ])
-//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-//        backgroundImage.image = UIImage(named: "screen")
-//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-//        self.view.insertSubview(backgroundImage, at: 0)
+
         view.backgroundColor = UIColor(red: 116/255, green: 102/255, blue: 145/250, alpha: 2)
             
     }

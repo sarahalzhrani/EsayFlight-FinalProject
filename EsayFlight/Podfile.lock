@@ -5,24 +5,28 @@ PODS:
   - GoogleMaps/Base (5.2.0)
   - GoogleMaps/Maps (5.2.0):
     - GoogleMaps/Base
+  - IQKeyboardManagerSwift (6.5.9)
   - SPAlert (3.5.1)
 
 DEPENDENCIES:
   - DropDown
   - GoogleMaps (= 5.2.0)
+  - IQKeyboardManagerSwift
   - SPAlert
 
 SPEC REPOS:
   trunk:
     - DropDown
     - GoogleMaps
+    - IQKeyboardManagerSwift
     - SPAlert
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   SPAlert: a6f7fd1e56b5a798327af2d67abebc60985774d7
 
-PODFILE CHECKSUM: 5b3d87792b396d4d7314f5433ae4906276900008
+PODFILE CHECKSUM: cce0503eb53499b58e0abf50556adb7780f77197
 
 COCOAPODS: 1.11.2

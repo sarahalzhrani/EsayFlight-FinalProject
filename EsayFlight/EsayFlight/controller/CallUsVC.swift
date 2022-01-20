@@ -7,8 +7,9 @@
 
 import UIKit
 import MessageUI
+import SafariServices
 
-class CallUsVC: UIViewController {
+class CallUsVC: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     var line: UIView!
     
     var imageView: UIImageView = {
@@ -53,7 +54,7 @@ class CallUsVC: UIViewController {
     
     let Button2 : UIButton = {
         $0.backgroundColor = .white
-        $0.setTitle(NSLocalizedString("kaiacustomercare@kaia.gov.sa", comment: ""), for: .normal)
+        $0.setTitle(NSLocalizedString("compnay@hotmail.com", comment: ""), for: .normal)
         $0.setTitleColor(UIColor(red: 47/255, green: 79/255, blue: 79/250, alpha: 2), for: .normal)
         $0.layer.cornerRadius = 22.5
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +64,7 @@ class CallUsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showMailComposer()
+//        showMailComposer()
         view.backgroundColor = UIColor(named: "Color")
         view.addSubview(imageView)
         view.addSubview(imageView2)
@@ -137,59 +138,42 @@ class CallUsVC: UIViewController {
 
     }
     @objc func sendEmail() {
+        print("dd")
+    if MFMailComposeViewController.canSendMail(){
+            let vc1 = MFMailComposeViewController()
+            vc1.delegate = self
+            vc1.setSubject("Contact Us / Feedback")
+            vc1.setToRecipients(["company@hotmail.com"])
+            vc1.setMessageBody("", isHTML: true)
+            present(vc1, animated: true )
+        } else {
+            guard let url = URL(string: "http://www.google.com") else {
+                return
+            }
+        }
        
-        showMailComposer()
     
     }
     
-    func showMailComposer(){
-        
-        print("it's pressed")
-        
-        guard MFMailComposeViewController.canSendMail() else {
-
-            return
-        }
-
-        let composer = MFMailComposeViewController()
-        composer.mailComposeDelegate = self
-        composer.setToRecipients(["kaiacustomercare@kaia.gov.sa"])
-        composer.setSubject("")
-        composer.setMessageBody("", isHTML: false)
-
-        present(composer, animated: true)
-    }
-    
-}
-
-extension CallUsVC: MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
-        if let _ = error {
-          
-            controller.dismiss(animated: true)
-            return
-        }
-        
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
         switch result {
-        case .cancelled:
-            print("Cancelled")
-        case .failed:
-            print("Failed to send")
+        case.cancelled:
+            print("Mail cancelled")
         case .saved:
-            print("Saved")
+            print("Mail saved")
         case .sent:
-            print("Email Sent")
-        @unknown default:
+            print("Mail sent")
+        case .failed:
+            print("Mail sent failure: \(error.localizedDescription)")
+        default:
             break
         }
-        
-        controller.dismiss(animated: true)
+        controller.dismiss(animated: true, completion: nil)
     }
+    
+
+
+
+
 }
-
-
-
-
 

@@ -9,6 +9,7 @@ target 'EsayFlight' do
 pod 'DropDown'
 
  pod 'GoogleMaps', '5.2.0'
+pod 'IQKeyboardManagerSwift'
 
 pod 'SPAlert'
 	

@@ -12,6 +12,8 @@ import SPAlert
 class FlightScheduleCell: UICollectionViewCell {
 
     static let identifier = "FlightScheduleCell"
+    var didfinshadddata:(() -> Void)?
+    
     
     
     let imagecell = UIImageView()
@@ -135,6 +137,7 @@ class FlightScheduleCell: UICollectionViewCell {
         $0.addTarget(self, action: #selector(doNE), for: .touchUpInside)
         return $0
     }(UIButton())
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
  
     func saveData(number:String, name:String, date1: String){
@@ -144,6 +147,8 @@ class FlightScheduleCell: UICollectionViewCell {
         newItems.flightDate = date1
         do {
             try context.save()
+            self.didfinshadddata?()
+      
         }
         catch{
             
@@ -286,6 +291,7 @@ class FlightScheduleCell: UICollectionViewCell {
     
     
     @objc func doNE() {
+        
         let Cityname2 = nameCitylabel.text ?? ""
         
         SPAlert.present(message: "Thank God for safety We wish you a pleasant stay", haptic: .none)

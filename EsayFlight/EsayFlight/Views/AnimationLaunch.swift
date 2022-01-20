@@ -10,7 +10,7 @@ import UIKit
 class AnimationLaunch: UIViewController {
   private let imageView: UIImageView = {
     let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-    imageView.image = UIImage(named: "air2")
+    imageView.image = UIImage(named: "plane-window-2")
     return imageView
   }()
   override func viewDidLoad() {
